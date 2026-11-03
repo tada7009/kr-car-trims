@@ -5,6 +5,7 @@
 결과는 data/<brand>/*.json의 media = {hero, heroType: cut|photo, ext: [...], int: [...]} 로 기록한다.
 목록용 작은 썸네일(image)은 fetch_images.py가 만든 것을 그대로 둔다.
 """
+import hashlib
 import io
 import json
 import re
@@ -18,10 +19,14 @@ from common import DATA, ROOT
 
 IMG = ROOT / "img"
 H = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/130"}
-INT = re.compile(r"interior|gal-int|_int[_.\-]|-int-|inside|cockpit|indoor|seat|cabin", re.I)
+INT = re.compile(r"interior|img-in-\d|gal-int|_int[_.\-]|-int-|inside|cockpit|indoor|seat|cabin", re.I)
 EXT_PHOTO = re.compile(r"gallery_exterior|gal-ext|exterior_main|design-ext|gallery/exterior|_kv|carousel|exterior", re.I)
 EXT_CUT = re.compile(r"colorizer|represent|builder/car_img|main_off|MODEL_|bto-exterior|well-side|45side|car_img", re.I)
-SKIP = re.compile(r"icon|logo|btn|banner_s|thumb|_mo[._]|mobile|swatch|chip|badge|/m/|-mo\.|_m\.", re.I)
+# _bg는 색상 선택 화면 등에서 차를 얹기 전의 빈 배경 사진이다
+SKIP = re.compile(r"icon|logo|btn|banner_s|thumb|_mo[._]|mobile|swatch|chip|badge|/m/|-mo\.|_m\.|[_-]bg\.(?:jpg|jpeg|png|webp)|background", re.I)
+# 외관 사진 후보에서 빼는 부분 확대 사진(엠블럼·램프·휠·손잡이 등)
+DETAIL = re.compile(r"features?_|_hga_|function_|emblem|lamp|handle|garnish|grill|roofleg|mirror|bumper|skid|knob|key|wheel"
+                    r"|molding|black_exterior_(front|side|rear)|space|seat|charging_port", re.I)
 CHEVY = {"chevrolet-trailblazer": "https://www.chevrolet.co.kr/suvs/trailblazer",
          "chevrolet-trax-crossover": "https://www.chevrolet.co.kr/cuvs/trax-crossover"}
 RENAULT = {"renault-arkana": "arkana", "renault-grand-koleos": "koleos", "renault-filante": "filante"}
@@ -113,8 +118,11 @@ def sources(d):
                         walk_int(v)
             walk_int(body.get("interior") or {})
             cands += [u + "#int" for _, u in sorted(found, key=lambda x: x[0])]
-            s = json.dumps(body.get("exterior") or {}, ensure_ascii=False)
-            cands += [u + "#ext" for u in re.findall(r'https?://[^"\s]+?\.(?:jpg|jpeg|png|webp)', s)][:6]
+            # 외관은 주간 전면·후면 사진, 다음으로 뷰티컷. 소개 이미지는 실루엣·엠블럼 티저라 쓰지 않는다
+            ext = body.get("exterior") or {}
+            day = [x for k in ("frontImgList", "rearImgList") for x in (ext.get("dayNight") or {}).get(k) or []
+                   if not re.search(r"night", x.get("title") or "", re.I)]
+            cands += [x["imgUrl"] + "#ext" for x in day + (ext.get("pcBeautyImgList") or []) if x.get("imgUrl")]
     elif brand == "renault":
         cands = urls_in(text(f"https://www.renault.co.kr/ko/model/{RENAULT[mid]}_overview.jsp"), "https://cdn.renault.co.kr")
     elif brand == "chevrolet":
@@ -137,13 +145,29 @@ def probe(url):
     return {"url": url, "im": im, "w": im.width, "h": im.height, "alpha": alpha}
 
 
+def ext_rank(u):
+    """외관 사진 후보 순위(작을수록 먼저). 차 전체가 보이는 갤러리 사진을 앞에 두고, 실내·부분 확대 사진은 뺀다."""
+    n = u.split("/")[-1]
+    if "#int" in u or INT.search(u) or DETAIL.search(n.split("#")[0]):
+        return None
+    if re.search(r"exterior_main|design-exterior", n, re.I):  # 외관 대표 사진(그랜저·캐스퍼)
+        return 0
+    if "#ext" in u or re.search(r"gallery_(hybrid_)?exterior|gallery_(front|rear|side|top|upper)|^img-ex-\d", n, re.I):
+        return 0.5
+    if re.search(r"gallery_\d+[._-]", n):  # 번호만 붙은 갤러리는 외관이 앞번호에 온다(베뉴·팰리세이드·ST1)
+        return 1
+    if re.search(r"_design(_main)?\.jpg$", n):
+        return 2
+    return 3 if EXT_PHOTO.search(u) else None
+
+
 def pick(d):
     cands, cut = sources(d)
     pri = lambda u: (0 if "#int" in u or INT.search(u) else 1 if EXT_PHOTO.search(u) or "#ext" in u else 2 if EXT_CUT.search(u) else 3)
     cands = sorted(dict.fromkeys(cands), key=pri)
     # 제네시스 실내 사진은 불투명 PNG로 올라와 있어 PNG도 받는다(투명 여부는 아래에서 거른다)
     ints = [u for u in cands if ("#int" in u or INT.search(u)) and (d["brand"] == "genesis" or not re.search(r"\.png", u))][:12]
-    exts = [u for u in cands if ("#ext" in u or EXT_PHOTO.search(u)) and u not in ints][:8]
+    exts = sorted((u for u in cands if ext_rank(u) is not None and u not in ints), key=ext_rank)[:8]
     cuts = ([cut] if cut else []) + [u for u in cands if EXT_CUT.search(u) and u != cut][:6]
     with ThreadPoolExecutor(8) as ex:
         P = {u: r for u, r in zip(ints + exts + cuts, ex.map(probe, ints + exts + cuts)) if r}
@@ -180,7 +204,8 @@ def save(im, path, cut=False, width=1600, q=80):
     if im.width > width:
         im = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
     im.save(path, "WEBP", quality=q, method=6)
-    return im.size
+    # 같은 파일 이름에 사진만 바뀌어도 브라우저가 새로 받도록 내용 해시를 붙인 주소를 돌려준다
+    return f"img/{path.name}?{hashlib.md5(path.read_bytes()).hexdigest()[:8]}"
 
 
 def process(fd):
@@ -191,18 +216,18 @@ def process(fd):
         return d["id"], f"error {e}"
     mid = d["id"]
     media = {"ext": [], "int": []}
+    for old in list(IMG.glob(f"{mid}-x*.webp")) + list(IMG.glob(f"{mid}-i*.webp")):  # 이전 실행에서 남은 사진
+        old.unlink()
     if cut:
-        save(cut["im"], IMG / f"{mid}.webp", cut=True, width=1400, q=86)
+        hero = save(cut["im"], IMG / f"{mid}.webp", cut=True, width=1400, q=86)
         d["imageSource"] = cut["url"].split("#")[0]
-        media.update(hero=f"img/{mid}.webp", heroType="cut")
+        media.update(hero=hero, heroType="cut")
     for i, p in enumerate(photos, 1):
-        save(p["im"], IMG / f"{mid}-x{i}.webp")
-        media["ext"].append(f"img/{mid}-x{i}.webp")
+        media["ext"].append(save(p["im"], IMG / f"{mid}-x{i}.webp"))
     if not cut and media["ext"]:
         media.update(hero=media["ext"][0], heroType="photo")
     for i, p in enumerate(inner, 1):
-        save(p["im"], IMG / f"{mid}-i{i}.webp", q=78)
-        media["int"].append(f"img/{mid}-i{i}.webp")
+        media["int"].append(save(p["im"], IMG / f"{mid}-i{i}.webp", q=78))
     if "hero" not in media:
         media.update(hero=d.get("image", ""), heroType="cut")
     d["media"] = media
