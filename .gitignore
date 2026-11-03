@@ -1,0 +1,4 @@
+.cache/
+.taste-skill/
+__pycache__/
+*.pyc
