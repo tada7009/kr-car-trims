@@ -13,19 +13,27 @@
 | 현대 | hyundai.com 가격표(트림별 기본품목·선택품목), casper.hyundai.com, 선택품목 상세 API |
 | 기아 | kia.com 자가용 가격표(트림별 전체 품목), 선택품목 상세 API |
 | 제네시스 | genesis.com 견적(BTO) 데이터 + 공식 가격표 PDF의 주요 사양 |
+| KGM | kg-mobility.com 간편견적 API(트림·구동별 가격, 기본품목, 선택품목·패키지 구성, 커스터마이징) |
+| 르노코리아 | cdn.renault.co.kr 월별 가격표 PDF |
+| 쉐보레 | chevrolet.co.kr 카탈로그/가격표 페이지의 가격표 PDF (국내 생산 차종) |
 
 가격은 각 제조사가 공시한 자가용 가격표 기준이며 탁송료·등록비·프로모션은 들어 있지 않습니다.
 
 ## 데이터 갱신 (월 1회 권장)
 
 ```bash
-pip install beautifulsoup4 lxml pypdf
+pip install beautifulsoup4 lxml pypdf pymupdf
 cd scripts
 python scrape_hyundai.py
 python scrape_kia.py
 python scrape_genesis.py
+python scrape_kgm.py
+python scrape_renault.py
+python scrape_chevrolet.py
 python build_index.py
 ```
+
+쉐보레 가격표 PDF는 달마다 파일 이름이 바뀌므로 `scrape_chevrolet.py`의 `MODELS` 주소를 카탈로그/가격표 페이지에서 확인해 바꿔 주세요. 르노코리아는 최근 6개월 안의 가격표를 자동으로 찾습니다.
 
 갱신 후 `index.html`의 `?v=` 값을 바꾸고 커밋·푸시하면 GitHub Pages에 반영됩니다.
 
