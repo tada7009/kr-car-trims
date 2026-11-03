@@ -44,8 +44,8 @@ const man = n => n == null ? '–' : (n / 10000).toLocaleString('ko-KR', { maxim
 const won = n => n == null ? '–' : n.toLocaleString('ko-KR') + '원';
 const norm = s => String(s).toLowerCase().replace(/[\s·∙ㆍ,.\-_/&]+/g, '');
 const norm2 = s => norm(String(s).replace(/\([^)]*\)/g, ''));
-const img = (src, alt = '') => src
-  ? `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.visibility='hidden'">`
+const img = (src, alt = '', eager = false) => src
+  ? `<img src="${esc(src)}" alt="${esc(alt)}" loading="${eager ? 'eager' : 'lazy'}" referrerpolicy="no-referrer" onerror="this.style.visibility='hidden'">`
   : '<span class="ph" style="width:100%;height:100%"></span>';
 const store = {
   get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
@@ -291,7 +291,7 @@ async function renderModel(id, params) {
         <div class="stage-top"><div><h1>${esc(M.name)}<span class="chip">${esc(M.segment)}</span></h1>
           <p class="meta">${BRANDS[M.brand]} · ${esc(VAR.name)} · 트림 ${VAR.trims.length}개${VAR.modelYear ? ' · ' + esc(VAR.modelYear) : ''}</p>${find}</div>
           <div class="figs"><div><b>${man(lo)}</b><span>시작가(만원)</span></div><div><b>${man(hi)}</b><span>최고가(만원)</span></div><div><b>${meta.trims}</b><span>전체 트림</span></div></div></div>
-        <div class="car">${img(T.img || M.image, M.name)}</div>${thumbs}${rail}
+        <div class="car">${img(T.img || M.image, M.name, true)}</div>${thumbs}${rail}
       </section>
       <div class="panel">
         <div><div class="panel-h"><h2>${bto ? '엔진 · 구동' : '트림'}</h2><span class="cnt">${V.t + 1} / ${VAR.trims.length}</span></div>
