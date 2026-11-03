@@ -118,26 +118,34 @@ img{display:block}
 .figs b{display:block;font-size:22px;line-height:28px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .figs span{font-size:12px;color:var(--muted);white-space:nowrap}
 /* 차량 영역 높이를 고정해 브랜드마다 원본 크기가 달라도 차가 같은 크기로 보이게 한다 */
-.stage .car{height:236px;display:flex;align-items:center;justify-content:center;margin:8px 0 4px}
-.stage .car img{height:200px;width:auto;max-width:92%;object-fit:contain}
+/* 차량 영역: 투명 렌더(cut)는 회색 무대 위에, 사진(photo)은 무대 폭 가득 채운다 */
+.stage .car{position:relative;height:300px;display:flex;align-items:center;justify-content:center;margin:12px 0 0}
+.stage .car.cut img{height:250px;width:auto;max-width:94%;object-fit:contain}
+.stage .car.photo{margin:12px -24px 0;height:340px;background:#1b1c1f;overflow:hidden}
+.stage .car.photo img{width:100%;height:100%;object-fit:cover}
 .stage .car .ph{width:60%;height:120px;border-radius:8px;background:var(--surface);opacity:.6}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;border-radius:var(--radius);background:var(--surface);font-size:13px;font-weight:500;white-space:nowrap}
-.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--text)}
-.chip.opt{background:transparent;border:1px dashed var(--muted);color:var(--muted);font-weight:400}
-.chip.opt::before{background:transparent;box-shadow:inset 0 0 0 1.5px var(--muted)}
-.chips-h{font-size:12px;color:var(--muted);margin-top:14px}
-.thumbs{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px}
-.thumbs button{flex:none;width:76px;height:44px;border:1px solid transparent;border-radius:var(--radius);background:var(--surface);padding:2px}
-.thumbs button img{width:100%;height:100%;object-fit:contain}
+.mtabs{position:absolute;top:10px;right:10px;z-index:2;display:flex;gap:2px;padding:3px;background:var(--surface);border-radius:var(--radius);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.stage .car.photo .mtabs{right:34px;top:14px}
+.mtabs button{height:34px;padding:0 14px;border:0;border-radius:3px;background:transparent;font-size:14px;font-weight:600;color:var(--muted)}
+.mtabs button.on{background:var(--primary);color:var(--on-primary)}
+.mtabs button:disabled{opacity:.4;cursor:not-allowed}
+.thumbs{display:flex;gap:8px;overflow-x:auto;margin-top:10px;padding-bottom:2px}
+.thumbs button{flex:none;width:96px;height:56px;border:2px solid transparent;border-radius:var(--radius);background:var(--surface);padding:0;overflow:hidden}
+.thumbs button img{width:100%;height:100%;object-fit:cover}
 .thumbs button.on{border-color:var(--text)}
-.rail{position:relative;height:40px;margin:12px 10px 0}
-.rail::before{content:"";position:absolute;left:0;right:0;top:20px;height:2px;background:var(--control)}
-.rail .tick{position:absolute;top:14px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--stage);border:2px solid var(--muted);padding:0}
-.rail .tick.on{background:var(--hue);border-color:var(--hue)}
-.rail .lab{position:absolute;top:-2px;transform:translateX(-50%);font-size:11px;color:var(--muted);white-space:nowrap;pointer-events:none}
-.rail .lab.on{color:var(--text);font-weight:500}
-.rail .ends{position:absolute;top:28px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+/* 트림 바로 선택: 크게 눌러 바꾸는 버튼 */
+.tbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:6px;margin-top:14px}
+.tbar button{min-height:58px;padding:8px 12px;text-align:left;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--surface);display:flex;flex-direction:column;justify-content:center;gap:2px}
+.tbar button:hover{border-color:var(--text)}
+.tbar button b{font-size:15px;font-weight:700;line-height:20px}
+.tbar button span{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tbar button.on{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.tbar button.on span{color:var(--on-primary);opacity:.75}
+.chips-h{font-size:13px;color:var(--muted);margin:16px 0 0}
+.chips-h b{color:var(--text);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.kchip{display:inline-flex;align-items:center;height:32px;padding:0 12px;border-radius:var(--radius);background:var(--surface);font-size:14px;font-weight:600;white-space:nowrap}
+.kchip.opt{background:transparent;border:1px dashed var(--muted);color:var(--muted);font-weight:500}
 .panel{display:flex;flex-direction:column;gap:18px}
 .panel-h{display:flex;align-items:baseline;gap:10px}
 .panel-h h2{margin:0;font-size:20px;line-height:28px;font-weight:700}
@@ -281,9 +289,12 @@ details.notes-box summary span{color:var(--muted);font-weight:400;margin-left:6p
   .stage-top{flex-wrap:wrap}
   .figs{margin-left:0;gap:20px;width:100%}
   .figs b{font-size:18px;line-height:24px}
-  .stage .car{height:170px}
-  .stage .car img{height:140px}
-  .chip{height:28px;font-size:12.5px}
+  .stage .car{height:200px}
+  .stage .car.cut img{height:160px}
+  .stage .car.photo{margin:12px -16px 0;height:220px}
+  .stage .car.photo .mtabs{right:26px}
+  .tbar{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kchip{height:30px;font-size:13px}
   .rail{display:none}
   .cards,.opts{grid-template-columns:1fr 1fr}
   .dock{left:0;grid-template-columns:1fr auto;gap:12px;padding:0 var(--gutter)}

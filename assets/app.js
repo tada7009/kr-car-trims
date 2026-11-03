@@ -250,7 +250,7 @@ async function renderModel(id, params) {
   let M;
   try { M = await loadModel(id); } catch (e) { main.innerHTML = `<div class="empty"><b>차종 정보를 불러오지 못했습니다</b>${esc(e.message)}</div>`; return; }
   const V = S.view;
-  if (V.id !== id) Object.assign(V, { id, v: 0, t: 0, opts: new Set(), diff: true, f: '', closed: new Set(), allOpts: false, pkg: -1 });
+  if (V.id !== id) Object.assign(V, { id, v: 0, t: 0, opts: new Set(), diff: true, f: '', closed: new Set(), allOpts: false, pkg: -1, media: 'ext', mi: 0 });
   if (params.f != null) { V.f = params.f; V.diff = false; }
   if (params.v != null) V.v = Math.min(+params.v, M.variants.length - 1);
   if (params.t != null) V.t = +params.t;
@@ -265,12 +265,24 @@ async function renderModel(id, params) {
   VAR.trims.forEach((t, i) => { const g = keyGain(P, i); if (g.length && (!best || g.length > best.g.length)) best = { i, g }; });
   const find = best ? `<p class="find"><b>${esc(VAR.trims[best.i].name)}</b>(+${man(VAR.trims[best.i].price - VAR.trims[best.i - 1].price)}만)부터 ${best.g.slice(0, 3).map(esc).join(', ')}${best.g.length > 3 ? ` 등 ${best.g.length}개` : ''}가 기본입니다.</p>` : '';
   const prices = VAR.trims.map(t => t.price || 0), lo = Math.min(...prices), hi = Math.max(...prices);
-  const pos = p => hi === lo ? 50 : 3 + ((p - lo) / (hi - lo)) * 94;
-  const rail = VAR.trims.length > 1 ? `<div class="rail" aria-hidden="true">${VAR.trims.map((t, i) =>
-    `<button class="tick${i === V.t ? ' on' : ''}" style="left:${pos(t.price)}%" data-act="trim" data-i="${i}" tabindex="-1" title="${esc(t.name)} ${won(t.price)}"></button>
-     ${i === V.t ? `<span class="lab on" style="left:${pos(t.price)}%">${esc(t.name)}</span>` : ''}`).join('')}
-    <span class="ends" style="left:0">${man(lo)}만</span><span class="ends" style="right:0">${man(hi)}만</span></div>` : '';
-  const thumbs = VAR.trims.some(t => t.img) ? `<div class="thumbs">${VAR.trims.map((t, i) => t.img ? `<button class="${i === V.t ? 'on' : ''}" data-act="trim" data-i="${i}" aria-label="${esc(t.name)}">${img(t.img)}</button>` : '').join('')}</div>` : '';
+  // 트림 버튼: 무대 아래에 크게 — 통화 중 한 번에 눌러 바꾼다
+  const tbar = VAR.trims.length > 1 ? `<div class="tbar" role="radiogroup" aria-label="트림 바로 선택">${VAR.trims.map((t, i) =>
+    `<button type="button" role="radio" aria-checked="${i === V.t}" class="${i === V.t ? 'on' : ''}" data-act="trim" data-i="${i}">
+      <b>${esc(t.name)}</b><span>${man(t.price)}만${i ? ` · +${man(t.price - VAR.trims[i - 1].price)}` : ''}</span></button>`).join('')}</div>` : '';
+  // 사진: 외관(트림 사진 → 대표 렌더 → 외관 사진) / 실내 갤러리
+  const md = M.media || {};
+  const extList = [...new Set([T.img, md.hero || M.image, ...(md.ext || [])].filter(Boolean))];
+  const intList = md.int || [];
+  if (V.media === 'int' && !intList.length) V.media = 'ext';
+  const gal = V.media === 'int' ? intList : extList;
+  V.mi = Math.min(V.mi || 0, gal.length - 1);
+  const cur = gal[V.mi] || M.image;
+  const isPhoto = V.media === 'int' || (md.ext || []).includes(cur) || (cur === md.hero && md.heroType === 'photo');
+  const mtabs = `<div class="mtabs" role="tablist" aria-label="사진 종류">
+    <button type="button" role="tab" aria-selected="${V.media !== 'int'}" class="${V.media !== 'int' ? 'on' : ''}" data-act="media" data-m="ext">외관</button>
+    <button type="button" role="tab" aria-selected="${V.media === 'int'}" class="${V.media === 'int' ? 'on' : ''}" data-act="media" data-m="int" ${intList.length ? '' : 'disabled title="공식 실내 사진이 없습니다"'}>실내${intList.length ? ` ${intList.length}` : ''}</button></div>`;
+  const thumbs = gal.length > 1 ? `<div class="thumbs">${gal.map((u, i) =>
+    `<button type="button" class="${i === V.mi ? 'on' : ''}" data-act="photo" data-i="${i}" aria-label="사진 ${i + 1}">${img(u)}</button>`).join('')}</div>` : '';
 
   // 선택한 트림의 핵심 사양을 칩으로 — 통화 중 '이 트림엔 뭐가 들어가요?'에 바로 답한다
   const chipList = KEYS.map(K => ({ K, c: keyCell(P.trims[V.t], K) })).filter(x => x.c.s !== 'none');
@@ -280,8 +292,8 @@ async function renderModel(id, params) {
     '후측방 충돌 보조': v => v === '경고' ? '후측방 경고' : '후측방 충돌방지', '프리미엄 사운드': v => v ? `${v} 사운드` : '프리미엄 사운드',
   };
   const chipLabel = ({ K, c }) => (CHIP[K.l] && c.v ? CHIP[K.l](c.v) : K.l.replace(/\s?\(.*\)/, '').replace('서라운드 뷰 모니터', '서라운드 뷰'));
-  const chips = chipList.length ? `<p class="chips-h">${esc(T.name)} 핵심 사양 · 점선은 옵션</p><div class="chips">${chipList.map(x =>
-    `<span class="chip${x.c.s === 'opt' ? ' opt' : ''}"${x.c.s === 'opt' ? ` title="${esc(x.c.o.n)} +${man(x.c.o.p)}만"` : ''}>${esc(chipLabel(x))}</span>`).join('')}</div>` : '';
+  const chips = chipList.length ? `<p class="chips-h"><b>${esc(T.name)}</b> 핵심 사양 · 점선은 옵션</p><div class="chips">${chipList.map(x =>
+    `<span class="kchip${x.c.s === 'opt' ? ' opt' : ''}"${x.c.s === 'opt' ? ` title="${esc(x.c.o.n)} +${man(x.c.o.p)}만"` : ''}>${esc(chipLabel(x))}</span>`).join('')}</div>` : '';
   const cards = VAR.trims.map((t, i) => {
     const prev = i ? VAR.trims[i - 1] : null;
     const added = i ? [...P.trims[i].std].filter(k => !P.trims[i - 1].std.has(k)).length : 0;
@@ -303,7 +315,7 @@ async function renderModel(id, params) {
         <div class="stage-top"><div><h1>${esc(M.name)}<span class="chip">${esc(M.segment)}</span></h1>
           <p class="meta">${BRANDS[M.brand]} · ${esc(VAR.name)} · 트림 ${VAR.trims.length}개${VAR.modelYear ? ' · ' + esc(VAR.modelYear) : ''}</p>${find}</div>
           <div class="figs"><div><b>${man(lo)}</b><span>시작가(만원)</span></div><div><b>${man(hi)}</b><span>최고가(만원)</span></div><div><b>${meta.trims}</b><span>전체 트림</span></div></div></div>
-        <div class="car">${img(T.img || M.image, M.name, true, M.image)}</div>${chips}${thumbs}${rail}
+        <div class="car ${isPhoto ? 'photo' : 'cut'}">${mtabs}${img(cur, `${M.name} ${V.media === 'int' ? '실내' : '외관'}`, true, M.image)}</div>${thumbs}${tbar}${chips}
       </section>
       <div class="panel">
         <div><div class="panel-h"><h2>${bto ? '엔진 · 구동' : '트림'}</h2><span class="cnt">${V.t + 1} / ${VAR.trims.length}</span></div>
@@ -577,9 +589,11 @@ function bind() {
   main.addEventListener('click', e => {
     const a = e.target.closest('[data-act]'); if (!a) return;
     const act = a.dataset.act, V = S.view;
-    if (act === 'variant') { V.v = +a.dataset.i; V.t = 0; V.opts = new Set(); V.pkg = -1; return rerender(); }
+    if (act === 'variant') { V.v = +a.dataset.i; V.t = 0; V.opts = new Set(); V.pkg = -1; V.mi = 0; return rerender(); }
     if (act === 'tray') { e.stopPropagation(); trayToggle(V.id, V.v, +a.dataset.i); return rerender(); }
-    if (act === 'trim') { if (V.t !== +a.dataset.i) { V.t = +a.dataset.i; V.opts = new Set(); V.pkg = -1; rerender(); } return; }
+    if (act === 'trim') { if (V.t !== +a.dataset.i) { V.t = +a.dataset.i; V.opts = new Set(); V.pkg = -1; if (V.media !== 'int') V.mi = 0; rerender(); } return; }
+    if (act === 'media') { if (V.media !== a.dataset.m) { V.media = a.dataset.m; V.mi = 0; rerender(); } return; }
+    if (act === 'photo') { V.mi = +a.dataset.i; return rerender(); }
     if (act === 'cat') { const c = a.dataset.cat; V.closed.has(c) ? V.closed.delete(c) : V.closed.add(c); return refreshMatrix(); }
     if (act === 'pkg') { e.preventDefault(); V.pkg = V.pkg === +a.dataset.i ? -1 : +a.dataset.i; return refreshOptions(); }
     if (act === 'allOpts') { V.allOpts = !V.allOpts; return refreshOptions(); }

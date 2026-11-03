@@ -30,7 +30,8 @@ python scrape_genesis.py
 python scrape_kgm.py
 python scrape_renault.py
 python scrape_chevrolet.py
-python fetch_images.py   # 차종 사진을 img/에 저장
+python fetch_images.py   # 목록용 차종 썸네일을 img/에 저장
+python fetch_media.py    # 고해상도 외관·실내 사진을 img/에 저장
 python build_index.py
 ```
 
