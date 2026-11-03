@@ -22,7 +22,7 @@
 ## 데이터 갱신 (월 1회 권장)
 
 ```bash
-pip install beautifulsoup4 lxml pypdf pymupdf
+pip install beautifulsoup4 lxml pypdf pymupdf pillow
 cd scripts
 python scrape_hyundai.py
 python scrape_kia.py
@@ -30,6 +30,7 @@ python scrape_genesis.py
 python scrape_kgm.py
 python scrape_renault.py
 python scrape_chevrolet.py
+python fetch_images.py   # 차종 사진을 img/에 저장
 python build_index.py
 ```
 
