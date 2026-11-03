@@ -274,7 +274,7 @@ async function renderModel(id, params) {
     const prev = i ? VAR.trims[i - 1] : null;
     const added = i ? [...P.trims[i].std].filter(k => !P.trims[i - 1].std.has(k)).length : 0;
     const inTray = trayHas(id, vi, i) >= 0;
-    const d = prev ? `<b>+${man(t.price - prev.price)}만</b>${added ? ` · 사양 ${added}개 추가` : ''}` : (bto ? '기본 가격' : '시작 트림');
+    const d = prev ? `<b>+${man(t.price - prev.price)}만</b>${added ? ` · 사양 +${added}` : ''}` : (bto ? '기본 가격' : '시작 트림');
     return `<div class="pick${i === V.t ? ' on' : ''}" role="radio" aria-checked="${i === V.t}" tabindex="0" data-act="trim" data-i="${i}">
       <span class="rd" aria-hidden="true"></span>${t.en ? `<span class="k">${esc(t.en)}</span>` : ''}
       <span class="t">${esc(t.name)}</span><span class="p">${won(t.price)}</span><span class="d">${d}</span>
