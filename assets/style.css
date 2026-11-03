@@ -107,7 +107,7 @@ img{display:block}
 
 /* ── 구성기: 무대 + 선택 패널 ── */
 .config{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--gap);margin-top:16px;align-items:start}
-.stage{background:var(--stage);border-radius:var(--radius-stage);padding:24px 24px 16px;display:flex;flex-direction:column;min-height:440px}
+.stage{background:var(--stage);border-radius:var(--radius-stage);padding:24px 24px 18px;display:flex;flex-direction:column}
 .stage-top{display:flex;align-items:flex-start;gap:16px}
 .stage h1{margin:0;font-size:30px;line-height:36px;font-weight:700;letter-spacing:-.02em}
 .stage .chip{display:inline-block;font-size:12px;line-height:20px;padding:0 7px;border-radius:3px;background:var(--surface);color:var(--muted);margin-left:8px;vertical-align:5px;font-weight:500}
@@ -117,8 +117,16 @@ img{display:block}
 .figs{margin-left:auto;display:flex;gap:28px;text-align:left}
 .figs b{display:block;font-size:22px;line-height:28px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .figs span{font-size:12px;color:var(--muted);white-space:nowrap}
-.stage .car{flex:1;display:flex;align-items:center;justify-content:center;padding:10px 0;min-height:220px}
-.stage .car img{width:84%;max-width:640px;height:auto;max-height:270px;object-fit:contain}
+/* 차량 영역 높이를 고정해 브랜드마다 원본 크기가 달라도 차가 같은 크기로 보이게 한다 */
+.stage .car{height:236px;display:flex;align-items:center;justify-content:center;margin:8px 0 4px}
+.stage .car img{height:200px;width:auto;max-width:92%;object-fit:contain}
+.stage .car .ph{width:60%;height:120px;border-radius:8px;background:var(--surface);opacity:.6}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;border-radius:var(--radius);background:var(--surface);font-size:13px;font-weight:500;white-space:nowrap}
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--text)}
+.chip.opt{background:transparent;border:1px dashed var(--muted);color:var(--muted);font-weight:400}
+.chip.opt::before{background:transparent;box-shadow:inset 0 0 0 1.5px var(--muted)}
+.chips-h{font-size:12px;color:var(--muted);margin-top:14px}
 .thumbs{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px}
 .thumbs button{flex:none;width:76px;height:44px;border:1px solid transparent;border-radius:var(--radius);background:var(--surface);padding:2px}
 .thumbs button img{width:100%;height:100%;object-fit:contain}
@@ -273,8 +281,9 @@ details.notes-box summary span{color:var(--muted);font-weight:400;margin-left:6p
   .stage-top{flex-wrap:wrap}
   .figs{margin-left:0;gap:20px;width:100%}
   .figs b{font-size:18px;line-height:24px}
-  .stage .car{min-height:150px}
-  .stage .car img{max-height:160px}
+  .stage .car{height:170px}
+  .stage .car img{height:140px}
+  .chip{height:28px;font-size:12.5px}
   .rail{display:none}
   .cards,.opts{grid-template-columns:1fr 1fr}
   .dock{left:0;grid-template-columns:1fr auto;gap:12px;padding:0 var(--gutter)}

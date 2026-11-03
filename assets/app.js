@@ -16,9 +16,10 @@ const KEYS = [
   { l: '1열 통풍시트', t: n => /통풍/.test(n) && !/^(2열|뒷좌석|3열|후석)/.test(n.trim()),
     v: n => /운전석 ?통풍/.test(n) && !/(동승석|앞좌석|1열)/.test(n) ? '운전석만' : '' },
   { l: '2열 열선 · 통풍', t: n => /(2열|뒷좌석|후석)[^,]*(열선|통풍)/.test(n), v: n => /통풍/.test(n) ? '통풍' : '열선' },
-  { l: '디스플레이(내비)', t: n => /\d+(\.\d+)?\s*인치/.test(n) && /(내비|커넥트|디스플레이 오디오|인포테인먼트|터치스크린|통합형 디스플레이)/.test(n) && !/클러스터 ?\(|헤드업/.test(n),
-    v: n => (n.match(/(\d+(?:\.\d+)?)\s*인치/) || [])[1] + '인치' + (/(내비|커넥트|통합형)/.test(n) ? ' 내비' : ' 오디오') },
-  { l: '헤드업 디스플레이', t: n => /헤드업|HUD/.test(n) },
+  // 인치는 '12.3인치'뿐 아니라 '11"', '12.3”'(쉐보레·르노 표기)로도 쓴다
+  { l: '디스플레이(내비)', t: n => /\d+(\.\d+)?\s*(인치|"|”)/.test(n) && /(내비|커넥트|디스플레이 오디오|인포테인먼트|터치 ?스크린|통합형 디스플레이|센터 디스플레이)/.test(n) && !(/클러스터/.test(n) && !/(내비|센터 디스플레이|터치)/.test(n)) && !/헤드업/.test(n),
+    v: n => (n.match(/(\d+(?:\.\d+)?)\s*(?:인치|"|”)/) || [])[1] + '인치' + (/(내비|커넥트|통합형|TMAP)/.test(n) ? ' 내비' : ' 화면') },
+  { l: '헤드업 디스플레이', t: n => /헤드업|HUD/.test(n) && !/경고등/.test(n) },
   { l: '스마트 크루즈', t: n => /스마트 ?크루즈|어댑티브 크루즈|인텔리전트 크루즈/.test(n) },
   { l: '고속도로 주행 보조', t: n => /고속도로 ?주행 ?보조/.test(n), v: n => /(보조 ?2|Ⅱ|차로 ?변경)/.test(n) ? 'HDA 2' : 'HDA' },
   { l: '서라운드 뷰 모니터', t: n => /서라운드 ?뷰|360/.test(n) },
@@ -44,8 +45,9 @@ const man = n => n == null ? '–' : (n / 10000).toLocaleString('ko-KR', { maxim
 const won = n => n == null ? '–' : n.toLocaleString('ko-KR') + '원';
 const norm = s => String(s).toLowerCase().replace(/[\s·∙ㆍ,.\-_/&]+/g, '');
 const norm2 = s => norm(String(s).replace(/\([^)]*\)/g, ''));
-const img = (src, alt = '', eager = false) => src
-  ? `<img src="${esc(src)}" alt="${esc(alt)}" loading="${eager ? 'eager' : 'lazy'}" referrerpolicy="no-referrer" onerror="this.style.visibility='hidden'">`
+// fb: 첫 이미지가 안 열리면 대신 쓸 이미지(트림 사진 → 사이트에 저장한 차종 사진)
+const img = (src, alt = '', eager = false, fb = '') => src
+  ? `<img src="${esc(src)}" alt="${esc(alt)}" loading="${eager ? 'eager' : 'lazy'}" referrerpolicy="no-referrer"${fb && fb !== src ? ` data-fb="${esc(fb)}"` : ''} onerror="if(this.dataset.fb){this.src=this.dataset.fb;this.removeAttribute('data-fb')}else{this.style.visibility='hidden'}">`
   : '<span class="ph" style="width:100%;height:100%"></span>';
 const store = {
   get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
@@ -132,7 +134,7 @@ function wheelOf(names) {
   let best = 0;
   names.forEach(n => {
     if (!/(휠|타이어)/.test(n)) return;
-    const m = n.match(/(\d{2})\s*인치/) || n.match(/R\s?(\d{2})\b/);
+    const m = n.match(/(\d{2})\s*(?:인치|"|”)/) || n.match(/R\s?(\d{2})\b/);
     if (m && +m[1] > best && +m[1] < 24) best = +m[1];
   });
   return best ? { v: best + '인치', inch: best } : null;
@@ -238,7 +240,7 @@ function renderHome() {
 }
 function footHTML() {
   return `<p class="foot">가격은 각 제조사 공식 홈페이지 가격표(자가용, 공시된 세제 기준)를 자동으로 모은 값이며 탁송료·등록비·프로모션은 들어 있지 않습니다.
-  ● 기본 장착 · ○ 선택 옵션(패키지) 추가 시 장착 · – 선택 불가. <span style="color:var(--hue)">● 파란 점</span>은 바로 아래 트림에는 없고 이 트림부터 기본인 사양입니다. 사양 판정은 가격표 품목명 기준 자동 분류이므로 계약 전에는 공식 가격표로 한 번 더 확인해 주세요.</p>`;
+  ● 기본 장착 · ○ 선택 옵션(패키지) 추가 시 장착 · – 선택 불가. <span style="color:var(--hue)">● 파란 점</span>은 바로 아래 트림에는 없고 이 트림부터 기본인 사양입니다. 사양 판정은 가격표 품목명 기준 자동 분류이므로 계약 전에는 공식 가격표로 한 번 더 확인해 주세요. 차량 이미지는 각 제조사 공식 홈페이지의 이미지입니다.</p>`;
 }
 
 // ---------- 차종 화면: 구성기 + 비교표 ----------
@@ -270,6 +272,16 @@ async function renderModel(id, params) {
     <span class="ends" style="left:0">${man(lo)}만</span><span class="ends" style="right:0">${man(hi)}만</span></div>` : '';
   const thumbs = VAR.trims.some(t => t.img) ? `<div class="thumbs">${VAR.trims.map((t, i) => t.img ? `<button class="${i === V.t ? 'on' : ''}" data-act="trim" data-i="${i}" aria-label="${esc(t.name)}">${img(t.img)}</button>` : '').join('')}</div>` : '';
 
+  // 선택한 트림의 핵심 사양을 칩으로 — 통화 중 '이 트림엔 뭐가 들어가요?'에 바로 답한다
+  const chipList = KEYS.map(K => ({ K, c: keyCell(P.trims[V.t], K) })).filter(x => x.c.s !== 'none');
+  const CHIP = {  // 칩에 적을 짧은 말 (값이 있으면 값을 살린다)
+    '휠 · 타이어': v => `${v} 휠`, '시트 재질': v => `${v} 시트`, '1열 통풍시트': v => v ? '운전석 통풍' : '1열 통풍',
+    '2열 열선 · 통풍': v => `2열 ${v}`, '디스플레이(내비)': v => v, '고속도로 주행 보조': v => v,
+    '후측방 충돌 보조': v => v === '경고' ? '후측방 경고' : '후측방 충돌방지', '프리미엄 사운드': v => v ? `${v} 사운드` : '프리미엄 사운드',
+  };
+  const chipLabel = ({ K, c }) => (CHIP[K.l] && c.v ? CHIP[K.l](c.v) : K.l.replace(/\s?\(.*\)/, '').replace('서라운드 뷰 모니터', '서라운드 뷰'));
+  const chips = chipList.length ? `<p class="chips-h">${esc(T.name)} 핵심 사양 · 점선은 옵션</p><div class="chips">${chipList.map(x =>
+    `<span class="chip${x.c.s === 'opt' ? ' opt' : ''}"${x.c.s === 'opt' ? ` title="${esc(x.c.o.n)} +${man(x.c.o.p)}만"` : ''}>${esc(chipLabel(x))}</span>`).join('')}</div>` : '';
   const cards = VAR.trims.map((t, i) => {
     const prev = i ? VAR.trims[i - 1] : null;
     const added = i ? [...P.trims[i].std].filter(k => !P.trims[i - 1].std.has(k)).length : 0;
@@ -291,7 +303,7 @@ async function renderModel(id, params) {
         <div class="stage-top"><div><h1>${esc(M.name)}<span class="chip">${esc(M.segment)}</span></h1>
           <p class="meta">${BRANDS[M.brand]} · ${esc(VAR.name)} · 트림 ${VAR.trims.length}개${VAR.modelYear ? ' · ' + esc(VAR.modelYear) : ''}</p>${find}</div>
           <div class="figs"><div><b>${man(lo)}</b><span>시작가(만원)</span></div><div><b>${man(hi)}</b><span>최고가(만원)</span></div><div><b>${meta.trims}</b><span>전체 트림</span></div></div></div>
-        <div class="car">${img(T.img || M.image, M.name, true)}</div>${thumbs}${rail}
+        <div class="car">${img(T.img || M.image, M.name, true, M.image)}</div>${chips}${thumbs}${rail}
       </section>
       <div class="panel">
         <div><div class="panel-h"><h2>${bto ? '엔진 · 구동' : '트림'}</h2><span class="cnt">${V.t + 1} / ${VAR.trims.length}</span></div>
