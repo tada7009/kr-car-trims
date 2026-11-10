@@ -13,7 +13,13 @@ from common import DATA, curl_get, save
 
 LIST = "https://www.audi.co.kr/ko/models/?bycarlinegroup=a6"
 SEG = {"a3": "세단", "a5": "세단", "a6": "세단", "a8": "세단", "q3": "SUV", "q4": "전기 SUV", "q5": "SUV", "q7": "SUV",
-       "q8": "SUV", "e-tron-gt": "전기 4도어 쿠페", "a-6-e-tron": "전기 세단"}
+       "q8": "SUV", "e-tron-gt": "전기 4도어 쿠페", "a-6-e-tron": "전기 세단", "q4-e-tron": "전기 SUV"}
+
+
+# 카탈로그 표의 영문 구분 → 화면 표기(줄바꿈·각주로 깨진 'Infotain- ment', 'Assistant System¹'도 같은 키가 된다)
+CAT = {"exterior": "외관", "interior": "내장", "comfort": "편의", "technology&safety": "안전·기술",
+       "assistantsystem": "주행 보조", "infotainment": "인포테인먼트", "infootainment": "인포테인먼트",
+       "driving": "파워트레인"}
 
 
 def catalog_url(page):
@@ -115,6 +121,90 @@ def table(page):
     return [c["name"] for c in cols], rows, [c["price"] for c in cols]
 
 
+def table_cols(page):
+    """칸마다 밑줄이 따로 그어진 표(e-tron GT 카탈로그 등): 밑줄 선분의 x 범위로 칸을, y로 행을 나눈다.
+    [구분 | 항목 | 트림1 | 트림2 …] 모양이 아니면 None을 돌려줘 table()로 넘긴다."""
+    from collections import Counter
+    segs = []
+    for dr in page.get_drawings():
+        for it in dr["items"]:
+            if it[0] == "l" and abs(it[1].y - it[2].y) < .6:
+                segs.append((min(it[1].x, it[2].x), max(it[1].x, it[2].x), it[1].y))
+            elif it[0] == "re" and it[1].height < 2:
+                segs.append((it[1].x0, it[1].x1, it[1].y0))
+    words = page.get_text("words")
+    head = [w for w in words if w[4] == "Model"]
+    if not head or not segs:
+        return None
+    hy, hx = head[0][1], head[0][0]
+    above = [s[2] for s in segs if s[2] < hy - 1]
+    top = max(above) if above else hy - 40
+    under = [s[2] for s in segs if s[2] > head[0][3]]
+    if not under:
+        return None
+    hb = min(under)  # 머리글(트림 이름, 여러 줄일 수 있음) 아래 첫 선
+    below = [s for s in segs if s[2] > hb - 1]
+    rng = Counter((round(s[0]), round(s[1])) for s in below if s[1] - s[0] > 40)
+    cols, parts = [], {}
+    for w in words:
+        cx, cy = (w[0] + w[2]) / 2, (w[1] + w[3]) / 2
+        if not (top < cy < hb) or w[4] == "Model" or w[0] < hx + 20:
+            continue
+        cand = [(n, r) for r, n in rng.items() if r[0] < cx < r[1]]
+        if not cand:
+            continue
+        r = max(cand)[1]
+        parts.setdefault(r, []).append(w)
+    cols = sorted(parts)
+    if not cols or any(a[1] > b[0] + 6 for a, b in zip(cols, cols[1:])):
+        return None
+    def join(ws):  # 위에서 아래 줄 순서로(한글·영문 글꼴 높이가 달라 y가 1~2pt 어긋나도 같은 줄로 본다)
+        lines = []
+        for w in sorted(ws, key=lambda w: w[1]):
+            if lines and abs(w[1] - lines[-1][0][1]) < 3:
+                lines[-1].append(w)
+            else:
+                lines.append([w])
+        return " ".join(x[4] for ln in lines for x in sorted(ln, key=lambda w: w[0]))
+
+    names = [join(parts[c]) for c in cols]
+    left = cols[0][0]
+    item_segs = [s for s in below if left - 15 <= s[1] <= left + 2 and s[1] - s[0] > 60]
+    if len(item_segs) < 3:
+        return None
+    item_left = Counter(round(s[0]) for s in item_segs).most_common(1)[0][0]
+    ys = []
+    for y in sorted(s[2] for s in item_segs):
+        if not ys or y - ys[-1] > 2:
+            ys.append(y)
+    cat_ys = []
+    for y in sorted(s[2] for s in below if s[1] <= item_left + 6 and s[0] < item_left - 20):
+        if not cat_ys or y - cat_ys[-1] > 2:
+            cat_ys.append(y)
+    cat_ys = [hb] + cat_ys
+
+    def inside(w, x0, x1, y0, y1):
+        cx, cy = (w[0] + w[2]) / 2, (w[1] + w[3]) / 2
+        return x0 <= cx < x1 and y0 < cy < y1
+
+
+    cats = []
+    for a, b in zip(cat_ys, cat_ys[1:]):
+        cats.append((a, b, join([w for w in words if inside(w, 0, item_left - 3, a, b) and w[0] > hx - 30])))
+    rows = []
+    for a, b in zip([hb] + ys, ys):
+        item = join([w for w in words if inside(w, item_left - 3, left, a, b)])
+        cells = [join([w for w in words if inside(w, x0, x1, a, b)]) for x0, x1 in cols]
+        if not item and not any(cells):
+            continue
+        mid = (a + b) / 2
+        cat = next((c for a2, b2, c in cats if a2 <= mid < b2), "")
+        rows.append((cat, item, cells))
+    if len(rows) < 3:
+        return None
+    return names, rows, [None] * len(names)
+
+
 def parse(pdf):
     doc = fitz.open(stream=pdf, filetype="pdf")
     trims, order = {}, []
@@ -122,7 +212,7 @@ def parse(pdf):
         text = page.get_text()
         if "Detail" not in text or "Model" not in text or "●" not in text:  # 제원(Tech data) 쪽은 건너뛴다
             continue
-        t = table(page)
+        t = table_cols(page) or table(page)
         if not t:
             continue
         names, rows, prices = t
@@ -140,7 +230,10 @@ def parse(pdf):
                     continue
                 if not v or v in ("-", "–", "—", "x", "X"):
                     continue
-                cat = cat or "사양"
+                cat = CAT.get(re.sub(r"[^a-z&]", "", (cat or "").lower()), cat or "사양")
+                v = re.sub(r"^[ㄱ-ㅎ]+(?=●)", "", v)  # 원문 오타 'ㅍ●' 같은 것
+                if len(v) > 1 and v[0] == "●":  # '●(폴딩, 열선 …)' → '항목 (폴딩, 열선 …)'
+                    v, item = "●", f"{item} {v[1:].strip()}"
                 name = item if v in ("●", "■", "S", "s") else f"{item}: {v}" if v not in ("○",) else None
                 if name is None:
                     continue
@@ -157,7 +250,7 @@ def parse(pdf):
 
 def main():
     html = curl_get(LIST)
-    pages = sorted(set(re.findall(r'/ko/models/[a-z0-9-]+/[a-z0-9-]+/', html)))
+    pages = sorted(set(re.findall(r'/ko/models/[a-z0-9-]+/[a-z0-9_-]+/', html)))  # q3_2026처럼 밑줄 있는 주소도
     out = DATA / "audi"
     out.mkdir(parents=True, exist_ok=True)
     for old in out.glob("*.json"):
@@ -174,6 +267,9 @@ def main():
         seen.add(url)
         try:
             trims = [t for t in parse(curl_get(url, binary=True)) if t["price"]]
+            for t in trims:
+                t["name"] = re.sub(r"^Audi\s+", "", t["name"])  # 'Audi Q4 45 e-tron' → 'Q4 45 e-tron'
+
         except Exception as e:
             print(page, "error", e)
             continue
@@ -181,11 +277,11 @@ def main():
             print(page, "가격표 없음")
             continue
         # 모델 이름은 카탈로그 단위(차종 가족)로: A5(S5 포함), Q5(SUV·스포트백), A8(S8 포함)
-        name = {"a-6-e-tron": "A6 e-tron", "e-tron-gt": "e-tron GT"}.get(fam) or (
+        name = {"a-6-e-tron": "A6 e-tron", "e-tron-gt": "e-tron GT", "q4-e-tron": "Q4 e-tron"}.get(fam) or (
             "RS 3" if slug.startswith("rs-3") else "RS Q8" if slug.startswith("rs-q8") else fam.upper())
         groups = {}
         for t in sorted(trims, key=lambda t: t["price"]):
-            vname = "스포트백" if re.search(r"\bSB\b|Sportback", t["name"]) else "S 모델" if re.match(r"S\d|S e-tron", t["name"]) else "기본"
+            vname = "전기" if fam == "e-tron-gt" else "스포트백" if re.search(r"\bSB\b|Sportback", t["name"]) else "S 모델" if re.match(r"S\d|S e-tron", t["name"]) else "기본"
             groups.setdefault(vname, []).append(t)
         variants = [{"name": k, "code": slug, "trims": v} for k, v in groups.items()]
         d = {"id": "audi-" + re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"), "brand": "audi", "name": name,

@@ -169,8 +169,8 @@ def volvo(d):
             if r:
                 return r
         m = re.search(r'(https://cas\.volvocars\.com/image/dynamic/[^"\s?]*/default\.png)', html)  # 이전 세대 구성기 렌더
-        if m:
-            r = cut_from(d, m.group(1))
+        if m:  # market 값이 없으면 400, bg=00000000이면 배경 투명, angle=4가 3/4 앞모습(왼쪽)
+            r = cut_from(d, m.group(1) + "?market=kr&client=ccs-self-service&angle=4&w=1920&bg=00000000")
             if r:
                 return r
     return None
@@ -255,11 +255,52 @@ def porsche(d):
     return cut_from(d, u) or photo_set(d, [u])
 
 
+# 폭스바겐 가격표 PDF에 들어 있는 공식 사진(PDF 안 이미지 번호 xref): (외관들, 실내들). 첫 외관이 대표 사진
+VW_PICK = {
+    "volkswagen-atlas": ([876, 95, 97], [878]),
+    "volkswagen-golf-gti": ([51, 1038, 53], [1040]),
+    "volkswagen-golf": ([905, 67], [907]),
+    "volkswagen-id-4": ([939, 41], [937]),
+    "volkswagen-id-5": ([35, 33, 965], [967]),
+    "volkswagen-touareg": ([1375, 61], [1373]),
+}
+
+
 def volkswagen(d):
-    """폭스바겐: 모델 페이지 맨 위 대표 사진(Scene7 이미지 서버, 페이지에 나오는 순서대로)"""
-    html = curl_get(d["sources"][0])
-    found = list(dict.fromkeys(re.findall(r"(https://assets\.volkswagen\.com/is/image/volkswagenag/[A-Za-z0-9_.-]+)", html)))
-    return photo_set(d, [u + "?wid=1920&fmt=jpg" for u in found[:2]]) if found else None
+    """폭스바겐: 이미지 서버(assets.volkswagen.com)·사이트 사진은 자동 요청이 막혀(403/410),
+    모델 페이지에 걸린 공식 가격표 PDF 안의 사진을 꺼내 쓴다. 가격표가 바뀌어 번호가 없으면 가로 사진 중 큰 것."""
+    import fitz
+    pdf = next((s for s in d["sources"] if s.lower().endswith(".pdf")), None)
+    if not pdf:
+        return None
+    doc = fitz.open(stream=curl_get(pdf, binary=True), filetype="pdf")
+    imgs = {}
+    for pn, page in enumerate(doc):
+        for it in page.get_images(full=True):
+            x = doc.extract_image(it[0])
+            if x["width"] * x["height"] >= 1_000_000:
+                imgs[it[0]] = (pn, x)
+    ext_ids, int_ids = VW_PICK.get(d["id"], ([], []))
+    if not all(i in imgs for i in ext_ids):  # 가격표가 새로 나와 번호가 바뀐 경우
+        land = sorted((k for k, (pn, x) in imgs.items() if pn > 0 and x["width"] > x["height"] * 1.2),
+                      key=lambda k: -imgs[k][1]["width"] * imgs[k][1]["height"])
+        ext_ids, int_ids = land[:2], []
+    if not ext_ids:
+        return None
+
+    def pil(i):
+        im = Image.open(io.BytesIO(imgs[i][1]["image"]))
+        im.load()
+        return im.convert("RGB")
+
+    ext = [save(pil(i), f"{d['id']}-x{n}.webp", False, 1600) for n, i in enumerate(ext_ids, 1)]
+    inn = [save(pil(i), f"{d['id']}-i{n}.webp", False, 1600) for n, i in enumerate(int_ids, 1) if i in imgs]
+    im = pil(ext_ids[0])
+    h = min(im.height, round(im.width * 9 / 16))
+    w = round(h * 16 / 9)
+    thumb = save(im.crop(((im.width - w) // 2, (im.height - h) // 2, (im.width + w) // 2, (im.height + h) // 2)),
+                 f"{d['id']}.webp", False, 960)
+    return {"image": thumb, "media": {"hero": ext[0], "heroType": "photo", "ext": ext, "int": inn}, "src": pdf}
 
 
 def polestar(d):
