@@ -247,17 +247,25 @@ def audi(d):
     return photo_set(d, pc[:2]) if pc else None
 
 
+def porsche(d):
+    """포르쉐: 트림 페이지 구조화 데이터의 옆모습 렌더(scrape_porsche.py가 imageSource에 적어 둔다)"""
+    u = d.get("imageSource")
+    if not u:
+        return None
+    return cut_from(d, u) or photo_set(d, [u])
+
+
 def main(only=None):
     IMG.mkdir(exist_ok=True)
     cosy = json.loads((RAW / "bmw" / "cosy.json").read_text(encoding="utf-8"))
-    for brand in ("tesla", "bmw", "mercedes", "volvo", "lexus", "toyota", "audi"):
+    for brand in ("tesla", "bmw", "mercedes", "volvo", "lexus", "toyota", "audi", "porsche"):
         for f in sorted((DATA / brand).glob("*.json")):
             d = json.loads(f.read_text(encoding="utf-8"))
             if only and d["id"] not in only:
                 continue
             try:
                 r = {"tesla": tesla, "bmw": lambda x: bmw(x, cosy), "mercedes": mercedes, "volvo": volvo,
-                     "lexus": lexus, "toyota": toyota, "audi": audi}[brand](d)
+                     "lexus": lexus, "toyota": toyota, "audi": audi, "porsche": porsche}[brand](d)
             except Exception as e:
                 print(d["id"], "error", e)
                 continue
