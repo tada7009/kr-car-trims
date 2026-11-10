@@ -255,17 +255,25 @@ def porsche(d):
     return cut_from(d, u) or photo_set(d, [u])
 
 
+def volkswagen(d):
+    """폭스바겐: 모델 페이지 맨 위 대표 사진(Scene7 이미지 서버, 페이지에 나오는 순서대로)"""
+    html = curl_get(d["sources"][0])
+    found = list(dict.fromkeys(re.findall(r"(https://assets\.volkswagen\.com/is/image/volkswagenag/[A-Za-z0-9_.-]+)", html)))
+    return photo_set(d, [u + "?wid=1920&fmt=jpg" for u in found[:2]]) if found else None
+
+
 def main(only=None):
     IMG.mkdir(exist_ok=True)
     cosy = json.loads((RAW / "bmw" / "cosy.json").read_text(encoding="utf-8"))
-    for brand in ("tesla", "bmw", "mercedes", "volvo", "lexus", "toyota", "audi", "porsche"):
+    for brand in ("tesla", "bmw", "mercedes", "volvo", "lexus", "toyota", "audi", "porsche", "volkswagen"):
         for f in sorted((DATA / brand).glob("*.json")):
             d = json.loads(f.read_text(encoding="utf-8"))
             if only and d["id"] not in only:
                 continue
             try:
                 r = {"tesla": tesla, "bmw": lambda x: bmw(x, cosy), "mercedes": mercedes, "volvo": volvo,
-                     "lexus": lexus, "toyota": toyota, "audi": audi, "porsche": porsche}[brand](d)
+                     "lexus": lexus, "toyota": toyota, "audi": audi, "porsche": porsche,
+                     "volkswagen": volkswagen}[brand](d)
             except Exception as e:
                 print(d["id"], "error", e)
                 continue

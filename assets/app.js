@@ -4,8 +4,8 @@
 
 const BRANDS = { hyundai: '현대', kia: '기아', genesis: '제네시스', kgm: 'KGM', renault: '르노코리아', chevrolet: '쉐보레',
   tesla: '테슬라', bmw: 'BMW', mercedes: '벤츠', volvo: '볼보', lexus: '렉서스', toyota: '토요타', audi: '아우디',
-  porsche: '포르쉐' };
-const IMPORT = new Set(['tesla', 'bmw', 'mercedes', 'volvo', 'lexus', 'toyota', 'audi', 'porsche']);
+  porsche: '포르쉐', volkswagen: '폭스바겐' };
+const IMPORT = new Set(['tesla', 'bmw', 'mercedes', 'volvo', 'lexus', 'toyota', 'audi', 'porsche', 'volkswagen']);
 const MARKETS = { dom: '국산차', imp: '수입차' };
 const marketOf = b => (IMPORT.has(b) ? 'imp' : 'dom');
 // 국산차는 차급, 수입차는 공식 가격표의 차체 구분으로 묶는다

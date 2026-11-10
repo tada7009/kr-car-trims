@@ -25,6 +25,11 @@
 | BMW | bmw.co.kr 월별 가격표 PDF | 트림·가격만 공개(구성기는 유럽 사양 기준이라 쓰지 않음) |
 | 벤츠 | mercedes-benz.co.kr 일반 소비자 판매 가격표 PDF | 연식별 트림·가격만 공개 |
 | 볼보 | volvocars.com/kr 나만의 볼보 디자인 '장비 레벨 비교' | 레벨별 전체 품목(기본/선택) |
+| 렉서스 | lexus.co.kr 모델 데이터(등급별 스펙표) | 등급별 가격·사양 |
+| 토요타 | toyota.co.kr 모델 페이지 스펙 탭 | 등급별 가격·사양 |
+| 아우디 | 모델 페이지의 공식 디지털 카탈로그 PDF | 트림별 가격·●사양표 |
+| 포르쉐 | porsche.com/korea 트림 페이지 구조화 데이터 | 가격·구동·가속·크기 |
+| 폭스바겐 | 모델 페이지의 가격표 PDF | 트림별 주요 기본 사양 |
 
 테슬라·볼보 구성기는 파이썬으로 바로 받을 수 없어, 내장 브라우저로 추린 값을 `scripts/raw/<브랜드>/`에 두고 `build_imports.py`가 사이트 형식으로 바꿉니다.
 
@@ -45,6 +50,9 @@ python fetch_images.py   # 목록용 차종 썸네일을 img/에 저장
 python fetch_media.py    # 고해상도 외관·실내 사진을 img/에 저장
 python scrape_bmw.py     # 수입차: BMW·벤츠 가격표 PDF
 python scrape_mercedes.py
+python scrape_audi.py    # 아우디 카탈로그 PDF
+python scrape_porsche.py
+python scrape_vw.py
 python build_imports.py  # 수입차: 테슬라·볼보 원자료(scripts/raw) → data
 python fetch_import_media.py
 python build_index.py
