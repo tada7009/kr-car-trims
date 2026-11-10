@@ -212,8 +212,19 @@ def lexus(d):
     return None
 
 
+TOYOTA_THUMB = {"rav4hev": "rav4-hev-limited", "rav4phev": "rav4-phev-xse"}
+
+
 def toyota(d):
-    """토요타: 모델 페이지의 외관 사진(배경 있음)"""
+    """토요타: 모델 검색 목록의 옆모습 렌더(배경 투명) → 없으면 모델 페이지의 외관 사진"""
+    for v in d["variants"]:
+        key = TOYOTA_THUMB.get(v["code"], v["code"])
+        try:
+            r = cut_from(d, f"https://www.toyota.co.kr/assets/img/model/thumbnail/thumbnail-{key}.webp")
+            if r:
+                return r
+        except Exception:
+            pass
     for v in d["variants"]:
         html = curl_get(f"https://www.toyota.co.kr/models/{v['code']}/")
         urls = sorted(set(re.findall(r'(/assets/img/model/[^"\'\s]*?-exterior-\d\.webp)', html)))[:2]
@@ -222,17 +233,31 @@ def toyota(d):
     return None
 
 
+def audi(d):
+    """아우디: 모델 목록의 차량 렌더(배경 투명, raw/audi/images.json) → 없으면 모델 페이지 대표 사진"""
+    imgs = json.loads((RAW / "audi" / "images.json").read_text(encoding="utf-8"))
+    key = {"RS 3": "A3", "RS Q8": "Q8"}.get(d["name"], d["name"])
+    if f"Audi {key}" in imgs:
+        r = cut_from(d, imgs[f"Audi {key}"])
+        if r:
+            return r
+    html = curl_get(d["sources"][0])
+    found = list(dict.fromkeys(re.findall(r'(https://emea-dam\.audi\.com/adobe/assets/urn:aaid:aem:[0-9a-f-]+/as/[^"&\s]+?\.jpg)', html)))
+    pc = [u for u in found if "_PC_" in u] + [u for u in found if u.endswith("-L.jpg")]  # 데스크톱 대표 사진 → 큰 갤러리 사진
+    return photo_set(d, pc[:2]) if pc else None
+
+
 def main(only=None):
     IMG.mkdir(exist_ok=True)
     cosy = json.loads((RAW / "bmw" / "cosy.json").read_text(encoding="utf-8"))
-    for brand in ("tesla", "bmw", "mercedes", "volvo", "lexus", "toyota"):
+    for brand in ("tesla", "bmw", "mercedes", "volvo", "lexus", "toyota", "audi"):
         for f in sorted((DATA / brand).glob("*.json")):
             d = json.loads(f.read_text(encoding="utf-8"))
             if only and d["id"] not in only:
                 continue
             try:
                 r = {"tesla": tesla, "bmw": lambda x: bmw(x, cosy), "mercedes": mercedes, "volvo": volvo,
-                     "lexus": lexus, "toyota": toyota}[brand](d)
+                     "lexus": lexus, "toyota": toyota, "audi": audi}[brand](d)
             except Exception as e:
                 print(d["id"], "error", e)
                 continue
