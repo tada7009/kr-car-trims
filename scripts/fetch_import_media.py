@@ -271,10 +271,27 @@ def polestar(d):
     return cut_from(d, m.group(1)) or photo_set(d, [m.group(1)])
 
 
+LANDROVER = {  # 모델 id → 공식 사이트 사진(jlr.scene7.com) — 사양 페이지 렌더는 흰 배경 640px이라 배경 있는 사진을 쓴다
+    "landrover-defender": ["L66326GL_303104383_060", "L66326GL_303104383_045", "L66326GL_303104383_073"],
+    "landrover-discovery": ["L46226GL_303104584_005"],
+    "landrover-discovery-sport": ["L55026GL_303104697_014", "L55026GL_303104697_001_HERO"],
+    "landrover-range-rover": ["L460_22MY_117_GLHD_DX_Crop"],
+    "landrover-range-rover-sport": ["L461_23MY_003_GLHD_SANTORINI_BLACK"],
+    "landrover-range-rover-velar": ["L56026GL_303103980_001_NAV"],
+    "landrover-range-rover-evoque": ["L55126GL_303103981_001"],
+}
+
+
+def landrover(d):
+    """랜드로버: 국내 공식 사이트(차종 선택·모델 페이지)에 쓰인 Scene7 사진"""
+    ids = LANDROVER.get(d["id"])
+    return photo_set(d, [f"https://jlr.scene7.com/is/image/jlr/{i}?wid=1920&fmt=jpg" for i in ids]) if ids else None
+
+
 def main(only=None):
     IMG.mkdir(exist_ok=True)
     cosy = json.loads((RAW / "bmw" / "cosy.json").read_text(encoding="utf-8"))
-    for brand in ("tesla", "bmw", "mercedes", "volvo", "lexus", "toyota", "audi", "porsche", "volkswagen", "polestar"):
+    for brand in ("tesla", "bmw", "mercedes", "volvo", "lexus", "toyota", "audi", "porsche", "volkswagen", "polestar", "landrover"):
         for f in sorted((DATA / brand).glob("*.json")):
             d = json.loads(f.read_text(encoding="utf-8"))
             if only and d["id"] not in only:
@@ -282,7 +299,7 @@ def main(only=None):
             try:
                 r = {"tesla": tesla, "bmw": lambda x: bmw(x, cosy), "mercedes": mercedes, "volvo": volvo,
                      "lexus": lexus, "toyota": toyota, "audi": audi, "porsche": porsche,
-                     "volkswagen": volkswagen, "polestar": polestar}[brand](d)
+                     "volkswagen": volkswagen, "polestar": polestar, "landrover": landrover}[brand](d)
             except Exception as e:
                 print(d["id"], "error", e)
                 continue

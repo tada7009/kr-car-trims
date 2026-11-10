@@ -31,6 +31,7 @@
 | 포르쉐 | porsche.com/korea 트림 페이지 구조화 데이터 | 가격·구동·가속·크기 |
 | 폭스바겐 | 모델 페이지의 가격표 PDF | 트림별 주요 기본 사양 |
 | 폴스타 | polestar.com/kr 구성기(구동계·팩) | 구동계별 가격·성능, 선택 팩 가격과 구성 |
+| 랜드로버 | landroverkorea.co.kr 전 차종 가격표 PDF + 차종별 '모델 및 제원' 페이지 | 엔진·트림별 가격, 트림 카드가 있는 트림의 주요·기본 사양 |
 
 테슬라·볼보·렉서스·토요타·폴스타 구성기는 파이썬으로 바로 받을 수 없어, 내장 브라우저로 추린 값을 `scripts/raw/<브랜드>/`에 두고 `build_imports.py`가 사이트 형식으로 바꿉니다.
 
@@ -54,6 +55,7 @@ python scrape_mercedes.py
 python scrape_audi.py    # 아우디 카탈로그 PDF
 python scrape_porsche.py
 python scrape_vw.py
+python scrape_landrover.py
 python build_imports.py  # 수입차: 테슬라·볼보 원자료(scripts/raw) → data
 python fetch_import_media.py
 python build_index.py
