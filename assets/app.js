@@ -3,8 +3,8 @@
 'use strict';
 
 const BRANDS = { hyundai: '현대', kia: '기아', genesis: '제네시스', kgm: 'KGM', renault: '르노코리아', chevrolet: '쉐보레',
-  tesla: '테슬라', bmw: 'BMW', mercedes: '벤츠', volvo: '볼보' };
-const IMPORT = new Set(['tesla', 'bmw', 'mercedes', 'volvo']);
+  tesla: '테슬라', bmw: 'BMW', mercedes: '벤츠', volvo: '볼보', lexus: '렉서스', toyota: '토요타' };
+const IMPORT = new Set(['tesla', 'bmw', 'mercedes', 'volvo', 'lexus', 'toyota']);
 const MARKETS = { dom: '국산차', imp: '수입차' };
 const marketOf = b => (IMPORT.has(b) ? 'imp' : 'dom');
 // 국산차는 차급, 수입차는 공식 가격표의 차체 구분으로 묶는다
@@ -58,7 +58,7 @@ const norm2 = s => norm(String(s).replace(/\([^)]*\)/g, ''));
 // fb: 첫 이미지가 안 열리면 대신 쓸 이미지(트림 사진 → 사이트에 저장한 차종 사진)
 const img = (src, alt = '', eager = false, fb = '') => src
   ? `<img src="${esc(src)}" alt="${esc(alt)}" loading="${eager ? 'eager' : 'lazy'}" referrerpolicy="no-referrer"${fb && fb !== src ? ` data-fb="${esc(fb)}"` : ''} onerror="if(this.dataset.fb){this.src=this.dataset.fb;this.removeAttribute('data-fb')}else{this.style.visibility='hidden'}">`
-  : '<span class="ph" style="width:100%;height:100%"></span>';
+  : '<span class="ph"></span>';
 const store = {
   get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* 저장할 수 없는 환경 */ } },

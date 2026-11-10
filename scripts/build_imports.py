@@ -12,7 +12,7 @@ import re
 from datetime import date
 from pathlib import Path
 
-from common import DATA, save
+from common import DATA
 
 RAW = Path(__file__).resolve().parent / "raw"
 
@@ -35,6 +35,18 @@ VOLVO = {  # 모델 이름 → (차급, [원자료 slug…]) — 같은 차의 �
 
 def code(s):
     return hashlib.md5(s.encode()).hexdigest()[:8]
+
+
+def save(path, d):
+    """사진은 fetch_import_media.py가 따로 채우므로, 다시 만들 때 기존 파일의 사진 정보를 이어받는다."""
+    from common import save as _save
+    path = Path(path)
+    if path.exists():
+        old = json.loads(path.read_text(encoding="utf-8"))
+        for k in ("image", "imageSource", "media"):
+            if old.get(k) and not d.get(k):
+                d[k] = old[k]
+    _save(path, d)
 
 
 def tesla():
@@ -100,6 +112,98 @@ def volvo():
         print(d["id"], [(v["name"], [(t["name"], t["price"]) for t in v["trims"]]) for v in variants])
 
 
+LEXUS = {  # 모델 이름 → (차급, [(원자료 키, 변형 이름)…], 모델 페이지)
+    "ES": ("세단", [("es350h", "ES 350h 하이브리드"), ("es350e", "ES 350e 전기"), ("es500e", "ES 500e 전기")], "ES-350h"),
+    "LS": ("세단", [("ls500h", "LS 500h 하이브리드")], "LS-500h"),
+    "UX": ("SUV", [("ux300h2wd", "UX 300h 하이브리드"), ("ux300hfsport", "UX 300h F SPORT")], "UX-300h-2WD"),
+    "NX": ("SUV", [("nx350h", "NX 350h 하이브리드"), ("nx450hplus", "NX 450h+ 플러그인 하이브리드"),
+                   ("nx450hplusfsport", "NX 450h+ F SPORT")], "NX-350h"),
+    "RX": ("SUV", [("rx350h", "RX 350h 하이브리드"), ("rx450hplus", "RX 450h+ 플러그인 하이브리드"),
+                   ("rx500h", "RX 500h F SPORT PERFORMANCE")], "RX-350h"),
+    "LX": ("SUV", [("lx700hvip", "LX 700h 하이브리드")], "LX-700h"),
+    "LM": ("MPV", [("lm500h", "LM 500h 하이브리드")], "LM-500h"),
+}
+TOYOTA = {  # 모델 페이지 경로 → (모델 이름, 차급, 변형 이름)
+    "/models/camry/": ("Camry", "세단", "2.5 하이브리드"),
+    "/models/crown/": ("Crown", "세단", "하이브리드"),
+    "/models/rav4hev/": ("RAV4", "SUV", "하이브리드"),
+    "/models/rav4phev/": ("RAV4", "SUV", "플러그인 하이브리드"),
+    "/models/highlander/": ("Highlander", "SUV", "2.5 하이브리드"),
+    "/models/sienna/": ("Sienna", "MPV", "하이브리드"),
+    "/models/alphard/": ("Alphard", "MPV", "하이브리드"),
+    "/models/gr86/": ("GR86", "쿠페", "가솔린"),
+}
+SKIP_ITEM = re.compile(r"^(Cell |전기량|전압$|배터리 형식|회전 저항|젖은 노면|타이어 제조사|컬러$)")
+
+
+def spec_items(pairs):
+    """[[항목, 값]…] → 사이트 품목 목록. 값이 비어 있으면 '장착'이라는 뜻이다."""
+    out = []
+    for t, v in pairs:
+        t, v = (t or "").strip(), (v or "").strip()
+        if not (t or v) or SKIP_ITEM.search(t):
+            continue
+        out.append({"n": f"{t}: {v}" if t and v else (t or v)})
+    return out
+
+
+def lexus():
+    raw = json.loads((RAW / "lexus" / "models.json").read_text(encoding="utf-8"))["out"]
+    out = DATA / "lexus"
+    out.mkdir(parents=True, exist_ok=True)
+    today = date.today().isoformat()
+    for name, (seg, keys, page) in LEXUS.items():
+        variants = []
+        for key, vname in keys:
+            r = raw.get(key) or {}
+            prices = {p[0]: int(re.sub(r"\D", "", p[1])) for p in r.get("prices", []) if re.search(r"\d", p[1])}
+            trims = []
+            for gi, g in enumerate(r.get("grades", [])):
+                label = g["label"] or (r["prices"][gi][0] if gi < len(r.get("prices", [])) else vname)
+                cats = [{"cat": c, "items": spec_items(items)} for c, items in g["cats"]]
+                trims.append({"name": label, "price": prices.get(label) or prices.get(g["label"]),
+                              "cats": [c for c in cats if c["items"]], "adds": [], "opts": []})
+            if trims:
+                trims.sort(key=lambda t: t["price"] or 0)
+                variants.append({"name": vname, "code": key, "trims": trims})
+        d = {"id": f"lexus-{name.lower()}", "brand": "lexus", "name": name, "segment": seg, "image": "",
+             "lowPrice": min(t["price"] for v in variants for t in v["trims"] if t["price"]), "priceDate": today,
+             "sources": [f"https://www.lexus.co.kr/models/{page}/"], "structure": "spec-sheet", "variants": variants,
+             "notes": ["렉서스 코리아 공식 모델 페이지의 등급별 가격과 스펙표입니다. 항목 옆 값이 없는 품목은 해당 등급에 기본 장착됩니다."]}
+        save(out / f"{name.lower()}.json", d)
+        print(d["id"], [(v["name"], [(t["name"], t["price"]) for t in v["trims"]]) for v in variants])
+
+
+def toyota():
+    raw = json.loads((RAW / "toyota" / "models.json").read_text(encoding="utf-8"))
+    out = DATA / "toyota"
+    out.mkdir(parents=True, exist_ok=True)
+    today = date.today().isoformat()
+    models = {}
+    for path, grades in raw.items():
+        name, seg, vname = TOYOTA[path]
+        m = models.setdefault(name, {"seg": seg, "variants": [], "sources": []})
+        m["sources"].append("https://www.toyota.co.kr" + path)
+        trims = []
+        for g in grades:
+            label = g["label"] or "PLATINUM"
+            label = re.sub(r"^(HEV|PHEV)\s+", "", label) if label not in ("HEV",) else label
+            cats = [{"cat": c, "items": spec_items(items)} for c, items in g["cats"]]
+            trims.append({"name": label, "price": g["price"], "cats": [c for c in cats if c["items"]], "adds": [], "opts": []})
+        trims.sort(key=lambda t: t["price"] or 0)
+        m["variants"].append({"name": vname, "code": path.strip("/").split("/")[-1], "trims": trims})
+    for name, m in models.items():
+        slug = name.lower()
+        d = {"id": f"toyota-{slug}", "brand": "toyota", "name": name, "segment": m["seg"], "image": "",
+             "lowPrice": min(t["price"] for v in m["variants"] for t in v["trims"] if t["price"]), "priceDate": today,
+             "sources": m["sources"], "structure": "spec-sheet", "variants": m["variants"],
+             "notes": ["한국토요타 공식 모델 페이지의 등급별 가격과 스펙표입니다. 항목 옆 값이 없는 품목은 해당 등급에 기본 장착됩니다."]}
+        save(out / f"{slug}.json", d)
+        print(d["id"], [(v["name"], [(t["name"], t["price"]) for t in v["trims"]]) for v in m["variants"]])
+
+
 if __name__ == "__main__":
     tesla()
     volvo()
+    lexus()
+    toyota()

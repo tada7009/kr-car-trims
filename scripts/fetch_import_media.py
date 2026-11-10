@@ -176,16 +176,63 @@ def volvo(d):
     return None
 
 
+def photo_set(d, urls):
+    """배경 있는 공식 사진 여러 장 → 외관 사진(x1, x2…)과 가운데를 자른 목록용 사진"""
+    ext, thumb = [], None
+    for i, u in enumerate(urls, 1):
+        im = load(u)
+        ext.append(save(im, f"{d['id']}-x{i}.webp", False, 1600))
+        if i == 1:
+            im = im.convert("RGB")
+            h = min(im.height, round(im.width * 9 / 16))
+            w = round(h * 16 / 9)
+            thumb = save(im.crop(((im.width - w) // 2, (im.height - h) // 2, (im.width + w) // 2, (im.height + h) // 2)),
+                         f"{d['id']}.webp", False, 960)
+    if not ext:
+        return None
+    return {"image": thumb, "media": {"hero": ext[0], "heroType": "photo", "ext": ext, "int": []}, "src": urls[0]}
+
+
+_lexus_imgs = None
+
+
+def lexus(d):
+    """렉서스: 모델 검색 데이터의 옆모습 렌더(배경 투명)"""
+    global _lexus_imgs
+    if _lexus_imgs is None:
+        ms = curl_get("https://www.lexus.co.kr/data/json/getData-model-search.php", cache=False)
+        _lexus_imgs = {k: s.replace("\\/", "/") for k, s in re.findall(r'"key":"([^"]+)".*?"desktop":\{"src":"([^"]+)"', ms)}
+    for v in d["variants"]:
+        key = v["code"].replace("vip", "")
+        src = _lexus_imgs.get(key) or _lexus_imgs.get(v["code"])
+        if src:
+            r = cut_from(d, "https://www.lexus.co.kr" + src.replace(" ", "%20"))
+            if r:
+                return r
+    return None
+
+
+def toyota(d):
+    """토요타: 모델 페이지의 외관 사진(배경 있음)"""
+    for v in d["variants"]:
+        html = curl_get(f"https://www.toyota.co.kr/models/{v['code']}/")
+        urls = sorted(set(re.findall(r'(/assets/img/model/[^"\'\s]*?-exterior-\d\.webp)', html)))[:2]
+        if urls:
+            return photo_set(d, ["https://www.toyota.co.kr" + u for u in urls])
+    return None
+
+
 def main(only=None):
     IMG.mkdir(exist_ok=True)
     cosy = json.loads((RAW / "bmw" / "cosy.json").read_text(encoding="utf-8"))
-    for brand in ("tesla", "bmw", "mercedes", "volvo"):
+    for brand in ("tesla", "bmw", "mercedes", "volvo", "lexus", "toyota"):
         for f in sorted((DATA / brand).glob("*.json")):
             d = json.loads(f.read_text(encoding="utf-8"))
             if only and d["id"] not in only:
                 continue
             try:
-                r = {"tesla": tesla, "bmw": lambda x: bmw(x, cosy), "mercedes": mercedes, "volvo": volvo}[brand](d)
+                r = {"tesla": tesla, "bmw": lambda x: bmw(x, cosy), "mercedes": mercedes, "volvo": volvo,
+                     "lexus": lexus, "toyota": toyota}[brand](d)
             except Exception as e:
                 print(d["id"], "error", e)
                 continue
