@@ -41,8 +41,8 @@ MB_CLASS = [  # 모델 이름(AMG·Maybach 앞머리 뺀 것) → 구성기 type
     ("GLC Coupé", "C254"), ("GLC", "X254"), ("GLE Coupé", "C167"), ("GLE", "V167"), ("GLS", "X167"),
     ("EQS SUV", "X296"), ("G-Class", "W465"),
 ]
-MB_PAGE = {"C-Class": "saloon/c-class", "EQE": "saloon/eqe", "EQA": "suv/eqa", "EQB": "suv/eqb", "EQE SUV": "suv/eqe-suv",
-           "GT 4-Door": "coupe/mercedes-amg-gt-4-door-coupe"}
+MB_PAGE = {"C-Class": "saloon/c-class", "EQE": "saloon/eqe", "EQA": "suv/eqa", "EQB": "suv/eqb", "EQE SUV": "suv/eqe",
+           "GT 4-Door": "coupe/amg-gt"}
 MB_API = "https://api.oneweb.mercedes-benz.com/owcc-backend/api/v3/ko_KR/CCci"
 MB_H = {"Origin": "https://www.mercedes-benz.co.kr", "Referer": "https://www.mercedes-benz.co.kr/", "Accept": "application/json"}
 
@@ -153,8 +153,8 @@ def mercedes(d):
         try:
             html = curl_get(f"https://www.mercedes-benz.co.kr/passengercars/models/{page}/overview.html")
             m = re.search(r'property="og:image" content="([^"]+)"', html)
-            if m:
-                return cut_from(d, m.group(1))
+            if m:  # 배경 투명이 아니면 사진으로 쓴다
+                return cut_from(d, m.group(1)) or photo_set(d, [m.group(1)])
         except Exception:
             return None
     return None
@@ -262,10 +262,19 @@ def volkswagen(d):
     return photo_set(d, [u + "?wid=1920&fmt=jpg" for u in found[:2]]) if found else None
 
 
+def polestar(d):
+    """폴스타: 모델 소개 페이지의 대표 이미지(og:image)"""
+    html = curl_get(f"https://www.polestar.com/kr/{d['variants'][0]['code']}/")
+    m = re.search(r'<meta[^>]+og:image[^>]+content="([^"]+)"', html)
+    if not m:
+        return None
+    return cut_from(d, m.group(1)) or photo_set(d, [m.group(1)])
+
+
 def main(only=None):
     IMG.mkdir(exist_ok=True)
     cosy = json.loads((RAW / "bmw" / "cosy.json").read_text(encoding="utf-8"))
-    for brand in ("tesla", "bmw", "mercedes", "volvo", "lexus", "toyota", "audi", "porsche", "volkswagen"):
+    for brand in ("tesla", "bmw", "mercedes", "volvo", "lexus", "toyota", "audi", "porsche", "volkswagen", "polestar"):
         for f in sorted((DATA / brand).glob("*.json")):
             d = json.loads(f.read_text(encoding="utf-8"))
             if only and d["id"] not in only:
@@ -273,7 +282,7 @@ def main(only=None):
             try:
                 r = {"tesla": tesla, "bmw": lambda x: bmw(x, cosy), "mercedes": mercedes, "volvo": volvo,
                      "lexus": lexus, "toyota": toyota, "audi": audi, "porsche": porsche,
-                     "volkswagen": volkswagen}[brand](d)
+                     "volkswagen": volkswagen, "polestar": polestar}[brand](d)
             except Exception as e:
                 print(d["id"], "error", e)
                 continue

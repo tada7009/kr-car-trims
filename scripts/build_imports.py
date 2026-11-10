@@ -202,8 +202,34 @@ def toyota():
         print(d["id"], [(v["name"], [(t["name"], t["price"]) for t in v["trims"]]) for v in m["variants"]])
 
 
+def polestar():
+    """폴스타: 구성기에서 확인한 구동계별 가격·성능, 기본 팩, 선택 팩 가격(raw/polestar/polestar.json)"""
+    raw = json.loads((RAW / "polestar" / "polestar.json").read_text(encoding="utf-8"))
+    out = DATA / "polestar"
+    out.mkdir(parents=True, exist_ok=True)
+    for m in raw["models"]:
+        trims = []
+        for t in m["trims"]:
+            cats = [{"cat": "성능", "items": [{"n": x} for x in t["perf"]]},
+                    {"cat": "구동계별 기본 사양", "items": [{"n": x} for x in t["extra"]]}]
+            cats += [{"cat": c, "items": [{"n": x} for x in its]} for c, its in m["standard"].items()]
+            opts = [{"n": o["n"], "c": code(o["n"]), "p": o["p"], "g": "선택 팩·옵션"}
+                    for o in m["opts"] if t["name"] in o.get("only", [t["name"]])]
+            trims.append({"name": t["name"], "price": t["price"], "cats": cats, "adds": [], "opts": opts})
+        packages = {code(o["n"]): {"desc": o["n"], "items": [{"n": x, "d": "-"} for x in o["items"]]}
+                    for o in m["opts"] if o.get("items")}
+        d = {"id": f"polestar-{m['slug'].split('-')[-1]}", "brand": "polestar", "name": m["name"], "segment": m["segment"],
+             "image": "", "lowPrice": min(t["price"] for t in trims), "priceDate": date.today().isoformat(),
+             "sources": [m["source"]], "structure": "configurator", "packages": packages,
+             "variants": [{"name": "전기", "code": m["slug"], "trims": trims}],
+             "notes": ["폴스타 공식 구성기의 가격(환경친화적 자동차 세제 혜택 반영, 보조금 미포함)과 구동계·팩 구성입니다."]}
+        save(out / f"{m['slug']}.json", d)
+        print(d["id"], [(t["name"], t["price"], len(t["opts"])) for t in trims])
+
+
 if __name__ == "__main__":
     tesla()
     volvo()
     lexus()
     toyota()
+    polestar()
