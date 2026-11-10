@@ -2,9 +2,17 @@
 (() => {
 'use strict';
 
-const BRANDS = { hyundai: '현대', kia: '기아', genesis: '제네시스', kgm: 'KGM', renault: '르노코리아', chevrolet: '쉐보레' };
-const SEG = ['경차', '소형 SUV', '준중형 세단', '준중형 SUV', '중형 세단', '중형 SUV', '준대형 세단', '대형 세단',
+const BRANDS = { hyundai: '현대', kia: '기아', genesis: '제네시스', kgm: 'KGM', renault: '르노코리아', chevrolet: '쉐보레',
+  tesla: '테슬라', bmw: 'BMW', mercedes: '벤츠', volvo: '볼보' };
+const IMPORT = new Set(['tesla', 'bmw', 'mercedes', 'volvo']);
+const MARKETS = { dom: '국산차', imp: '수입차' };
+const marketOf = b => (IMPORT.has(b) ? 'imp' : 'dom');
+// 국산차는 차급, 수입차는 공식 가격표의 차체 구분으로 묶는다
+const SEG_DOM = ['경차', '소형 SUV', '준중형 세단', '준중형 SUV', '중형 세단', '중형 SUV', '준대형 세단', '대형 세단',
   '대형 SUV', 'MPV·승합', '픽업', '고성능', '상용·트럭'];
+const SEG_IMP = ['해치백', 'MPV', '세단', '전기 세단', '4도어 쿠페', '전기 4도어 쿠페', '왜건', 'SUV', '전기 SUV', '쿠페형 SUV',
+  '쿠페', '카브리올레', '컨버터블', '로드스터', '픽업'];
+let SEG = SEG_DOM;
 const TRAY_MAX = 4;
 const OPT_PREVIEW = 8;
 
@@ -20,10 +28,12 @@ const KEYS = [
   { l: '디스플레이(내비)', t: n => /\d+(\.\d+)?\s*(인치|"|”)/.test(n) && /(내비|커넥트|디스플레이 오디오|인포테인먼트|터치 ?스크린|통합형 디스플레이|센터 디스플레이)/.test(n) && !(/클러스터/.test(n) && !/(내비|센터 디스플레이|터치)/.test(n)) && !/헤드업/.test(n),
     v: n => (n.match(/(\d+(?:\.\d+)?)\s*(?:인치|"|”)/) || [])[1] + '인치' + (/(내비|커넥트|통합형|TMAP)/.test(n) ? ' 내비' : ' 화면') },
   { l: '헤드업 디스플레이', t: n => /헤드업|HUD/.test(n) && !/경고등/.test(n) },
-  { l: '스마트 크루즈', t: n => /스마트 ?크루즈|어댑티브 크루즈|인텔리전트 크루즈/.test(n) },
-  { l: '고속도로 주행 보조', t: n => /고속도로 ?주행 ?보조/.test(n), v: n => /(보조 ?2|Ⅱ|차로 ?변경)/.test(n) ? 'HDA 2' : 'HDA' },
+  { l: '스마트 크루즈', t: n => /스마트 ?크루즈|어댑티브 크루즈|인텔리전트 크루즈|트래픽 어웨어 크루즈/.test(n) },
+  // 수입차는 같은 기능을 파일럿 어시스트(볼보)·오토스티어(테슬라) 같은 자기 이름으로 적는다
+  { l: '고속도로 주행 보조', t: n => /고속도로 ?주행 ?보조|파일럿 (보조|어시스트)|Pilot Assist|오토스티어/i.test(n),
+    v: n => /파일럿|Pilot/i.test(n) ? '파일럿 어시스트' : /오토스티어/.test(n) ? '오토스티어' : /(보조 ?2|Ⅱ|차로 ?변경)/.test(n) ? 'HDA 2' : 'HDA' },
   { l: '서라운드 뷰 모니터', t: n => /서라운드 ?뷰|360/.test(n) },
-  { l: '후측방 충돌 보조', t: n => /후측방 충돌|사각지대 (경고|감지)/.test(n), v: n => /방지 ?보조/.test(n) ? '방지 보조' : '경고' },
+  { l: '후측방 충돌 보조', t: n => /후측방 충돌|사각지대 (경고|감지|정보)|BLIS|후측방경보/.test(n), v: n => /방지 ?보조/.test(n) ? '방지 보조' : '경고' },
   { l: '후측방 모니터', t: n => /후측방 모니터|사각지대 영상/.test(n) },
   { l: '원격 스마트 주차', t: n => /원격 스마트 주차|원격 주차/.test(n) },
   { l: '전동 트렁크 · 테일게이트', t: n => /(파워|전동|스마트 파워|스마트 전동식?)\s?(트렁크|테일게이트|리프트게이트)/.test(n) },
@@ -31,11 +41,11 @@ const KEYS = [
   { l: '무선 충전', t: n => /무선 ?충전/.test(n) },
   { l: '선루프', t: n => /선루프|비전 루프|글라스 루프|파노라믹 루프/.test(n) && !/스킨|미적용/.test(n) },
   { l: '빌트인 캠(블랙박스)', t: n => /빌트인 ?캠/.test(n) },
-  { l: '프리미엄 사운드', t: n => /(보스|BOSE|렉시콘|메리디안|뱅앤올룹슨|B&O|하만|JBL|크렐|프리미엄 사운드|레퍼런스 사운드)/i.test(n) && !/일반/.test(n),
-    v: n => (n.match(/(보스|BOSE|렉시콘|메리디안|뱅앤올룹슨|하만|JBL|크렐|레퍼런스)/i) || ['', ''])[1] },
+  { l: '프리미엄 사운드', t: n => /(보스|BOSE|렉시콘|메리디안|뱅앤올룹슨|B&O|하만|Harman|Bowers|부메스터|Burmester|JBL|크렐|프리미엄 사운드|레퍼런스 사운드)/i.test(n) && !/일반/.test(n),
+    v: n => (n.match(/(보스|BOSE|렉시콘|메리디안|뱅앤올룹슨|하만|Harman Kardon|Bowers & Wilkins|부메스터|Burmester|JBL|크렐|레퍼런스)/i) || ['', ''])[1] },
 ];
 
-const S = { index: null, byId: {}, models: {}, prep: new Map(), search: null, brand: 'all', seg: 'all', listQ: '',
+const S = { index: null, byId: {}, models: {}, prep: new Map(), search: null, market: 'dom', brand: 'all', seg: 'all', listQ: '',
   view: {}, cmpView: { diff: true, f: '' }, tray: [], route: '' };
 
 // ---------- 유틸 ----------
@@ -185,15 +195,22 @@ function trayToggle(id, v, t, o) {
 
 // ---------- 사이드바 ----------
 function filtered() {
+  SEG = S.market === 'imp' ? SEG_IMP : SEG_DOM;
   const q = norm(S.listQ || '');
-  return S.index.models.filter(m => (S.brand === 'all' || m.brand === S.brand) && (S.seg === 'all' || m.segment === S.seg)
-    && (!q || norm(m.name + BRANDS[m.brand] + m.segment).includes(q)))
+  return S.index.models.filter(m => marketOf(m.brand) === S.market && (S.brand === 'all' || m.brand === S.brand)
+    && (S.seg === 'all' || m.segment === S.seg) && (!q || norm(m.name + BRANDS[m.brand] + m.segment).includes(q)))
     .sort((a, b) => (SEG.indexOf(a.segment) - SEG.indexOf(b.segment)) || a.low - b.low);
 }
+// 지금 보는 시장(국산/수입)에 차종이 있는 브랜드
+const marketBrands = () => ['all', ...Object.keys(BRANDS).filter(b => marketOf(b) === S.market && S.index.models.some(m => m.brand === b))];
+const marketTabs = () => Object.entries(MARKETS).map(([k, l]) => {
+  const n = S.index.models.filter(m => marketOf(m.brand) === k).length;
+  return `<button type="button" class="${S.market === k ? 'on' : ''}" data-market="${k}" aria-pressed="${S.market === k}">${l}<span>${n}</span></button>`;
+}).join('');
 function renderSide() {
   const ms = S.index.models;
-  const brands = ['all', ...Object.keys(BRANDS).filter(b => ms.some(m => m.brand === b))];
-  $('#brandChips').innerHTML = brands.map(b =>
+  $('#marketSeg').innerHTML = marketTabs();
+  $('#brandChips').innerHTML = marketBrands().map(b =>
     `<button type="button" class="${S.brand === b ? 'on' : ''}" data-brand="${b}" aria-pressed="${S.brand === b}">${b === 'all' ? '전체' : BRANDS[b]}</button>`).join('');
   const cur = S.route.startsWith('m/') ? S.route.slice(2).split('?')[0] : '';
   let html = '';
@@ -212,9 +229,9 @@ function renderSide() {
 
 // ---------- 홈: 전체 차종 ----------
 function renderHome() {
-  const ms = S.index.models, list = filtered();
+  const ms = S.index.models.filter(m => marketOf(m.brand) === S.market), list = filtered();
   const trims = ms.reduce((a, m) => a + m.trims, 0);
-  const brands = ['all', ...Object.keys(BRANDS).filter(b => ms.some(m => m.brand === b))];
+  const brands = marketBrands();
   const segs = SEG.filter(s => ms.some(m => m.segment === s && (S.brand === 'all' || m.brand === S.brand)));
   let rows = '';
   SEG.forEach(seg => {
@@ -229,8 +246,9 @@ function renderHome() {
       <td class="num hide-m">${man(m.high)}만원</td></tr>`).join('');
   });
   $('#main').innerHTML = `
-    <div class="title-row"><div><h1>전체 차종</h1>
-      <p class="sub">제조사 공식 가격표 기준 ${ms.length}개 차종, 트림 ${trims}개. 차종을 누르면 트림·옵션 비교로 넘어갑니다.</p></div></div>
+    <div class="title-row"><div><h1>${MARKETS[S.market]} 전체</h1>
+      <p class="sub">제조사 공식 ${S.market === 'imp' ? '가격표·구성기' : '가격표'} 기준 ${ms.length}개 차종, 트림 ${trims}개. 차종을 누르면 트림·옵션 비교로 넘어갑니다.</p></div>
+      <div class="market-seg big" role="group" aria-label="국산차·수입차">${marketTabs()}</div></div>
     <div class="tabs" role="tablist">${brands.map(b => `<button type="button" role="tab" aria-selected="${S.brand === b}" class="${S.brand === b ? 'on' : ''}" data-brand="${b}">${b === 'all' ? '전체' : BRANDS[b]}</button>`).join('')}</div>
     <div class="toolbar"><input class="field" id="listQ" type="search" placeholder="차종 이름으로 거르기" value="${esc(S.listQ)}" aria-label="차종 이름으로 거르기">
       <select id="segSel" aria-label="차급"><option value="all">모든 차급</option>${segs.map(s => `<option${S.seg === s ? ' selected' : ''}>${s}</option>`).join('')}</select>
@@ -239,7 +257,7 @@ function renderHome() {
       <tbody>${rows || '<tr><td colspan="6" class="empty">조건에 맞는 차종이 없습니다</td></tr>'}</tbody></table></div>` + footHTML();
 }
 function footHTML() {
-  return `<p class="foot">가격은 각 제조사 공식 홈페이지 가격표(자가용, 공시된 세제 기준)를 자동으로 모은 값이며 탁송료·등록비·프로모션은 들어 있지 않습니다.
+  return `<p class="foot">가격은 각 제조사 공식 홈페이지 가격표(자가용, 공시된 세제 기준)를 자동으로 모은 값이며 탁송료·등록비·프로모션은 들어 있지 않습니다. 수입차는 공식 가격표·구성기 기준이며, BMW·벤츠는 공식 자료에 트림별 상세 품목이 공개되지 않아 가격과 트림 이름에서 확인되는 사양만 보여 줍니다.
   ● 기본 장착 · ○ 선택 옵션(패키지) 추가 시 장착 · – 선택 불가. <span style="color:var(--hue)">● 파란 점</span>은 바로 아래 트림에는 없고 이 트림부터 기본인 사양입니다. 사양 판정은 가격표 품목명 기준 자동 분류이므로 계약 전에는 공식 가격표로 한 번 더 확인해 주세요. 차량 이미지는 각 제조사 공식 홈페이지의 이미지입니다.</p>`;
 }
 
@@ -385,7 +403,7 @@ function optionsHTML(M, V) {
     const desc = pk?.desc && pk.desc !== '-' ? pk.desc : '';
     const card = `<label class="oc"><input type="checkbox" data-act="opt" data-i="${i}" ${V.opts.has(i) ? 'checked' : ''}>
       ${o.g && o.g !== '옵션' ? `<span class="g">${esc(o.g)}</span>` : ''}<span class="t">${esc(o.n)}</span>${o.note ? `<span class="nt">${esc(o.note)}</span>` : ''}
-      <span class="p">${o.p ? '+' + won(o.p) : '무상'}</span>
+      <span class="p">${o.ask ? '가격 별도' : o.p ? '+' + won(o.p) : '무상'}</span>
       ${subs || desc ? `<button type="button" class="more" data-act="pkg" data-i="${i}" aria-expanded="${V.pkg === i}">${subs ? `구성 ${subs.length}개` : '설명'} ${V.pkg === i ? '닫기' : '보기'}</button>` : ''}</label>`;
     const detail = V.pkg === i ? `<div class="pkg"><b>${esc(o.n)}</b>${desc ? `<div style="color:var(--muted);margin-top:2px">${esc(desc)}</div>` : ''}
       ${subs ? `<ul>${subs.map(x => `<li>${esc(x.n)}${x.d && x.d !== '-' ? `<span>${esc(x.d)}</span>` : ''}</li>`).join('')}</ul>` : ''}</div>` : '';
@@ -514,7 +532,11 @@ async function route() {
   setMenu(false);
   $('#gsPop').hidden = true;
   $('#main').classList.remove('has-dock');
-  if (path.startsWith('m/')) await renderModel(path.slice(2), params);
+  if (path.startsWith('m/')) {
+    const m = S.byId[path.slice(2)];
+    if (m && marketOf(m.brand) !== S.market) { S.market = marketOf(m.brand); S.brand = 'all'; S.seg = 'all'; }
+    await renderModel(path.slice(2), params);
+  }
   else if (path === 'compare') await renderCompare();
   else { $('#mbarTitle').textContent = '트림노트'; renderHome(); }
   renderSide();
@@ -547,6 +569,12 @@ async function copy(text) {
 function bind() {
   window.addEventListener('hashchange', route);
   document.addEventListener('click', e => {
+    const mk = e.target.closest('[data-market]');
+    if (mk) {
+      S.market = mk.dataset.market; S.brand = 'all'; S.seg = 'all';
+      try { localStorage.setItem('market', S.market); } catch (_) { /* 저장할 수 없는 환경 */ }
+      renderSide(); if (!S.route || S.route === '/') renderHome(); else location.hash = '#/'; return;
+    }
     const b = e.target.closest('[data-brand]');
     if (b) { S.brand = b.dataset.brand; S.seg = 'all'; renderSide(); if (!S.route || S.route === '/') renderHome(); return; }
     const go = e.target.closest('tr[data-go]');
@@ -635,6 +663,7 @@ function bind() {
   try { S.index = await getJSON('data/index.json'); }
   catch (e) { $('#main').innerHTML = `<div class="empty"><b>데이터를 불러오지 못했습니다</b>${esc(e.message)}</div>`; return; }
   S.index.models.forEach(m => (S.byId[m.id] = m));
+  try { const mk = localStorage.getItem('market'); if (MARKETS[mk]) S.market = mk; } catch (_) { /* 저장할 수 없는 환경 */ }
   trayLoad(); bind(); route();
 })();
 })();

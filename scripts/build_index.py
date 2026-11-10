@@ -4,7 +4,8 @@ from datetime import date
 
 from common import DATA, save
 
-BRANDS = ["hyundai", "kia", "genesis", "kgm", "renault", "chevrolet"]
+BRANDS = ["hyundai", "kia", "genesis", "kgm", "renault", "chevrolet",  # 국산차
+          "tesla", "bmw", "mercedes", "volvo"]  # 수입차
 
 
 def main():

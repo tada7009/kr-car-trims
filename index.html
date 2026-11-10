@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>트림노트 · 국산차 트림 비교</title>
-<meta name="description" content="현대·기아·제네시스·KGM·르노코리아·쉐보레 국산차 전 차종의 트림별 기본사양·선택옵션·가격을 한 화면에서 비교하는 장기렌트 상담용 도구">
+<title>트림노트 · 국산·수입차 트림 비교</title>
+<meta name="description" content="국산차(현대·기아·제네시스·KGM·르노코리아·쉐보레)와 수입차(테슬라·BMW·벤츠·볼보)의 트림별 사양·선택옵션·가격을 한 화면에서 비교하는 장기렌트·리스 상담용 도구">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230a0a0a'/><rect x='7' y='18' width='4' height='7' fill='white'/><rect x='14' y='13' width='4' height='12' fill='white'/><rect x='21' y='7' width='4' height='18' fill='%234f8ef0'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="assets/style.css?v=20261103k">
+<link rel="stylesheet" href="assets/style.css?v=20261110b">
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
@@ -24,7 +24,7 @@
   <aside class="side" id="side">
     <a class="brand" href="#/">
       <svg class="mark" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="7" fill="var(--text)"/><rect x="6" y="16" width="4" height="6" fill="var(--surface)"/><rect x="12" y="11" width="4" height="11" fill="var(--surface)"/><rect x="18" y="6" width="4" height="16" fill="var(--hue)"/></svg>
-      <span><b>트림노트</b><small>국산차 트림·옵션 장부</small></span>
+      <span><b>트림노트</b><small>국산·수입차 트림·옵션 장부</small></span>
     </a>
     <div class="gsearch">
       <input id="q" type="search" autocomplete="off" placeholder="차종·사양 검색" aria-label="차종 또는 사양 검색">
@@ -35,6 +35,7 @@
       <a class="snav-i" href="#/" data-nav="home">전체 차종 <span class="n" id="navTotal"></span></a>
       <a class="snav-i" href="#/compare" data-nav="compare">비교함 <span class="n tray-count">0</span></a>
     </nav>
+    <div class="market-seg" id="marketSeg" role="group" aria-label="국산차·수입차"></div>
     <div class="brand-seg" id="brandChips" role="group" aria-label="브랜드"></div>
     <nav class="mlist" id="mlist" aria-label="차종"></nav>
     <div class="side-foot">
@@ -45,6 +46,6 @@
   <main class="main" id="main"><div class="loading">불러오는 중…</div></main>
 </div>
 <div class="toast" id="toast" role="status" hidden></div>
-<script src="assets/app.js?v=20261103k"></script>
+<script src="assets/app.js?v=20261110b"></script>
 </body>
 </html>

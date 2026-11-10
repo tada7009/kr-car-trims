@@ -47,6 +47,31 @@ def fetch_json(url, headers=None, cache=True):
     return json.loads(fetch(url, headers, cache))
 
 
+# 일부 수입차 사이트는 파이썬 urllib 연결을 끊어서, 윈도 기본 curl(schannel)로 받는다
+CURL = "C:/Windows/System32/curl.exe" if Path("C:/Windows/System32/curl.exe").exists() else "curl"
+
+
+def curl_get(url, binary=False, cache=True, headers=None):
+    """curl로 URL을 받아 bytes(binary=True) 또는 str로 반환. 캐시는 fetch와 같은 폴더를 쓴다."""
+    import subprocess
+    CACHE.mkdir(parents=True, exist_ok=True)
+    path = CACHE / ("c" + hashlib.sha1(url.encode()).hexdigest())
+    if not (cache and path.exists()):
+        cmd = [CURL, "-s", "-L", "--compressed", "-m", "90", "-A", UA,
+               "-H", "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+               "-H", "Accept-Language: ko-KR,ko;q=0.9", "-H", 'sec-ch-ua: "Chromium";v="130", "Google Chrome";v="130"',
+               "-H", "Sec-Fetch-Dest: document", "-H", "Sec-Fetch-Mode: navigate", "-H", "Sec-Fetch-Site: none",
+               "-H", "Upgrade-Insecure-Requests: 1", "-o", str(path), "-w", "%{http_code}"]
+        for k, v in (headers or {}).items():
+            cmd += ["-H", f"{k}: {v}"]
+        code = subprocess.run(cmd + [url], capture_output=True, text=True).stdout.strip()
+        if code != "200":
+            path.unlink(missing_ok=True)
+            raise RuntimeError(f"curl {code}: {url}")
+    data = path.read_bytes()
+    return data if binary else data.decode("utf-8", "replace")
+
+
 def clean(s):
     """공백·HTML 엔티티 정리."""
     if s is None:

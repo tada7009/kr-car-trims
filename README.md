@@ -17,6 +17,17 @@
 | 르노코리아 | cdn.renault.co.kr 월별 가격표 PDF |
 | 쉐보레 | chevrolet.co.kr 카탈로그/가격표 페이지의 가격표 PDF (국내 생산 차종) |
 
+### 수입차
+
+| 브랜드 | 출처 | 상세 사양 |
+| --- | --- | --- |
+| 테슬라 | tesla.com/ko_kr 디자인하기(구성기) 데이터 | 트림별 주요 사양, 색상·휠·FSD 옵션 가격 |
+| BMW | bmw.co.kr 월별 가격표 PDF | 트림·가격만 공개(구성기는 유럽 사양 기준이라 쓰지 않음) |
+| 벤츠 | mercedes-benz.co.kr 일반 소비자 판매 가격표 PDF | 연식별 트림·가격만 공개 |
+| 볼보 | volvocars.com/kr 나만의 볼보 디자인 '장비 레벨 비교' | 레벨별 전체 품목(기본/선택) |
+
+테슬라·볼보 구성기는 파이썬으로 바로 받을 수 없어, 내장 브라우저로 추린 값을 `scripts/raw/<브랜드>/`에 두고 `build_imports.py`가 사이트 형식으로 바꿉니다.
+
 가격은 각 제조사가 공시한 자가용 가격표 기준이며 탁송료·등록비·프로모션은 들어 있지 않습니다.
 
 ## 데이터 갱신 (월 1회 권장)
@@ -32,6 +43,10 @@ python scrape_renault.py
 python scrape_chevrolet.py
 python fetch_images.py   # 목록용 차종 썸네일을 img/에 저장
 python fetch_media.py    # 고해상도 외관·실내 사진을 img/에 저장
+python scrape_bmw.py     # 수입차: BMW·벤츠 가격표 PDF
+python scrape_mercedes.py
+python build_imports.py  # 수입차: 테슬라·볼보 원자료(scripts/raw) → data
+python fetch_import_media.py
 python build_index.py
 ```
 
