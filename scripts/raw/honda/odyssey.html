@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=1200, user-scalable=no"/>
+<meta name="keyword" content="혼다, 혼다코리아, Honda, Honda Korea, 어코드, CR-V, 파일럿, 오딧세이, Odyssey, Pilot, 혼다 자동차, 혼다 온라인 플랫폼, 혼다 온라인, 혼다 시승, 혼다 프로모션, 혼다어코드, 혼다오딧세이, 혼다파일럿"/>
+<meta name="description" content="혼다 자동차 온라인 플랫폼에서, 제품 정보에서 시승,계약,구입까지 모든 과정을 편리하게 경험 하세요."/>
+<meta name="naver-site-verification" content="f07ea98fa8616d9c3d31665bf7c9c10e65157668" />
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://auto.hondakorea.co.kr">
+<meta property="og:title" content="혼다 자동차">
+<meta property="og:image" content="https://auto.hondakorea.co.kr/static/images/main/m1-car1.png">
+<meta property="og:description" content="혼다 자동차 온라인 플랫폼에서, 제품 정보에서 시승,계약,구입까지 모든 과정을 편리하게 경험 하세요.">
+<meta property="og:site_name" content="혼다코리아">
+<meta property="og:locale" content="ko_KR">
+<title>혼다 자동차</title>
+<meta name="_csrf" content="22fefe50-2684-435e-a2dc-510fa6f1e504"/>
+<meta name="_csrf_header" content="X-XSRF-TOKEN"/>
+<link rel="icon" type="image/png" href="/static/favicon.png"/>
+<link rel="stylesheet" type="text/css" href="/static/common/css/font.css"/>
+<link rel="stylesheet" type="text/css" href="/static/common/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="/static/common/css/idevel.css"/>
+
+<link rel="stylesheet" type="text/css" href="/static/common/css/lib/pannellum.css"/>
+<script type="text/javascript" src="/static/common/js/lib/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="/static/common/js/lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="/static/common/js/lib/mobile-detect.min.js"></script>
+<script type="text/javascript" src="/static/common/js/lib/swiper.min.js"></script>
+
+<script type="text/javascript" src="/static/common/js/ui.js"></script>
+<script type="text/javascript" src="/static/common/js/idevel.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+
+<script type="text/javascript" src="/static/common/js/lib/pannellum.js"></script>
+<script type="text/javascript" src="/static/common/js/lib/threesixty.js"></script>
+<script type="text/javascript" src="/static/common/js/lib/jstat.min.js"></script>
+<script type="text/javascript" src="/static/common/js/lib/formula.min.js"></script>
+
+
+
+
+    <script src="//cdn.evgnet.com/beacon/e5568l55556p23yka3n3n3r091567742/hondakorea/scripts/evergage.min.js"></script>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7JCZG9XBL5"></script>
+
+<style type="text/css">body.imp-payment-progress {position: static}
+body.imp-payment-progress > :not(.imp-dialog) {display: none}
+.imp-dialog {display : none; position : fixed; top : 0; bottom : 0;left : 0; right : 0; width : 100%; height: 100%; z-index:99999;}
+.imp-dialog .imp-frame-pc.imp-frame-danal { left:50% !important; margin-left:-250px; width:500px !important; height:730px !important; margin-top: 50px;}
+.imp-dialog.payment-uplus.pc {background: rgba(0,0,0,0.5);}
+.imp-dialog .imp-frame-pc.imp-frame-uplus {width: 650px !important; height: 650px !important; left: 50% !important; top: 50% !important; margin-left:-325px !important;margin-top: -325px !important;}
+.imp-dialog .imp-frame-pc.imp-frame-mobilians { left:50% !important; margin-left:-410px; width:820px !important; height:700px !important; margin-top: 50px;}
+.imp-dialog .imp-header {display:none; background:transparent; position:absolute; top:0; left:0; right:0; height:25px;}
+.imp-dialog .imp-close {text-decoration : none; position : absolute; top : 10px; right : 10px; cursor : pointer; background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KTMInWQAAAV1JREFUOBHNkz1Ow0AQhWMHioggUSFEyRGAggp6KqDhDHAFOioU/loQoqDlGhyAgmtQ0gEO31jz1iPbcZyOlUY7fvvem9mdZDD472vY0mDegrVBGaBF54qELuPYSNQkc4FjkHNCAu2JSLLkHxvsZ+Gg9FAXUw4M+CI+8zy/cuIvezQ1sx9iDOeS/YOwZT7m0VgqcITgOpwars5WOXvke9vPY8EgqVIJTxDeVXCZWWdPZLuOL9fOZ35G03tnjbyznS4zDaPNWe91iNE+hGlRFK/s74R19k0stNJ1six7w/QlqPXWAepOdWUbwDPULeKAPL7p3GGohMzqA7DzY0xvRWSfayrCCsIHBHGaKmTTr/+kQo0q1busuZl+Z+ktocrUOr2ppM3/tKY9hDiBuOfkaCa9TE8BLhyUXpxUYQSy7qiun0gh0W02wWbyYhUJgkcj7cMpRb2JsBfhNjrqBfwBsGIgzBGH3EgAAAAASUVORK5CYII=');}.imp-dialog.popup .imp-frame-danal-certification {background:transparent !important;}
+.imp-dialog.pc .imp-frame-danal-certification {width:410px !important;height:660px !important;margin:10px auto;background: #fff;}
+.imp-dialog.pc.certification-danal {background: rgb(255, 255, 255);background: rgba(0,0,0,0.5);}
+.imp-dialog.pc.certification-danal .imp-header {display:block; width: 410px;margin:0 auto;}
+.imp-dialog.pc.certification-danal.popup .imp-header {display:none;}
+.imp-dialog.pc.certification-danal .imp-header .imp-close {top:18px; right:25px; width:19px; height:19px;}
+.imp-dialog.mobile.ios {position:absolute;}
+.imp-dialog.mobile.certification-danal .imp-header {display:block;}
+.imp-dialog.mobile.certification-danal.popup .imp-header {display:none;}
+.imp-dialog.mobile.certification-danal .imp-header .imp-close {top:6px; right:10px; width:19px; height:19px;}
+.imp-dialog.pc.payment-settle_firm {background: rgb(221, 221, 221);background: rgba(0,0,0,0.5);}
+.imp-dialog.pc .imp-frame-settle_firm.layer {width:410px !important;height:700px !important;margin:10px auto;background: #fff;}
+.imp-dialog.pc.payment-kakaopay {background: rgb(221, 221, 221);background: rgba(0,0,0,0.5);}
+.imp-dialog.pc.payment-kakaopay .imp-frame-kakaopay {width: 426px !important; height: 550px !important; left: 50% !important; top: 50% !important; margin-left:-213px !important;margin-top: -275px !important;}
+</style>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-7JCZG9XBL5');
+</script>
+
+<script type="text/javascript">
+    const csrf_token    = $("meta[name='_csrf']").attr("content")
+    const csrf_header   = $("meta[name='_csrf_header']").attr("content");
+</script>
+
+
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1147614296983134');
+    fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+               src="https://www.facebook.com/tr?id=1147614296983134&ev=PageView&noscript=1"
+/></noscript>
+</head>
+
+<body>
+<p id="accessibility"><a href="#container">본문바로가기</a></p>
+<div id="wrap">
+    
+    <header id="header" class="headerTy2 subHeader" style="top: 0px;">
+    <div class="header2">
+        <div class="static">
+            <h1><a href="/main/" class="h1__logo__link">HONDA The Power of Dreams</a></h1>
+            <div class="header2__nav">
+                <a href="/purchase/" class="header2__nav__link">Purchase</a>
+                <a href="/login/loginForm" class="header2__nav__link2">로그인</a>
+                
+                <button type="button" class="header2__menu">메뉴오픈</button>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="hondaNav">
+    <div class="dim"></div>
+    <div class="hondaNav__gnba">
+        <div class="hondaNav__gnbaWrap">
+            <div class="gnbLog">
+                <a href="/login/loginForm">로그인</a>
+                <a href="/sign/join">회원가입</a>
+            </div>
+            
+            <button type="button" class="gnbaClose"><span class="icoX">메뉴닫기</span></button>
+            <div class="gnbaNavWrap">
+                <div class="gnbaModel">
+                    <a href="/model/" class="gnba__link">온라인쇼룸</a>
+                    
+                    <ul class="gnbSuba">
+                        <li class="gnbSuba__item">
+                            <a href="/model/accord_hev" class="gnbSuba__link">
+                                <span class="car"><img src="/static/images/main/2023AccordHev.png" alt="2023 Accord Hybrid"></span>
+                                <span class="tt">Accord Hybrid</span>
+                            </a>
+                        </li>
+                        <li class="gnbSuba__item">
+                            <a href="/model/crv_hev" class="gnbSuba__link">
+                                <span class="car"><img src="/static/images/main/2024CR-VHEV.png" alt="2024 CR-V HEV"></span>
+                                <span class="tt">CR-V Hybrid</span>
+                            </a>
+                        </li>
+                        <li class="gnbSuba__item">
+                            <a href="/model/odyssey" class="gnbSuba__link">
+                                <span class="car"><img src="/static/images/main/2025Odyssey.png" alt="2025 Odyssey"></span>
+                                <span class="tt">Odyssey</span>
+                            </a>
+                        </li>
+                        <li class="gnbSuba__item">
+                            <a href="/model/pilot" class="gnbSuba__link" >
+                                <span class="car"><img src="/static/images/main/2025PilotBE.png" alt="2025 Pilot BE"></span>
+                                <span class="tt">Pilot</span>
+                            </a>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+                <div class="gnbaNav">
+                    <ul class="gnba">
+                        <li class="gnba__item">
+                            <div class="gnba__link">체험</div>
+                            
+                            <ul class="gnbSuba">
+                                
+                                
+                                
+                                <li class="gnbSuba__item"><a href="https://exp.hondakorea.co.kr/cafethego/" class="gnbSuba__link gnbSuba__linkOpen" target="_blank" rel="noopener noreferrer">Cafe ‘The go’(분당시승센터)</a></li>
+                                <li class="gnbSuba__item"><a id="btnCheck" style="cursor: pointer" class="gnbSuba__link btnCheck">시승예약</a></li>
+                                
+                                <li class="gnbSuba__item"><a href="/service/network-dealer" class="gnbSuba__link">전시장 네트워크</a></li>
+                                <li class="gnbSuba__item"><a href="/service/exhibition-car" class="gnbSuba__link">전시차 조회</a></li>
+                                <li class="gnbSuba__item"><a href="/service/testdrive" class="gnbSuba__link">시승차 조회</a></li>
+                            </ul>
+                        </li>
+                        <li class="gnba__item">
+                            <div class="gnba__link">구매</div>
+                            
+                            <ul class="gnbSuba">
+                                
+                                
+                                
+                                
+                                
+                                <li class="gnbSuba__item"><a style="cursor: pointer" class="gnbSuba__link expectOutstock">예상 출고시점 조회</a></li>
+                                <li class="gnbSuba__item"><a href="/purchase/estimate" class="gnbSuba__link">견적 및 구매하기</a></li>
+
+                                
+                                
+                                <li class="gnbSuba__item"><a href="/purchase/promotion" class="gnbSuba__link">프로모션</a></li>
+                                <li class="gnbSuba__item"><a href="https://shop.hondakorea.co.kr/" class="gnbSuba__link gnbSuba__linkOpen" target="_blank" rel="noopener noreferrer">혼다SHOP(쿠폰&액세서리 구매)</a></li>
+                                <li class="gnbSuba__item"><a href="/purchase/purchaseWay" class="gnbSuba__link">온라인 구매방법</a></li>
+                            </ul>
+                        </li>
+                        <li class="gnba__item">
+                            <div class="gnba__link">서비스</div>
+                            
+                            <ul class="gnbSuba">
+                                
+                                
+                                
+                                
+                                
+                                
+                                <li class="gnbSuba__item"><a href="/service/info-guarantee" class="gnbSuba__link">서비스 안내</a></li>
+                                <li class="gnbSuba__item"><a href="/service/part" class="gnbSuba__link">부품 정보</a></li>
+                                <li class="gnbSuba__item"><a href="/service/recall" class="gnbSuba__link">리콜 안내</a></li>
+                                <li class="gnbSuba__item"><a href="/service/network-center" class="gnbSuba__link">서비스 네트워크</a></li>
+                                <li class="gnbSuba__item"><a href="/service/manual" class="gnbSuba__link">사용자 매뉴얼</a></li>
+                                <li class="gnbSuba__item"><a href="/service/myhonda" class="gnbSuba__link">혼다 앱</a></li>
+                            </ul>
+                        </li>
+                        <li class="gnba__item">
+                            <div class="gnba__link">혼다</div>
+                            
+                            <ul class="gnbSuba">
+                                <li class="gnbSuba__item"><a href="/honda/notice" class="gnbSuba__link">혼다소식</a></li>
+                                <li class="gnbSuba__item"><a href="/honda/community/testRide/" class="gnbSuba__link">커뮤니티</a></li>
+                                <li class="gnbSuba__item"><a href="/honda/event/" class="gnbSuba__link">이벤트</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="gnba__item">
+                            <div class="gnba__link">고객지원</div>
+                            
+                            <ul class="gnbSuba">
+                                <li class="gnbSuba__item"><a href="/support/" class="gnbSuba__link">고객지원</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="gnbaBtm">
+                <div class="gnbaBtm__sns">
+                    <a href="https://www.facebook.com/HondaKoreaAutomobile" class="fw--fb" target="_blank">Facebook</a>
+                    <a href="https://www.youtube.com/channel/UCimd21KqAguOw8yN_9kL6uw" class="fw--ytb" target="_blank">Youtube</a>
+                    <a href="https://www.instagram.com/hondakorea_automobile/" class="fw--insta" target="_blank">Instagram</a>
+                </div>
+                <div class="gnbaBtm__link">
+                    <a id="btnCheck2" class="gnbaBtm__link--link1 btnCheck" style="cursor:pointer">온라인 시승예약</a>
+                    <a href="/purchase/estimate" class="gnbaBtm__link--link2">견적/구매</a>
+                    <a href="/service/network-dealer" class="gnbaBtm__link--link3">전시장</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(function () {
+        $('.btnCheck').click(function () {
+            $('.gnbaClose').trigger("click");
+            $.ajax({
+                url: "/support/loginCheck",
+                type: "POST",
+                success: function (data) {
+                    let json = JSON.parse(data);
+                    var testDriveData = {"testDrive":"testDrive"};
+                    const testDrive = JSON.stringify(testDriveData);
+                    localStorage.setItem("testDrive",testDrive);
+                    if (json.result === true) {
+                        location.href = "/experience/testDriveAppMem";
+                    }else {
+                        ui.ajaxpopup.open("/support/loginPop");
+                    }
+
+                },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader(csrf_header, csrf_token);
+                    $(".wrap-loading").removeClass('display-none');
+                },
+                complete: function () {
+                    $(".wrap-loading").addClass('display-none');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        });
+
+
+        $(".expectOutstock").click(function (){
+            $('.gnbaClose').trigger("click");
+            $.ajax({
+                url: "/support/loginCheck",
+                type: "POST",
+                success: function (data) {
+                    let json = JSON.parse(data);
+                    var expectOutstockData = {"expectOutstockData":"expectOutstockData"};
+                    const expectOutstock = JSON.stringify(expectOutstockData);
+                    console.log("expectOutstock:::"+expectOutstock)
+                    console.log("data:::"+json.result);
+                    localStorage.setItem("expectOutstock",expectOutstock);
+
+                    if (json.result === true) {
+                        location.href = "/purchase/expectOutstock";
+                    }else {
+                        ui.ajaxpopup.open("/support/loginPop");
+                    }
+
+                },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader(csrf_header, csrf_token);
+                    $(".wrap-loading").removeClass('display-none');
+                },
+                complete: function () {
+                    $(".wrap-loading").addClass('display-none');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        });
+    });
+</script>
+    
+
+    <style>
+        #threesixty {
+            background-size: cover;
+            min-width: 1280px;
+        }
+    </style>
+
+    <div id="container" class="sub">
+        <div class="modelSection">
+            <div class="modelHead">
+                <div class="static">    
+                    <div class="modelHead__tit">
+                        <button type="button" class="modelHead__tit__current">Odyssey</button>
+                        <ul class="modelHead__tit__list">
+                            <li><button type="button" onclick="location.href='/model/accord_hev'">Accord Hybrid</button></li>
+                            <li><button type="button" onclick="location.href='/model/crv_hev'">CR-V Hybrid</button></li>
+                            <li class="active"><button type="button" >Odyssey</button></li>
+                            <li><button type="button" onclick="location.href='/model/pilot'">Pilot</button></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="modelHead__nav">
+                        <ul class="modelHead__nav__menu">
+                            <li class="modelHead__nav__item active"><a href="#OVERVIEW" class="modelHead__nav__link">Overview</a></li>
+                            <li class="modelHead__nav__item"><a href="#DESIGN" class="modelHead__nav__link">Design</a></li>
+                            <li class="modelHead__nav__item"><a href="#Exterior" class="modelHead__nav__link">Exterior</a></li>
+                            <li class="modelHead__nav__item"><a href="#Interior" class="modelHead__nav__link">Intelligent</a></li>
+                            <li class="modelHead__nav__item"><a href="#Space" class="modelHead__nav__link">Space</a></li>
+                            <li class="modelHead__nav__item"><a href="#Performance" class="modelHead__nav__link">Performance</a></li>
+                            <li class="modelHead__nav__item"><a href="#Safety" class="modelHead__nav__link">Safety</a></li>
+                            <li class="modelHead__nav__item"><a href="#SENSING" class="modelHead__nav__link">Honda Sensing</a></li>
+                            <li class="modelHead__nav__item"><a href="#Connect" class="modelHead__nav__link">Honda Connect</a></li>
+                            <li class="modelHead__nav__item"><a href="#Spec" class="modelHead__nav__link">Spec</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="modelHead__btn">
+                        <a href="/purchase/selectOption?carSeq=2&csnTrim=ELITE&carCd=A0010005&year=2026" class="btn--nor2">견적/구매</a>
+                    </div>   
+                </div>
+            </div>
+            
+            <div class="modelContents odyssey">
+                <div id="OVERVIEW">
+                    <div class="overview__bg"><img src="/static/images/model/2025Odyssey/odss_visual.png" alt="NEW ODYSSEY 출시"></div>
+                    <div class="overview__logo"><img src="/static/images/model/2025Odyssey/odss_visual_title.png" alt="NEW ODYSSEY"></div>
+                </div>
+                <div id="DESIGN">
+                    <div class="odysseyTitle">
+                        <div class="static">
+                            <h3 class="tt"><span>DESIGN</span></h3>
+                            <p class="ts">
+                            <span>
+                                모던하면서도 자신감 넘치는, 가족을 위한 완벽한 공간.
+                            </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="odyssey__gallery">
+                        <div class="bg">
+                            <img src="/static/images/model/2025Odyssey/odss_design.png" alt="DESIGN 모던하면서도 자신감 넘치는, 가족을 위한 완벽한 공간.">
+                        </div>
+                    </div>
+                    <div class="grayBx">
+                        <div class="static">
+                            <p class="n-motion n-bottom">
+                                모던한 스타일부터 뛰어난 활용성까지, Odyssey는 ‘가족을 위한 완벽한 공간’으로 새롭게 다듬어졌습니다.<br/>가족과 함께하는 일상은 물론, 다양한 레저 활동과 여행에서도 모든 순간에 즐거움과 편안함을 더해드립니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="odyssey__model">
+                        <div id="modelContainer" class="modelsRotation">
+                            <div class="modelsRotation__360">360˚</div>
+                            <div class="modelsRotation__model">
+                                
+                                <div id="threesixty" style="background-size: cover;"></div>
+                            </div>
+                        </div>
+                        <div class="colorChkWrap">
+                            <div class="colorTit">Color</div>
+                            <div class="colorChkLists">
+                                <label class="colorChk">
+                                    <input type="radio" name="modelColor" checked="" onClick="renderThreeSixty('white')">
+                                    <span class="colorChk__label">
+                                        <span class="color" style="background-color:#EDECF1;"></span>
+                                        <span class="txt">Platinum White Pearl</span>
+                                    </span>
+                                </label>
+                                <label class="colorChk">
+                                    <input type="radio" name="modelColor" onClick="renderThreeSixty('gray')">
+                                    <span class="colorChk__label">
+                                        <span class="color" style="background: #424348;"></span>
+                                        <span class="txt">Modern Steel M</span>
+                                    </span>
+                                </label>
+                                <label class="colorChk">
+                                    <input type="radio" name="modelColor" onClick="renderThreeSixty('black')">
+                                    <span class="colorChk__label">
+                                        <span class="color" style="background: #000000"></span>
+                                        <span class="txt">Crystal Black Pearl</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Exterior">
+                    <div class="odysseyTitle">
+                        <div class="static">
+                            <h3 class="tt"><span>Exterior</span></h3>
+                            <p class="ts">
+                            <span>
+                                새로워진 Odyssey의 강인하고 다이내믹한 외관
+                            </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="odyssey__gallery">
+                        <div class="bg">
+                            <img src="/static/images/model/2025Odyssey/odss_ext.png" alt="Exterior 새로워진 Odyssey의 강인하고 다이내믹한 외관">
+                        </div>
+                    </div>
+                    <div class="grayBx">
+                        <div class="static">
+                            <p class="n-motion n-bottom">
+                                전·후면 범퍼 디자인을 더욱 강렬하게 업그레이드하여 Odyssey의 존재감을 한층 높였습니다. <br/>
+                                도시와 자연, 어떤 배경에서도 고유의 고급스러움과 패밀리 미니밴의 감성이 세련되게 살아있습니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="exterior">
+                        <div class="static">
+                            <div class="exteriorItem exteriorItem1">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Exterior</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">강렬한 인상의 프론트 디자인</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">Odyssey의 아이덴티티를 유지하면서도 강렬한 인상을<br/>
+                                            더하는 새로운 라디에이터 그릴과 범퍼 디자인을 선보입니다.<br/>
+                                            친근하면서도 시선을 사로잡는 매력으로, 가족 모두의<br/>
+                                            취향을 만족시켜 드립니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_ext_01.jpg" alt="Exterior 강렬한 인상의 프론트 디자인">
+                                </div>
+                            </div>
+                            <div class="exteriorItem exteriorItem2 even">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Exterior</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">19인치 알로이 휠</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">새롭게 디자인된 19인치 알로이 휠은 Odyssey의<br/>
+                                            자신감 넘치는 외관과 어우러져, 더욱 모던한 느낌과<br/>
+                                            강렬한 존재감을 더해줍니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_ext_02.jpg" alt="Exterior 19인치 알로이 휠">
+                                </div>
+                            </div>
+                            <div class="exteriorItem exteriorItem3">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Exterior</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">와이드하면서 세련된<br/>
+                                            리어 스타일</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">스포티한 감성을 더한 리어 범퍼 디자인이 매끈한 후면을 완성하며,<br/>
+                                            그 위로 와이드하게 펼쳐진 블랙 컬러의 그릴 바가 고급스러운<br/>
+                                            패밀리 미니밴의 아이덴티티를 뚜렷하게 드러냅니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_ext_03.jpg" alt="Exterior 와이드하면서 세련된 리어 스타일">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ExteriorSect022">
+                        <div class="static odyssey_swiper">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="exterior031Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_ext_04.jpg" alt="스모키 톤 LED 리어 콤비네이션 램프"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">스모키 톤 LED 리어 콤비네이션 램프</p>
+                                                <p class="mdTx2">어두운 톤의 렌즈가 더욱 감각적이고 고급스러운 분위기를
+                                                    연출하며,<br/>
+                                                    정교하게 설계된 LED 조명이 주야간 언제나 뛰어난
+                                                    가시성을 제공합니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="exterior031Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_ext_05.jpg" alt="LED 안개등"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">LED 안개등</p>
+                                                <p class="mdTx2">새로운 디자인의 LED 안개등은
+                                                    방향지시등과 주행등 아래에 배치되어<br/>
+                                                    전방 시야 확보에 더욱 효과적입니다</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="exterior031Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_ext_06.jpg" alt="Full LED 헤드램프, LED 주간 주행등"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">Full LED 헤드램프, LED 주간 주행등</p>
+                                                <p class="mdTx2">자동 온·오프 기능이 적용된 헤드라이트는 에너지 절감 효과와<br/> 넓은 시야를 제공하며, 주간 주행등과 완벽한 디자인 조화를 이룹니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Interior">
+                    <div class="odysseyTitle bg-white">
+                        <div class="static">
+                            <h3 class="tt"><span>Intelligent</span></h3>
+                            <p class="ts">
+                            <span>
+                                가족 모두를 위한, 가족 하나하나에 맞춘 편의사양
+                            </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="InteriorSect1__show">
+                        <div class="carShow__car__show">
+                            
+                            <div id="panoramaContainer" style=" height: 1000px; width: 100%; padding: 50px 0; box-sizing: border-box">
+                                <div id="panorama"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grayBx">
+                        <div class="static">
+                            <p class="n-motion n-bottom">
+                                새로워진 Odyssey는 온 가족을 배려한 첨단 편의 사양으로 더욱 편안하고 즐거운 이동 경험을 선사합니다.<br/>스마트한 기술과 직관적인 디자인이 조화를 이루어, 함께하는 시간을 더욱 의미 있게 만들어 줍니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="exterior">
+                        <div class="static">
+                            <div class="exteriorItem exteriorItem1">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Intelligent</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">리어 엔터테인먼트 시스템</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">12.8인치 대화면을 통해 음악과 영상 등의 콘텐츠를 즐길 수 있으며,<br/>
+                                            스마트폰이나 태블릿과 호환되어 손쉽게 스트리밍할 수 있습니다.<br/>
+                                            긴 여행 중에도 아이들에게 지루함 없이 편안한 시간을 만들어 줍니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_int_01.jpg" alt="Intelligent 리어 엔터테인먼트 시스템">
+                                </div>
+                            </div>
+                            <div class="exteriorItem exteriorItem2 even">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Intelligent</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">캐빈와치</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">운행 중에도 디스플레이 오디오 스크린을 통해<br/>
+                                            뒷좌석의 상황을 확인할 수 있습니다.<br/>
+                                            적외선 LED 장치로 야간에도 선명한 화면을 제공하며,<br/>
+                                            터치식 줌 기능으로 원하는 위치를 확대할 수 있습니다.</p>
+                                        <p class="odyssey__t3 n-motion n-bottom">※ 상기 이미지는 이해를 돕기 위한 가상 이미지로
+                                            실제와 다를 수 있습니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_int_02.jpg" alt="Intelligent 캐빈와치">
+                                </div>
+                            </div>
+                            <div class="exteriorItem exteriorItem3">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Intelligent</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">캐빈토크
+                                        </h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">캐빈토크 시스템은 차량 내 모든 미디어 소리를 조절하여,<br/>
+                                            탑승객에게 마치 기내 방송처럼 편안하고 명확한 안내를<br/>
+                                            제공합니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_int_03.jpg" alt="Intelligent 캐빈토크">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Interior021">
+                        <div class="static odyssey_swiper">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_int_04.jpg" alt="Apple TFT 디지털 계기판"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">TFT 디지털 계기판</p>
+                                                <p class="mdTx2">취향에 맞춰 다양한 화면 모드를 지원하는  TFT 디지털 계기판을 통해 주행 관련 정보와
+                                                    오디오 정보를 주행 중에도 시선이 흐트러지지  않게 손쉽게 확인할 수 있습니다</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_int_05.jpg" alt="유/무선 Apple CarPlay & Android Auto"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">유/무선 Apple CarPlay & Android Auto</p>
+                                                <p class="mdTx2">스마트폰의 다양한 기능을 더욱 편리하게 활용할 수 있습니다.<br/>
+                                                    ※ 스마트폰 기종에 따라 사용이 제한될 수 있습니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_int_06.jpg" alt="HDMI & USB Ports"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">HDMI & USB Ports</p>
+                                                <p class="mdTx2">다양한 디지털 기기와의 연결을 지원하여
+                                                    탑승객들이 보다 편리하게
+                                                    엔터테인먼트
+                                                    콘텐츠를 즐길 수 있도록 해줍니다</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_int_07.jpg" alt="운전석 메모리 시스템"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">운전석 메모리 시스템</p>
+                                                <p class="mdTx2">2명의 운전자가 각자의 선호 시트 위치를 저장할 수  있는<br/>
+                                                    메모리 시스템이 적용되어, 운전 편의성을  더욱 향상시켰습니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_int_08.jpg" alt="버튼 시동 스마트키 시스템 (원격 시동 장치)"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">버튼 시동 스마트키 시스템 (원격 시동 장치)</p>
+                                                <p class="mdTx2">푸시 버튼으로 간편하게 시동을 걸 수 있으며,<br/>
+                                                    원격 시동 기능을 통해 탑승 전에 실내 온도를  미리 조절해 쾌적한 환경을 준비할 수 있습니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_int_09.jpg" alt="열선 스티어링 휠"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">열선 스티어링 휠</p>
+                                                <p class="mdTx2">열선 버튼으로 시트와 스티어링 휠에 내장된  열선을 작동시키면,<br/>
+                                                    추운 날씨에도 따뜻한 그립감을  느낄 수 있어 편안하고 안락한 주행이 가능합니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_int_10.jpg" alt=""></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">멀티 존 오디오</p>
+                                                <p class="mdTx2">각 구역에서 독립적으로 오디오를 조정할 수 있어,<br/>
+                                                    탑승객들이 원하는 음악을 즐기거나 조용한 환경을  유지하며 편안하게 이동할 수 있습니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_int_11.jpg" alt="스마트폰 무선 충전 시스템"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">스마트폰 무선 충전 시스템</p>
+                                                <p class="mdTx2">별도의 유선 케이블 없이 충전 패드에  올려놓기만 하면 휴대폰이 충전되는 편리한  기능입니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Space">
+                    <div class="odysseyTitle bg-white">
+                        <div class="static">
+                            <h3 class="tt"><span>Space</span></h3>
+                            <p class="ts">
+                            <span>
+                                동급 최고 수준의 거주공간과 유연한 활용성
+                            </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="odyssey__gallery">
+                        <div class="bg">
+                            <img src="/static/images/model/2025Odyssey/odss_spa.jpg" alt="Space 동급 최고 수준의 거주공간과 유연한 활용성">
+                        </div>
+                    </div>
+                    <div class="grayBx">
+                        <div class="static">
+                            <p class="n-motion n-bottom">
+                                Odyssey는 동급 최고 수준의 2·3열 공간과 유연한 시트 구성으로 여유로운 이동을 제공합니다.<br/>
+                                탁 트인 개방감과 실용적인 적재공간으로 자녀와 함께하는 장거리 여행을 더욱 즐겁게 만들어 드립니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="exterior">
+                        <div class="static">
+                            <div class="exteriorItem exteriorItem1">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Space</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">매직 슬라이드 2열 시트</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">좌·우 위치 조정이 가능한 매직 슬라이드 2열 시트는<br/>
+                                            상황에 맞춰 간편하게 조절할 수 있으며, 2열과 3열 실내를<br/>
+                                            자유롭게 이동할 수 있는 워크 스루 공간을 제공합니다.<br/>
+                                            또한, 시트는 전방으로도 이동이 가능해 착석한<br/>
+                                            아이들에게 쉽게 손을 뻗을 수 있습니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_spa_01.jpg" alt="Space 매직 슬라이드 2열 시트">
+                                </div>
+                            </div>
+                            <div class="exteriorItem exteriorItem2 even">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Space</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">2열 시트 & 2열 워크인 레버</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">고급스럽고 편안한 2열 시트는 탑승객에게 안락한<br/>
+                                            착좌감을 제공합니다. 좌석 측면에 위치한 레버를 조작하면<br/>
+                                            2열 시트가 자동으로 앞쪽으로 이동하여 3열로 편리하게<br/>
+                                            이동할 수 있습니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_spa_02.jpg" alt="Space 2열 시트 & 2열 워크인 레버">
+                                </div>
+                            </div>
+                            <div class="exteriorItem exteriorItem3">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Space</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">대용량 러기지 룸</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">넓은 적재 공간은 길이나 부피가 큰 짐도 문제없이<br/>
+                                            실을 수 있습니다. 일상에서 여행, 레저까지 상황에 맞게<br/>
+                                            공간을 자유롭게 조절할 수 있어 활용도가 뛰어납니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_spa_03.jpg" alt="Space 대용량 러기지 룸">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Interior021">
+                        <div class="static odyssey_swiper">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_spa_04.jpg" alt="브라운 투톤 펀칭 가죽 시트"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">브라운 투톤 펀칭 가죽 시트</p>
+                                                <p class="mdTx2">브라운 & 블랙 두 가지의 컬러를 자연스럽게 매칭하고<br/>
+                                                    세밀한 펀칭을 적용해 고급감을 더했습니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_spa_05.jpg" alt="3열 6:4 폴딩 시트"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">3열 6:4 폴딩 시트</p>
+                                                <p class="mdTx2">필요에 따라 시트를 접어 넓은 적재 공간으로  사용할 수 있으며,<br/>
+                                                    다양한 형태의 짐을 실을 수  있는 유연성을 제공합니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_spa_06.jpg" alt="선루프"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">선루프</p>
+                                                <p class="mdTx2">한 번의 조작으로 손쉽게 작동하는 선루프는 실내를 밝고 개방감 있게 만들어 주며,
+                                                    풍경이나 별빛을 즐기며 드라이빙하는 감동을 제공합니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_spa_07.jpg" alt="1열 열선 / 통풍 시트"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">1열 열선 / 통풍 시트</p>
+                                                <p class="mdTx2">1열에 열선 및 통풍 시트가 적용되어<br/>
+                                                    안락하고 쾌적한 실내 환경을 제공합니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_spa_08.jpg" alt="핸즈프리 파워 테일게이트"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">핸즈프리 파워 테일게이트</p>
+                                                <p class="mdTx2">양손에 짐을 들고 있어도 가벼운 킥 모션
+                                                    만으로도 손쉽게 테일게이트가 오픈되어 불편함 없이 짐을 실을 수 있습니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_spa_09.jpg" alt="운전석 / 조수석 파워 시트"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">운전석 / 조수석 파워 시트</p>
+                                                <p class="mdTx2">운전석 8방향 파워 시트와 4방향 럼버 서포트,<br/>
+                                                    조수석 4방향 파워 시트와 4방향 럼버 서포트가 체형에 맞는 편안한 승차감을 제공합니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_spa_10.jpg" alt="2열 & 3열 윈도우 선쉐이드"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">2열 & 3열 윈도우 선쉐이드</p>
+                                                <p class="mdTx2">탑승객에게 프라이버시와 편안함을 제공하며,<br/>
+                                                    햇볕 차단에도 효과적입니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Seat">
+                    <div class="odysseyTitle grayBx">
+                        <div class="static">
+                            <h3 class="tt"><span>Seat Variation</span></h3>
+                            <p class="ts">
+                            <span>
+                                인원, 짐, 목적지에 구애 받지 않는 자유로움
+                            </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="Interior022">
+                        <img src="/static/images/model/2025Odyssey/odss_seat.jpg" alt="Seat Variation 인원, 짐, 목적지에 구애 받지 않는 자유로움">
+                    </div>
+                    <div class="grayBx">
+                        <div class="static">
+                            <p class="n-motion n-bottom">
+                                다양한 시트 베리에이션을 통해 최대 8명까지 편안하게 탑승할 수 있으며, 매직 슬라이드 2열 시트로 유연한 시트 구성이 가능합니다.<br/>또한, 3열 시트는 손쉽게 접을 수 있어 필요에 따라 다양한 크기의 적재 공간으로 변신합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="Performance">
+                    <div class="odyssey__driving01">
+                        <div class="driving__bg">
+                            <img src="/static/images/model/2025Odyssey/odss_per.jpg" alt="Performance 더욱 강력하고 섬세하게 조율된 드라이빙 성능">
+                        </div>
+                        <div class="odysseyTitle">
+                            <div class="static">
+                                <h3 class="tt"><span>Performance</span></h3>
+                                <p class="ts"><span>더욱 강력하고 섬세하게 조율된 드라이빙 성능</span></p>
+                            </div>
+                        </div>
+                        <div class="driving__info">
+                            <div class="driving__infoItem n-motion n-bottom n-delay1">
+                                <p class="driving__info1">최고출력 <span>시스템 (엔진)</span></p>
+                                <p class="driving__info2"><strong>284 / 6,000</strong>ps/rpm</p>
+                            </div>
+                            <div class="driving__infoItem n-motion n-bottom n-delay1">
+                                <p class="driving__info1">최대토크 <span>(모터)</span></p>
+                                <p class="driving__info2"><strong>36.2 / 4,700</strong>kg·m/rpm</p>
+                            </div>
+                            <div class="driving__infoItem n-motion n-bottom n-delay1">
+                                <p class="driving__info1"><strong>연비 효율</strong></p>
+                                <p class="driving__info2">
+                                    <strong>9.0</strong>복합
+                                    <strong>7.7</strong>도심
+                                    <strong>11.2</strong>고속도로 km/L
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grayBx">
+                        <div class="static">
+                            <p class="n-motion n-bottom">
+                                Odyssey는 3.5리터 V6 엔진과 10단 자동변속기의 조합으로 부드럽고 민첩한 주행 성능을 제공합니다.<br/>
+                                동급 최고 수준의 NVH* 성능과 뛰어난 승차감이 결합되어, 안정적이고 편안한 운전 경험을 선사합니다
+                            </p>
+                            <p class="noti n-motion n-bottom">* NVH : Noise(소음), Vibration(진동), Harshness(충격)</p>
+                        </div>
+                    </div>
+                    <div class="exterior">
+                        <div class="static">
+                            <div class="exteriorItem exteriorItem1">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Performance</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">3.5리터 i-VTEC 엔진 + VCM</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">정속 주행이나 완만한 가속 등 큰 출력이 필요하지 않을 경우,<br/>
+                                            3기통 또는 6기통으로 작동하여 연비 향상에 도움을 줍니다.<br/>
+                                            6기통 작동 시에는 최고 284마력의 강력한 출력으로<br/>
+                                            파워풀한 드라이빙을 즐길 수 있도록 설계되었습니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_per_01.jpg" alt="Performance 3.5리터 i-VTEC 엔진 + VCM">
+                                </div>
+                            </div>
+                            <div class="exteriorItem exteriorItem2 even">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Performance</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">전자식 버튼 타입 10단 자동 변속기</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">주차에서 주행까지 간단한 버튼 조작으로 변속이 가능한<br/>
+                                            전자식 10단 자동 변속기는 부드럽고 매끄러운 변속을 통해,<br/>
+                                            어떤 구간에서도 파워풀하고 민첩한 퍼포먼스를 보여줍니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_per_02.jpg" alt="Performance 전자식 버튼 타입 10단 자동 변속기">
+                                </div>
+                            </div>
+                            <div class="exteriorItem exteriorItem3">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Performance</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">패들 시프트</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">스티어링 휠에 장착된 패들 시프트 변속 레버를 사용하면,<br/>
+                                            수동 변속이 필요한 주행 상황에서 변속 타이밍을<br/>
+                                            직접 조절할 수 있어, 더욱 다이내믹하고<br/>
+                                            짜릿한 주행 감각을 경험하실 수 있습니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_per_03.jpg" alt="Performance 패들 시프트">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Safety">
+                    <div class="odysseyTitle">
+                        <div class="static">
+                            <h3 class="tt"><span>SAFETY</span></h3>
+                            <p class="ts"><span>어떤 상황에서도 가족을 든든하게 지켜주는 기술</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="Safety032">
+                        <div class="static">
+                            <div class="Safety032Sect1">
+                                <img src="/static/images/model/2025Odyssey/odss_saf.jpg" alt="SAFETY 어떤 상황에서도 가족을 든든하게 지켜주는 기술">
+                                <div class="grayBx">
+                                    <p class="n-motion n-bottom">
+                                        Odyssey는 차세대 컴패터빌리티(ACE) 바디 구조와 SNOW 모드를 통해 다양한 주행 환경에서 탁월한 안전성을 제공합니다.<br/> 이러한 첨단 안전 기술은 운전자의 안전과 편안함을 최우선으로 고려하여 설계되었습니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exterior">
+                        <div class="static">
+                            <div class="exteriorItem exteriorItem1">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Safety</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">차세대 컴패터빌리티 (ACE) 바디</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">ACE 바디는 상호 연결된 구조적 요소들의 네트워크를 활용해<br/>
+                                            충격 에너지를 차량 전체에 고르게 분산시킵니다.<br/>
+                                            이를 통해 탑승자 공간에 전달되는 충격을 감소시키며,<br/>
+                                            충돌 시 상대 차량에 전달되는 충격까지 분산시킵니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_saf_01.jpg" alt="Safety 차세대 컴패터빌리티 (ACE) 바디">
+                                </div>
+                            </div>
+                            <div class="exteriorItem exteriorItem2 even">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Safety</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">SNOW 모드</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">눈 덮인 도로처럼 노면이 불안정한 지형에서 운행 시,<br/>
+                                            앞바퀴와 뒷바퀴의 회전수 차이를 최적화하여<br/>
+                                            안전한 주행을 돕는 첨단 시스템입니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_saf_02.jpg" alt="Safety SNOW 모드">
+                                </div>
+                            </div>
+                            <div class="exteriorItem exteriorItem3">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Safety</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">멀티 앵글 후방 카메라 (3모드)</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">후진 시 뒤 범퍼의 센서를 통해 장애물을 감지할 수 있으며,<br/>
+                                            리어 카메라는 노멀뷰(130도), 와이드 뷰(180도), 탑다운 뷰의<br/>
+                                            3가지 각도로 조정할 수 있습니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_saf_03.jpg" alt="Safety 멀티 앵글 후방 카메라 (3모드)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="SENSING">
+                    <div class="odysseyTitle">
+                        <div class="static">
+                            <h3 class="tt"><span>Honda Sensing</span></h3>
+                            <p class="ts"><span>안전을 넘어 안심을 추구하는 첨단 운전자 보조 시스템</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="odyssey__sensing__img">
+                        <img src="/static/images/model/2025Odyssey/odss_sens.jpg" alt="Honda Sensing">
+                        <div class="grayBx">
+                            <div class="static">
+                                <p class="n-motion n-bottom">
+                                    감지 성능이 향상된 레이더와 카메라는 더욱 넓은 영역을 세밀하게 감지하여 다양한 주행 상황에 선제적으로 대응합니다.<br/> 또한, 차체를 더욱 매끄럽게 컨트롤하여 언제나 안정감 있는 승차감을 제공합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exterior">
+                        <div class="static">
+                            <div class="exteriorItem exteriorItem1">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Honda Sensing</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">차선 유지 보조 시스템 (LKAS)</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">운전 중 차선 정보를 분석하여, 차로 중앙에서 주행할 수 있도록<br/>
+                                            부드럽게 스티어링 휠을 조정해 안전하고 편안한 운행을 유도합니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_sens_01.jpg" alt="Honda Sensing 차선 유지 보조 시스템 (LKAS)">
+                                </div>
+                            </div>
+                            <div class="exteriorItem exteriorItem2 even">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Honda Sensing</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">자동 감응식 정속 주행 장치 (ACC)<br/>
+                                            저속 추종 시스템 (LSF)</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">운전자가 설정한 속도를 유지하는 것은 물론,<br/>
+                                            앞차와의 거리를 자동으로 감지해 안전하게 거리를<br/>
+                                            유지할 수 있도록 도와줍니다. 특히 교통 정체나 저속 주행<br/>
+                                            시에도 페달 조작의 피로도를 줄여주어 운전의 편리함을<br/>
+                                            제공합니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_sens_02.jpg" alt="Honda Sensing 자동 감응식 정속 주행 장치 (ACC)<br/>
+                                            저속 추종 시스템 (LSF)">
+                                </div>
+                            </div>
+                            <div class="exteriorItem exteriorItem3">
+                                <div class="exteriorItemDesc">
+                                    <div class="exteriorItem__desc">
+                                        <p class="odyssey__t1 n-motion n-bottom">Honda Sensing</p>
+                                        <h4 class="odyssey__t2 n-motion n-bottom">트래픽 잼 어시스트 (TJA)</h4>
+                                        <p class="odyssey__t3 n-motion n-bottom">혼잡한 교통 상황과 저속 주행 시, 앞 차량과의 간격을 유지하고<br/>
+                                            차선 위치를 지킬 수 있도록 도와주어 운전의 편리함을 제공합니다.</p>
+                                    </div>
+                                </div>
+                                <div class="exteriorItemPhoto">
+                                    <img src="/static/images/model/2025Odyssey/odss_sens_03.jpg" alt="Honda Sensing 트래픽 잼 어시스트 (TJA)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Interior021">
+                        <div class="static odyssey_swiper">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_sens_04.jpg" alt="오토 하이빔 시스템 (AHB)"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">오토 하이빔 시스템 (AHB)</p>
+                                                <p class="mdTx2">외부 조도를 인식하여 하이빔을 자동으로 로우빔으로<br/>
+                                                    전환함으로써 야간 운행 시 편리함을 제공하고,<br/>
+                                                    상대 운전자의 안전까지 배려하는 첨단 안전 기능입니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_sens_05.jpg" alt="크로스 트래픽 모니터 (CTM)"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">크로스 트래픽 모니터 (CTM)</p>
+                                                <p class="mdTx2">후진 시 좌·우측에서 다가오는 차량과 충돌 위험이
+                                                    감지되면 경고를 보내고,<br/>
+                                                    경고 후에도 충돌 위험이
+                                                    높아지면 자동으로 제동을 도와줍니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_sens_06.jpg" alt="도로 이탈 경감 시스템 (RDM)"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">도로 이탈 경감 시스템 (RDM)</p>
+                                                <p class="mdTx2">의도하지 않은 차선 또는 도로 이탈이 감지되면,<br/>
+                                                    시각적 경고와 스티어링 휠 진동으로 운전자에게
+                                                    알리고,<br/>
+                                                    필요 시 스티어링 휠 제어와 브레이크를
+                                                    작동시켜 차선 이탈을 방지합니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_sens_07.jpg" alt="저속 브레이크 컨트롤 (LSBC)"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">저속 브레이크 컨트롤 (LSBC)</p>
+                                                <p class="mdTx2">주차 시 전·후방의 근거리 장애물을 감지하여,<br/>
+                                                    부주의로 인한 충돌 피해를 줄여줍니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="interior032Item">
+                                            <div class="photo"><img src="/static/images/model/2025Odyssey/odss_sens_08.jpg" alt="추돌 경감 시스템 (CMBS)"></div>
+                                            <div class="desc">
+                                                <p class="mdTx1">추돌 경감 시스템 (CMBS)</p>
+                                                <p class="mdTx2">선행 차량이나 보행자와의 추돌 위험 상황이
+                                                    감지되면,<br/>
+                                                    운전자에게 경고를 전달하고, 필요 시<br/>
+                                                    브레이크를 자동으로 작동시켜 충돌 피해를
+                                                    줄여줍니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="Connect">
+                    <div class="hConnect">
+                        <div class="static">
+                            <div class="connectBox">
+                                <h3 class="mdHty3">HONDA CONNECT</h3>
+                                <div class="hConnectWp">
+                                    <div class="hConnect__desc">
+                                        <p class="mdHty4">Honda Connect 전용 어플리케이션을 통해 원격제어,<br>
+                                            안전/보안, 차량진단 등 다양한 기능을 경험할 수 있습니다.</p>
+                                        <div class="hConnect__dl">
+                                            <div class="hConnect__dt">원격제어</div>
+                                            <div class="hConnect__dd">원격 시동, 도어 개/폐, 라이트 제어</div>
+                                        </div>
+                                        <div class="hConnect__dl">
+                                            <div class="hConnect__dt">안전/보안</div>
+                                            <div class="hConnect__dd">충돌 자동 통보(에어백 전개 시), 도난 경보 알림</div>
+                                        </div>
+                                        <div class="hConnect__dl">
+                                            <div class="hConnect__dt">차량진단</div>
+                                            <div class="hConnect__dd">실시간 차량 상태 확인, 점검 및 교환 주기 알림, 차량 경고등 알림</div>
+                                        </div>
+                                        <p class="noti">Honda Connect는 유료 구독 서비스로써, 최초 구입일로부터 5년간 무상 제공 후, 유료 전환됩니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="Spec">
+                    <div class="odyssey__spec">
+                        <div class="stickyTabWrap">
+                            <div class="stickyTabWrap__in">
+                                <ul class="stickyTab">
+                                    <li class="stickyTab__item link0 active" data-target="stickyCont__sect0"><a href="#SpecTabCont01" class="stickyTab__link">상세제원</a></li>
+                                    <li class="stickyTab__item link1" data-target="stickyCont__sect1"><a href="#SpecTabCont02" class="stickyTab__link">정부 공인 표준연비 및 등급</a></li>
+                                    <li class="stickyTab__item link2" data-target="stickyCont__sect2"><a href="#SpecTabCont03" class="stickyTab__link">사양</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="SpecTabConts static">
+                            <div id="SpecTabCont01" class="SpecTabCont stickyCont__sect0" data-link="0">
+                                <h4 class="odyssey__spec__tit">상세제원</h4>
+                                <table class="specTb">
+                                    <colgroup>
+                                        <col style="width:10%">
+                                        <col style="width:20%">
+                                        <col style="width:20%">
+                                        <col style="width:50%">
+                                    </colgroup>
+                                    <thead>
+                                    <tr>
+                                        <th colspan="3">주요제원</th>
+                                        <th>Odyssey</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th rowspan="7" class="tbTit">치수</th>
+                                        <th colspan="2">전장(mm)</th>
+                                        <td>5,250</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">전폭(mm)</th>
+                                        <td>1,995</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">전고(mm)</th>
+                                        <td>1,765</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">휠베이스(mm)</th>
+                                        <td>3,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2">윤거(mm)</th>
+                                        <th>전</th>
+                                        <td>1,710</td>
+                                    </tr>
+                                    <tr>
+                                        <th>후</th>
+                                        <td>1,710</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">공차중량(kg)</th>
+                                        <td>2,090</td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="6" class="tbTit">엔진</th>
+                                        <th colspan="2">엔진종류</th>
+                                        <td>V6 3.5L 직접분사식 SOHC i-VTEC</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">총배기량(cc)</th>
+                                        <td>3,471</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">최고출력(ps/rpm)</th>
+                                        <td>284 / 6,000</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">최대토크(kg·m/rpm)</th>
+                                        <td>36.2 / 4,700</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">연료타입</th>
+                                        <td>휘발유</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">연료탱크 용량(ℓ)</th>
+                                        <td>73.8</td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" class="tbTit">변속기</th>
+                                        <th colspan="2">변속기 종류</th>
+                                        <td>자동 10단</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">구동방식</th>
+                                        <td>전륜구동</td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="5" class="tbTit">섀시</th>
+                                        <th rowspan="2">서스펜션</th>
+                                        <th>전</th>
+                                        <td>맥퍼슨 스트럿</td>
+                                    </tr>
+                                    <tr>
+                                        <th>후</th>
+                                        <td>트레일링 암</td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2">브레이크</th>
+                                        <th>전</th>
+                                        <td>벤틸레이티드 디스크</td>
+                                    </tr>
+                                    <tr>
+                                        <th>후</th>
+                                        <td>솔리드 디스크 </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">타이어규격</th>
+                                        <td>235/55R19</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" class="tbTit">연비(km/ℓ)(복합/도심/고속도로)</th>
+                                        <td>9 / 7.7 / 11.2</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" class="tbTit">CO2 배출량(g/km)</th>
+                                        <td>187</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="3" class="tbTit">승차정원(명)</th>
+                                        <td>8</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="SpecTbTotal">
+                                    <div class="SpecTbTotal__vat">가격 (VAT 포함, 개소세 5% 기준)</div>
+                                    <div class="SpecTbTotal__price"><span class="price">65,500,000</span>원</div>
+                                </div>
+                            </div>
+                            <div id="SpecTabCont02" class="SpecTabCont stickyCont__sect1" data-link="1">
+                                <h4 class="odyssey__spec__tit">정부 공인 표준연비 및 등급</h4>
+                                <table class="specTb2">
+                                    <thead>
+                                    <tr>
+                                        <th>차종명</th>
+                                        <th>복합연비</th>
+                                        <th>등급</th>
+                                        <th>CO2 배출량</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Odyssey : V6 3.5L 직접분사식 SOHC i-VTEC<br/>
+                                            (배기량 : 3,471cc, 공차중량 : 2,090kg, 자동 10단)</td>
+                                        <td>9km/ℓ<br/>
+                                            (도심 : 7.7km/ℓ, 고속도로 : 11.2km/ℓ)</td>
+                                        <td>5등급</td>
+                                        <td>187g/km</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p class="odyssey__intLy__noti">위 연비는 표준모드에 의한 연비로서 도로상태・운전방법・차량적재・정비상태 및 외기온도에 따라 실주행연비와 차이가 있습니다.</p>
+
+
+                                <h4 class="odyssey__spec__tit mg">타이어 에너지 소비효율 등급</h4>
+                                <p class="tx">[자동차용 타이어의 에너지소비효율측정 및 등급기준, 표시 등에 관한 규정 제12조]</p>
+                                <table class="specTb2 mgT2">
+                                    <thead>
+                                    <tr>
+                                        <th>모델</th>
+                                        <th>타이어 제조사</th>
+                                        <th>타이어 모델명</th>
+                                        <th>타이어 규격</th>
+                                        <th>회전저항계수</th>
+                                        <th>젖은 노면 제동력 등급</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Odyssey</td>
+                                        <td>Bridgestone</td>
+                                        <td>TURANZA EL440</td>
+                                        <td>235/55R19 101H</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p class="odyssey__intLy__noti">1: 한국모델</p>
+                            </div>
+                            <div id="SpecTabCont3" class="SpecTabCont stickyCont__sect2" data-link="2">
+                                <h4 class="odyssey__spec__tit">기본 사양</h4>
+                                <div class="stickyCont__sect2Bx">
+                                    <div class="stickyCont__sect2Item">
+                                        <h5 class="tit">파워트레인 및 성능</h5>
+                                        <div class="itemsWrap">
+                                            <ul class="items">
+                                                <li>가솔린 3.5리터 직분사식 i-VTEC 엔진</li>
+                                                <li>버튼타입 10단 자동변속기 & 패들시프트</li>
+                                                <li>아이들 스톱</li>
+                                                <li>전자식 주차 브레이크 & 오토홀드</li>
+                                                <li>드라이브 모드 (Normal/ECON/Snow)</li>
+                                            </ul>
+                                            <ul class="items">
+                                                <li>VSA (Vehicle Stability Assist System : 차체자세제어장치)</li>
+                                                <li>HSA (Hill Start Assist : 경사로 밀림 방지 장치)</li>
+                                                <li>ANC (Active Noise Control) 시스템</li>
+                                                <li>셔터 그릴</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="stickyCont__sect2Item">
+                                        <h5 class="tit">익스테리어</h5>
+                                        <div class="itemsWrap">
+                                            <ul class="items">
+                                                <li>Full LED 헤드램프</li>
+                                                <li>LED 주간 주행등 (DRL)</li>
+                                                <li>LED 프런트 포지셔닝 램프</li>
+                                                <li>LED 안개등</li>
+                                                <li>LED 리어 콤비네이션 램프</li>
+                                                <li>아웃사이드 도어 미러 (LED 턴 시그널/전동 조절/전동 접이/열선 내장/후진 하향/ECM)</li>
+                                                <li>세이프티 파워 윈도우 (1열/2열)</li>
+                                                <li>어쿠스틱 글래스 (윈드쉴드/1열 도어/2열 도어)</li>
+                                                <li>프라이버시 글래스 (2열/3열/리어 윈드 쉴드)</li>
+                                            </ul>
+                                            <ul class="items">
+                                                <li>세이프티 파워 선루프(슬라이딩/틸팅)</li>
+                                                <li>파워 슬라이드 도어 (2열)</li>
+                                                <li>와이퍼 결빙 방지 장치 (Deicer)</li>
+                                                <li>레인센서</li>
+                                                <li>핸즈프리 파워 테일 게이트</li>
+                                                <li>바디 칼라 도어 핸들</li>
+                                                <li>19인치 알로이 휠</li>
+                                                <li>테일게이트 스포일러</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="stickyCont__sect2Item">
+                                        <h5 class="tit">인테리어</h5>
+                                        <div class="itemsWrap">
+                                            <ul class="items">
+                                                <li>9인치 안드로이드 디스플레이 오디오</li>
+                                                <li>안드로이드 오토 및 애플 카플레이 (유/무선)</li>
+                                                <li>블루투스 핸즈프리 & 오디오 스트리밍</li>
+                                                <li>프리미엄 오디오 시스템 (11 스피커)</li>
+                                                <li>캐빈 와치 (Cabin Watch) & 캐빈 토크 (Cabin Talk)</li>
+                                                <li>7인치 디지털 계기판</li>
+                                                <li>스마트폰 무선 충전 시스템</li>
+                                                <li>리어 엔터테인먼트 시스템(12.8인치 모니터//HDMI 단자/유선 헤드폰 잭 1개)</li>
+                                                <li>USB 포트 (8개)</li>
+                                                <li>Power Outlet (프론트 하단 / 트렁크)</li>
+                                                <li>원격 시동 장치 & 워크 어웨이 락 (Walk Away Lock)</li>
+                                                <li>다기능 4 스포크 가죽 스티어링 휠</li>
+                                                <li>수동식 틸트/텔레스코픽 스티어링 휠</li>
+                                                <li>열선 스티어링 휠</li>
+                                                <li>Tri-Zone 오토매틱 에어컨디셔너</li>
+                                            </ul>
+                                            <ul class="items">
+                                                <li>리어 에어컨디셔너 컨트롤 (오토,LCD 화면)</li>
+                                                <li>리어 벤틸레이션 (2열/3열)</li>
+                                                <li>투-톤 펀칭 가죽시트</li>
+                                                <li>2열 매직 슬라이드 시트</li>
+                                                <li>운전석 8방향 파워 시트 & 럼버 서포트</li>
+                                                <li>조수석 4방향 파워 시트 & 럼버 서포트</li>
+                                                <li>메모리 시스템 (운전석 시트/아웃사이드 미러)</li>
+                                                <li>1열 열선 내장 시트 & 통풍 시트</li>
+                                                <li>2열 & 3열 윈도우 선쉐이드 (수동)</li>
+                                                <li>2열 4:2:4 폴딩 시트</li>
+                                                <li>3열 6:4 폴딩 시트</li>
+                                                <li>선글라스 보관함 & 컨버세이션 미러</li>
+                                                <li>ECM 룸미러</li>
+                                                <li>인테리어 라이팅 패키지</li>
+                                                <li>12.8인치 리어 엔터테인먼트 시스템(RES)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="stickyCont__sect2Item">
+                                        <h5 class="tit">혼다센싱</h5>
+                                        <div class="itemsWrap">
+                                            <ul class="items">
+                                                <li>자동 감응식 정속 주행 장치 (ACC)</li>
+                                                <li>저속 추종 시스템 (LSF)</li>
+                                                <li>차선 유지 보조 시스템 (LKAS)</li>
+                                            </ul>
+                                            <ul class="items">
+                                                <li>도로 이탈 경감 시스템 (RDM)</li>
+                                                <li>추돌 경감 제동 시스템 (CMBS)</li>
+                                                <li>오토 하이빔 시스템 (AHB)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="stickyCont__sect2Item">
+                                        <h5 class="tit">안전</h5>
+                                        <div class="itemsWrap">
+                                            <ul class="items">
+                                                <li>8 에어백 시스템 (운전석/조수석 프런트, 운전석/조수석 무릎, 운전석/조수석 사이드, 사이드 커튼)</li>
+                                                <li>전방 & 후방 주차 보조 시스템</li>
+                                                <li>멀티 앵글 후방 카메라</li>
+                                                <li>후측방 경보 시스템 (BSI) with 크로스 트래픽 모니터 (CTM)</li>
+                                                <li>시트 벨트 리마인더</li>
+                                            </ul>
+                                            <ul class="items">
+                                                <li>개별 타이어 공기압 경보 장치 (TPMS)</li>
+                                                <li>표준 공기압 주입 알림 장치 (Fill Assist)</li>
+                                                <li>템포러리 스페어 타이어</li>
+                                                <li>Honda Connect (혼다 커넥티드 서비스)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modelRight">
+                    <div class="static">
+                        <p class="sptb__noti">혼다코리아의 모든 콘텐츠는 저작권의 보호를 받습니다.</p>
+                        <p class="sptb__noti">홈페이지 상의 정보는 수시로 업데이트 되며, 간혹 오류 또는 부정확한 정보가 포함될 수도 있습니다.</p>
+                        <p class="sptb__noti">제품 구매시 정확한 제품사양에 대하여 구매처의 담당자를 통해 확인하고 계약을 체결하시기 바랍니다.</p>
+                    </div>
+                </div>
+                <div class="modelBtmLinks">
+                    <ul class="static">
+                        <li><a href="/support/" class="modelBtmLinks__link">차량 문의</a></li>
+                        <li><a href="/service/network-dealer" class="modelBtmLinks__link">전시장 찾기</a></li>
+                        <li><a href="javascript:;" onclick="testDriveChk();" class="modelBtmLinks__link">시승신청</a></li>
+                        <li><a href="/purchase/selectOption?carSeq=2&csnTrim=ELITE&carCd=A0010005&year=2023" class="modelBtmLinks__link">견적/구매</a></li>
+                        <li><a href="/service/manual" class="modelBtmLinks__link">차량메뉴얼</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>        
+    </div>
+
+    
+    <footer id="footer" class="footerDtype">
+  
+  <div class="footer__sect2 footerSect2">
+    <div>
+      <div class="cs1">고객문의 / 24시간 긴급서비스</div>
+      <div class="cs2">080-360-0505</div>
+      <div class="address">
+        <span>혼다코리아 주식회사 대표자명 : 이지홍</span>
+        <span><a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=2148692855" target="_blank">사업자정보확인 > </a></span><br>
+        <span>주소 : 서울시 강남구 테헤란로 114길 38 동일타워 13F </span>
+        <span>대표전화 : 02-3416-3300</span><br>
+        <span>사업자등록번호 : 214-86-92855</span>
+        <span>통신판매업 신고번호 : 2022-서울강남-03241</span>
+        <span>호스팅 서비스 제공 : AWS</span>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="footer__sect3">
+    <div class="footer__sect3--left">
+      <div>
+        <h3 onclick="goUrl('/model/')" style="cursor: pointer;">온라인 쇼룸</h3>
+        <ul>
+          <li><a href="/model/accord_hev">Accord Hybrid</a></li>
+          <li><a href="/model/crv_hev">CR-V Hybrid</a></li>
+          <li><a href="/model/odyssey">Odyssey</a></li>
+          <li><a href="/model/pilot">Pilot</a></li>
+          
+        </ul>
+      </div>
+      <div>
+        <h3>체험</h3>
+        <ul>
+          
+          
+          
+          <li><a href="https://exp.hondakorea.co.kr/cafethego/" class="linkOpen" target="_blank" rel="noopener noreferrer">Cafe ‘The go’(분당시승센터)</a></li>
+          <li><a href="javascript:void(0);" onclick="loginCheck();">시승예약</a></li>
+          <li><a href="/service/network-dealer">전시장 네트워크</a></li>
+          <li><a href="/service/exhibition-car">전시차 조회</a></li>
+          <li><a href="/service/testdrive">시승차 조회</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>구매</h3>
+        <ul>
+          <li><a href="javascript:void(0);" onclick="loginCheckExpectOutstock()">예상 출고시점 조회</a></li>
+          <li><a href="/purchase/estimate">견적 및 구매하기</a></li>
+
+        
+          <li><a href="/purchase/promotion">프로모션</a></li>
+          <li><a href="https://shop.hondakorea.co.kr/" class="linkOpen" target="_blank" rel="noopener noreferrer">혼다SHOP(쿠폰&액세서리 구매)</a></li>
+          <li><a href="/purchase/purchaseWay">온라인 구매방법</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>서비스</h3>
+        <ul>
+          <li><a href="/service/info-guarantee">서비스 안내</a></li>
+          <li><a href="/service/part">부품 정보</a></li>
+          <li><a href="/service/recall">리콜 안내</a></li>
+          <li><a href="/service/network-center">서비스 네트워크</a></li>
+          <li><a href="/service/manual">사용자 매뉴얼</a></li>
+          <li><a href="/service/myhonda">혼다 앱</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>혼다</h3>
+        <ul>
+          <li><a href="/honda/notice">혼다소식</a></li>
+          <li><a href="/honda/community/testRide">커뮤니티</a></li>
+          <li><a href="/honda/event/">이벤트</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>고객지원</h3>
+        <ul>
+          <li><a href="/support/">고객지원</a></li>
+        </ul>
+      </div>
+
+      
+      <div>
+        <h3>글로벌 혼다</h3>
+        <ul>
+          <li><a href="https://global.honda/en//?utm_source=hondakorea&utm_medium=web&utm_campaign=footer" target="_blank" class="linkOpen">Global Honda</a></li>
+          <li><a href="https://global.honda/en/brand/?utm_source=hondakorea&utm_medium=web&utm_campaign=footer" target="_blank" class="linkOpen">Global Brand Slogan</a></li>
+          <li><a href="https://global.honda/en/about/history.html?utm_source=hondakorea&utm_medium=web&utm_campaign=footer" target="_blank" class="linkOpen">Honda History</a></li>
+          <li><a href="https://global.honda/en/about/philosophy/?utm_source=hondakorea&utm_medium=web&utm_campaign=footer " target="_blank" class="linkOpen">Honda philosophy</a></li>
+        </ul>
+      </div>
+      
+
+    </div>
+    <div class="footer__sect3--right">
+      <a href="/support/">혼다고객센터</a><br>
+      <a href="/etc/terms">이용약관</a><br>
+      
+      <a href="/etc/privacy" class="hc">개인정보 처리방침</a><br>
+      <a href="/etc/terms01">개인위치정보사업 이용약관</a><br>
+      <a href="/etc/terms02">위치기반서비스 이용약관</a><br>
+      
+      <a href="/contactus/">CONTACT US</a><br>
+      <span>등록번호 214-86-92855</span><br>
+      <a href="https://www.hondakorea.co.kr/abouthonda/career/RecruitmentGuide.do" target="_blank">채용정보</a><br>
+      <a href="https://global.honda/" class="mgT4" target="_blank">Honda Worldwide</a><br>
+      <a href="https://www.hondakorea.co.kr/" target="_blank">혼다코리아</a><br>
+      <a href="https://www.hondakorea.co.kr/motorcycle/main/main.do" target="_blank">혼다모터사이클</a>
+    </div>
+  </div>
+  <div class="footer__sect4">
+    <div class="copy">COPYRIGHT (C) 2023 HONDA KOREA. ALL RIGHTS RESERVED.</div>
+    
+    <div class="fwSns">
+      <a href="https://www.facebook.com/HondaKoreaAutomobile/" class="fwb--fb" target="_blank">Facebook</a>
+      <a href="https://www.youtube.com/channel/UCimd21KqAguOw8yN_9kL6uw" class="fwb--ytb" target="_blank">Youtube</a>
+      <a href="https://www.instagram.com/hondakorea_automobile/" class="fwb--insta" target="_blank">Instagram</a>
+    </div>
+    
+  </div>
+</footer>
+
+
+<script type="application/json" id="salesforce-email-data">
+  {
+    "encryptedEmail": 
+  }
+</script>
+
+<script type="text/javascript">
+  // 230216 snlee (시승예약 로그인 체크)
+  function loginCheck() {
+    $.ajax({
+      url: "/support/loginCheck",
+      type: "POST",
+      success: function (data) {
+        let json = JSON.parse(data);
+        var testDriveData = {"testDrive":"testDrive"};
+        const testDrive = JSON.stringify(testDriveData);
+        localStorage.setItem("testDrive",testDrive);
+        if (json.result === true) {
+          location.href = "/experience/testDriveAppMem";
+        }else {
+          ui.ajaxpopup.open("/support/loginPop");
+        }
+
+      },
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader(csrf_header, csrf_token);
+        $(".wrap-loading").removeClass('display-none');
+      },
+      complete: function () {
+        $(".wrap-loading").addClass('display-none');
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.log(textStatus, errorThrown);
+      }
+    });
+  }
+
+  // 230402 주민 (예상출고시점 로그인 체크)
+  function loginCheckExpectOutstock() {
+    $.ajax({
+      url: "/support/loginCheck",
+      type: "POST",
+      success: function (data) {
+        let json = JSON.parse(data);
+        var expectOutstockData = {"expectOutstockData":"expectOutstockData"};
+        const expectOutstock = JSON.stringify(expectOutstockData);
+        localStorage.setItem("expectOutstock",expectOutstock);
+        if (json.result === true) {
+          location.href = "/purchase/expectOutstock";
+        }else {
+          ui.ajaxpopup.open("/support/loginPop");
+        }
+
+      },
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader(csrf_header, csrf_token);
+        $(".wrap-loading").removeClass('display-none');
+      },
+      complete: function () {
+        $(".wrap-loading").addClass('display-none');
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.log(textStatus, errorThrown);
+      }
+    });
+  }
+</script>
+    
+</div>
+<script src="/static/common/js/lib/gsap.min.js"></script>
+<script src="/static/common/js/lib/ScrollTrigger.min.js"></script>
+<script src="/static/common/js/model.js"></script>
+
+
+<link rel="stylesheet" href="/static/common/css/model-odyssey.css">
+<script src="/static/common/js/model-odyssey.js"></script>
+
+
+<script type="text/javascript">
+
+    //230317 kjs 추가(시승예약 클릭 시 로그인 체크)
+    function testDriveChk() {
+        $('.gnbaClose').trigger("click");
+        $.ajax({
+            url: "/support/loginCheck",
+            type: "POST",
+            success: function (data) {
+                let json = JSON.parse(data);
+                var testDriveData = {"testDrive":"testDrive"};
+                const testDrive = JSON.stringify(testDriveData);
+                localStorage.setItem("testDrive",testDrive);
+                if (json.result === true) {
+                    location.href = "/experience/testDriveAppMem";
+                }else {
+                    ui.ajaxpopup.open("/support/loginPop");
+                }
+
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(csrf_header, csrf_token);
+                $(".wrap-loading").removeClass('display-none');
+            },
+            complete: function () {
+                $(".wrap-loading").addClass('display-none');
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    };
+</script>
+
+
+<script type="text/javascript" charset="UTF-8" src="//t1.kakaocdn.net/kas/static/kp.js"></script>
+
+
+<script>
+    //20230623 허성권 (카카오픽셀 방문이벤트 추가)
+    kakaoPixel('7497043028601487598').pageView('odyssey');
+    function renderThreeSixty(colorPrefix) {
+        const fileName = 'Odyssey_360_' + colorPrefix + '_1280x600_R-min.png';
+        const imgUrl = `/static/images/car/360.exterior/Odyssey/${colorPrefix}/${fileName}`;
+
+        threesixty = new ThreeSixty(document.getElementById('threesixty'), {
+            image: imgUrl,
+            count: 36,
+            perRow: 4,
+            width: 1280,  // Image width. Default 300
+            height: 600, // Image height. Default 300
+            swipeTarget: document.getElementById('modelContainer'),
+        })
+    }
+    renderThreeSixty('white');
+
+    $(function() {
+        $("input[name=modelExColor]").on("change", function() {
+            colorInfo.mExteriorColor = $(this).val();
+        });
+    });
+
+
+    function renderInterior() {
+        const panoramaContainer = document.getElementById('panoramaContainer')
+        const panorama = document.getElementById('panorama')
+        if (panorama) {
+            document.getElementById('panorama').remove()
+        }
+        const newPanorama = document.createElement('div')
+        newPanorama.setAttribute('id', 'panorama')
+        panoramaContainer.appendChild(newPanorama)
+        pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": "/static/images/car/360/interior/360_brown_interior_Odyssey.jpg",
+            "preview": "/static/images/car/360/interior/2025ODYSSEY_360_BROWN.png",
+        });
+    }
+    renderInterior();
+
+
+</script>
+</body>
+</html>

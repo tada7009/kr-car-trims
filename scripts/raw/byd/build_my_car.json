@@ -1,0 +1,638 @@
+{
+ "dolphinah": {
+  "typeCode": "EV",
+  "typeName": "EV",
+  "modelCode": "dolphin",
+  "modelName": "BYD DOLPHIN",
+  "modelEngName": "BYD DOLPHIN",
+  "trimCode": "dolphinah",
+  "trimName": "BYD DOLPHIN",
+  "trimPrice": 24500000,
+  "stColorCode": "swd",
+  "stInteriorColorCode": "gb",
+  "selDepColor": "sw;",
+  "interiorColors": [
+   {
+    "optionSe": "interior",
+    "name": "Grey + Black",
+    "code": "gb",
+    "price": 0,
+    "defaultYn": "Y"
+   }
+  ],
+  "exteriorColors": [
+   {
+    "optionSe": "exterior",
+    "name": "Sand White",
+    "code": "swd",
+    "price": 0,
+    "defaultYn": "Y"
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Ski White",
+    "code": "sw",
+    "price": 0,
+    "defaultYn": null
+   }
+  ],
+  "exteriorOptions": [],
+  "interiorOptions": []
+ },
+ "dolphinbh": {
+  "typeCode": "EV",
+  "typeName": "EV",
+  "modelCode": "dolphin",
+  "modelName": "BYD DOLPHIN",
+  "modelEngName": "BYD DOLPHIN",
+  "trimCode": "dolphinbh",
+  "trimName": "BYD DOLPHIN Active",
+  "trimPrice": 29200000,
+  "stColorCode": "cbag",
+  "stInteriorColorCode": "gb",
+  "selDepColor": "swd;sw;tgsw;",
+  "interiorColors": [
+   {
+    "optionSe": "interior",
+    "name": "Grey + Black",
+    "code": "gb",
+    "price": 0,
+    "defaultYn": "Y"
+   }
+  ],
+  "exteriorColors": [
+   {
+    "optionSe": "exterior",
+    "name": "Sand White",
+    "code": "swd",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Ski White",
+    "code": "sw",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Time Grey + Ski White",
+    "code": "tgsw",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Cosmos Black + Atlantis Grey",
+    "code": "cbag",
+    "price": 0,
+    "defaultYn": "Y"
+   }
+  ],
+  "exteriorOptions": [],
+  "interiorOptions": []
+ },
+ "atto3sy": {
+  "typeCode": "EV",
+  "typeName": "EV",
+  "modelCode": "atto3",
+  "modelName": "BYD ATTO 3",
+  "modelEngName": "BYD ATTO 3",
+  "trimCode": "atto3sy",
+  "trimName": "BYD ATTO 3 Plus",
+  "trimPrice": 34900000,
+  "stColorCode": "athene-blue",
+  "stInteriorColorCode": "beige-brown",
+  "selDepColor": "time-grey;atlantis-grey;parkour-red;ski-white;cosmos-black;",
+  "interiorColors": [
+   {
+    "optionSe": "interior",
+    "name": "Grey",
+    "code": "grey",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "interior",
+    "name": "Beige + Brown",
+    "code": "beige-brown",
+    "price": 0,
+    "defaultYn": "Y"
+   }
+  ],
+  "exteriorColors": [
+   {
+    "optionSe": "exterior",
+    "name": "Time Grey",
+    "code": "time-grey",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Atlantis Grey",
+    "code": "atlantis-grey",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Parkour Red",
+    "code": "parkour-red",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Athene Blue",
+    "code": "athene-blue",
+    "price": 0,
+    "defaultYn": "Y"
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Ski White",
+    "code": "ski-white",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Cosmos Black",
+    "code": "cosmos-black",
+    "price": 0,
+    "defaultYn": null
+   }
+  ],
+  "exteriorOptions": [],
+  "interiorOptions": []
+ },
+ "bydseal": {
+  "typeCode": "EV",
+  "typeName": "EV",
+  "modelCode": "seal",
+  "modelName": "BYD SEAL",
+  "modelEngName": "BYD SEAL",
+  "trimCode": "bydseal",
+  "trimName": "BYD SEAL",
+  "trimPrice": 39900000,
+  "stColorCode": "ag",
+  "stInteriorColorCode": "tb",
+  "selDepColor": "aw;cb;sg;",
+  "interiorColors": [
+   {
+    "optionSe": "interior",
+    "name": "Thaumas Black",
+    "code": "tb",
+    "price": 0,
+    "defaultYn": "Y"
+   }
+  ],
+  "exteriorColors": [
+   {
+    "optionSe": "exterior",
+    "name": "Atlantis Grey",
+    "code": "ag",
+    "price": 0,
+    "defaultYn": "Y"
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Aurora White",
+    "code": "aw",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Cosmos Black",
+    "code": "cb",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Shark Grey",
+    "code": "sg",
+    "price": 0,
+    "defaultYn": null
+   }
+  ],
+  "exteriorOptions": [],
+  "interiorOptions": []
+ },
+ "sealr": {
+  "typeCode": "EV",
+  "typeName": "EV",
+  "modelCode": "seal",
+  "modelName": "BYD SEAL",
+  "modelEngName": "BYD SEAL",
+  "trimCode": "sealr",
+  "trimName": "BYD SEAL Plus",
+  "trimPrice": 41900000,
+  "stColorCode": "ag",
+  "stInteriorColorCode": "tb",
+  "selDepColor": "aw;cb;sg;",
+  "interiorColors": [
+   {
+    "optionSe": "interior",
+    "name": "Thaumas Black",
+    "code": "tb",
+    "price": 0,
+    "defaultYn": "Y"
+   }
+  ],
+  "exteriorColors": [
+   {
+    "optionSe": "exterior",
+    "name": "Atlantis Grey",
+    "code": "ag",
+    "price": 0,
+    "defaultYn": "Y"
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Aurora White",
+    "code": "aw",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Cosmos Black",
+    "code": "cb",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Shark Grey",
+    "code": "sg",
+    "price": 0,
+    "defaultYn": null
+   }
+  ],
+  "exteriorOptions": [],
+  "interiorOptions": []
+ },
+ "seala": {
+  "typeCode": "EV",
+  "typeName": "EV",
+  "modelCode": "seal",
+  "modelName": "BYD SEAL",
+  "modelEngName": "BYD SEAL",
+  "trimCode": "seala",
+  "trimName": "BYD SEAL Dynamic AWD",
+  "trimPrice": 46900000,
+  "stColorCode": "ag",
+  "stInteriorColorCode": "tb",
+  "selDepColor": "aw;cb;sg;",
+  "interiorColors": [
+   {
+    "optionSe": "interior",
+    "name": "Thaumas Black",
+    "code": "tb",
+    "price": 0,
+    "defaultYn": "Y"
+   }
+  ],
+  "exteriorColors": [
+   {
+    "optionSe": "exterior",
+    "name": "Atlantis Grey",
+    "code": "ag",
+    "price": 0,
+    "defaultYn": "Y"
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Aurora White",
+    "code": "aw",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Cosmos Black",
+    "code": "cb",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Shark Grey",
+    "code": "sg",
+    "price": 0,
+    "defaultYn": null
+   }
+  ],
+  "exteriorOptions": [],
+  "interiorOptions": []
+ },
+ "sealion7s": {
+  "typeCode": "EV",
+  "typeName": "EV",
+  "modelCode": "sealion7",
+  "modelName": "BYD SEALION 7",
+  "modelEngName": "BYD SEALION 7",
+  "trimCode": "sealion7s",
+  "trimName": "BYD SEALION 7",
+  "trimPrice": 44900000,
+  "stColorCode": "sgs",
+  "stInteriorColorCode": "tbs",
+  "selDepColor": "ags;aws;cbs;",
+  "interiorColors": [
+   {
+    "optionSe": "interior",
+    "name": "Thaumas Black",
+    "code": "bis",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "interior",
+    "name": "Tahiti Blue",
+    "code": "tbs",
+    "price": 0,
+    "defaultYn": "Y"
+   }
+  ],
+  "exteriorColors": [
+   {
+    "optionSe": "exterior",
+    "name": "Shark Grey",
+    "code": "sgs",
+    "price": 0,
+    "defaultYn": "Y"
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Atlantis Grey",
+    "code": "ags",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Aurora White",
+    "code": "aws",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Cosmos Black",
+    "code": "cbs",
+    "price": 0,
+    "defaultYn": null
+   }
+  ],
+  "exteriorOptions": [],
+  "interiorOptions": []
+ },
+ "sealion7p": {
+  "typeCode": "EV",
+  "typeName": "EV",
+  "modelCode": "sealion7",
+  "modelName": "BYD SEALION 7",
+  "modelEngName": "BYD SEALION 7",
+  "trimCode": "sealion7p",
+  "trimName": "BYD SEALION 7 Plus",
+  "trimPrice": 46900000,
+  "stColorCode": "sgs",
+  "stInteriorColorCode": "tbs",
+  "selDepColor": "ags;aws;cbs;",
+  "interiorColors": [
+   {
+    "optionSe": "interior",
+    "name": "Thaumas Black",
+    "code": "bis",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "interior",
+    "name": "Tahiti Blue",
+    "code": "tbs",
+    "price": 0,
+    "defaultYn": "Y"
+   }
+  ],
+  "exteriorColors": [
+   {
+    "optionSe": "exterior",
+    "name": "Shark Grey",
+    "code": "sgs",
+    "price": 0,
+    "defaultYn": "Y"
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Atlantis Grey",
+    "code": "ags",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Aurora White",
+    "code": "aws",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Cosmos Black",
+    "code": "cbs",
+    "price": 0,
+    "defaultYn": null
+   }
+  ],
+  "exteriorOptions": [],
+  "interiorOptions": []
+ },
+ "sealion7eh": {
+  "typeCode": "EV",
+  "typeName": "EV",
+  "modelCode": "sealion7",
+  "modelName": "BYD SEALION 7",
+  "modelEngName": "BYD SEALION 7",
+  "trimCode": "sealion7eh",
+  "trimName": "BYD SEALION 7 Dynamic AWD",
+  "trimPrice": 53900000,
+  "stColorCode": "sgs",
+  "stInteriorColorCode": "tbs",
+  "selDepColor": "ags;aws;cbs;",
+  "interiorColors": [
+   {
+    "optionSe": "interior",
+    "name": "Thaumas Black",
+    "code": "bis",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "interior",
+    "name": "Tahiti Blue",
+    "code": "tbs",
+    "price": 0,
+    "defaultYn": "Y"
+   }
+  ],
+  "exteriorColors": [
+   {
+    "optionSe": "exterior",
+    "name": "Shark Grey",
+    "code": "sgs",
+    "price": 0,
+    "defaultYn": "Y"
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Atlantis Grey",
+    "code": "ags",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Aurora White",
+    "code": "aws",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Cosmos Black",
+    "code": "cbs",
+    "price": 0,
+    "defaultYn": null
+   }
+  ],
+  "exteriorOptions": [],
+  "interiorOptions": []
+ },
+ "sealion6xh": {
+  "typeCode": "DMI",
+  "typeName": "DM-i",
+  "modelCode": "sealion6",
+  "modelName": "BYD SEALION 6 DM-i",
+  "modelEngName": "BYD SEALION 6",
+  "trimCode": "sealion6xh",
+  "trimName": "BYD SEALION 6 DM-i",
+  "trimPrice": 37500000,
+  "stColorCode": "stone-grey",
+  "stInteriorColorCode": "black",
+  "selDepColor": "time-grey;arctic-white;cosmos-black;",
+  "interiorColors": [
+   {
+    "optionSe": "interior",
+    "name": "Black + Brown",
+    "code": "black-brown",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "interior",
+    "name": "Black Interior",
+    "code": "black",
+    "price": 0,
+    "defaultYn": "Y"
+   }
+  ],
+  "exteriorColors": [
+   {
+    "optionSe": "exterior",
+    "name": "Time Grey",
+    "code": "time-grey",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Stone Grey",
+    "code": "stone-grey",
+    "price": 0,
+    "defaultYn": "Y"
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Aurora White",
+    "code": "arctic-white",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Cosmos Black",
+    "code": "cosmos-black",
+    "price": 0,
+    "defaultYn": null
+   }
+  ],
+  "exteriorOptions": [],
+  "interiorOptions": []
+ },
+ "sealion6nh": {
+  "typeCode": "DMI",
+  "typeName": "DM-i",
+  "modelCode": "sealion6",
+  "modelName": "BYD SEALION 6 DM-i",
+  "modelEngName": "BYD SEALION 6",
+  "trimCode": "sealion6nh",
+  "trimName": "BYD SEALION 6 DM-i AWD",
+  "trimPrice": 41900000,
+  "stColorCode": "stone-grey",
+  "stInteriorColorCode": "black",
+  "selDepColor": "time-grey;arctic-white;cosmos-black;",
+  "interiorColors": [
+   {
+    "optionSe": "interior",
+    "name": "Black + Brown",
+    "code": "black-brown",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "interior",
+    "name": "Black Interior",
+    "code": "black",
+    "price": 0,
+    "defaultYn": "Y"
+   }
+  ],
+  "exteriorColors": [
+   {
+    "optionSe": "exterior",
+    "name": "Time Grey",
+    "code": "time-grey",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Stone Grey",
+    "code": "stone-grey",
+    "price": 0,
+    "defaultYn": "Y"
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Aurora White",
+    "code": "arctic-white",
+    "price": 0,
+    "defaultYn": null
+   },
+   {
+    "optionSe": "exterior",
+    "name": "Cosmos Black",
+    "code": "cosmos-black",
+    "price": 0,
+    "defaultYn": null
+   }
+  ],
+  "exteriorOptions": [],
+  "interiorOptions": []
+ }
+}

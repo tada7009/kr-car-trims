@@ -1,0 +1,1481 @@
+{
+ "carModelData": {
+  "modelCode": "1661",
+  "modelName": "75kWh RWD Pro",
+  "modelDesc": "Zeekr 7X Standard",
+  "modelPrice": 52990000,
+  "modelDiscountPrice": null,
+  "modelDiscountExpireTime": null,
+  "modelDiscountEnabled": false,
+  "performances": [
+   {
+    "name": "주행 거리",
+    "value": "375",
+    "unit": "km"
+   },
+   {
+    "name": "0-100km/h 가속 시간",
+    "value": "6.0",
+    "unit": "s"
+   },
+   {
+    "name": "최대 출력",
+    "value": "310",
+    "unit": "kW"
+   }
+  ],
+  "vehicleConfigurator": {
+   "options": [
+    {
+     "name": "외장 ",
+     "type": "Ex_decoration",
+     "wheelType": null,
+     "values": [
+      {
+       "code": "PBAGU007_1659",
+       "name": "아이스 실버",
+       "price": 0,
+       "discountPrice": null,
+       "discountExpireTime": null,
+       "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc02ee4b03a8a744c1ee4.png",
+       "desc": null,
+       "highlights": [],
+       "selectedByDefault": null,
+       "optional": null,
+       "valueType": null,
+       "pricingType": "INCLUDED"
+      },
+      {
+       "code": "PBAGU010_1659",
+       "name": "크리스탈 화이트",
+       "price": 400000,
+       "discountPrice": null,
+       "discountExpireTime": null,
+       "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc001e4b0db6eda7b9343.png",
+       "desc": null,
+       "highlights": [],
+       "selectedByDefault": null,
+       "optional": null,
+       "valueType": null,
+       "pricingType": "CUSTOM"
+      },
+      {
+       "code": "PBAGU012_1659",
+       "name": "테크 그레이",
+       "price": 400000,
+       "discountPrice": null,
+       "discountExpireTime": null,
+       "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fbfeae4b03a8a744c1ee2.png",
+       "desc": null,
+       "highlights": [],
+       "selectedByDefault": null,
+       "optional": null,
+       "valueType": null,
+       "pricingType": "CUSTOM"
+      },
+      {
+       "code": "PBAGU054_1659",
+       "name": "다크 퍼플 ",
+       "price": 400000,
+       "discountPrice": null,
+       "discountExpireTime": null,
+       "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc018e4b03a8a744c1ee3.png",
+       "desc": null,
+       "highlights": [],
+       "selectedByDefault": null,
+       "optional": null,
+       "valueType": null,
+       "pricingType": "CUSTOM"
+      },
+      {
+       "code": "PBAGU036_1659",
+       "name": "오닉스 블랙",
+       "price": 400000,
+       "discountPrice": null,
+       "discountExpireTime": null,
+       "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fbfd2e4b03a8a744c1ee1.png",
+       "desc": null,
+       "highlights": [],
+       "selectedByDefault": null,
+       "optional": null,
+       "valueType": null,
+       "pricingType": "CUSTOM"
+      }
+     ],
+     "linkageInfo": {
+      "supportLinkage": 1,
+      "linkageExteriorCode": "",
+      "linkageInteriorCode": "",
+      "linkageWheelCode": ""
+     }
+    },
+    {
+     "name": "휠",
+     "type": "hub",
+     "wheelType": null,
+     "values": [
+      {
+       "code": "PBAAN042_1659",
+       "name": "19' 멀티 스포크 휠",
+       "price": 0,
+       "discountPrice": null,
+       "discountExpireTime": null,
+       "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fbf35e4b03a8a744c1ede.png",
+       "desc": null,
+       "highlights": [],
+       "selectedByDefault": null,
+       "optional": null,
+       "valueType": null,
+       "pricingType": "INCLUDED"
+      }
+     ],
+     "linkageInfo": {
+      "supportLinkage": 1,
+      "linkageExteriorCode": "",
+      "linkageInteriorCode": "",
+      "linkageWheelCode": ""
+     }
+    },
+    {
+     "name": "내장",
+     "type": "Interior",
+     "wheelType": null,
+     "values": [
+      {
+       "code": "PBAEK002_1659",
+       "name": "블랙 & 그레이",
+       "price": 0,
+       "discountPrice": null,
+       "discountExpireTime": null,
+       "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13e16ae4b0db6eda7b93a0.png",
+       "desc": null,
+       "highlights": [],
+       "selectedByDefault": null,
+       "optional": null,
+       "valueType": null,
+       "pricingType": "INCLUDED"
+      },
+      {
+       "code": "PBAEK015_1659",
+       "name": "화이트 & 퍼플",
+       "price": 600000,
+       "discountPrice": null,
+       "discountExpireTime": null,
+       "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13e0b1e4b03a8a744c1f3c.png",
+       "desc": null,
+       "highlights": [],
+       "selectedByDefault": null,
+       "optional": null,
+       "valueType": null,
+       "pricingType": "CUSTOM"
+      },
+      {
+       "code": "PBAEK033_1659",
+       "name": "블랙 & 퍼플",
+       "price": 600000,
+       "discountPrice": null,
+       "discountExpireTime": null,
+       "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fbf91e4b03a8a744c1ee0.png",
+       "desc": null,
+       "highlights": [],
+       "selectedByDefault": null,
+       "optional": null,
+       "valueType": null,
+       "pricingType": "CUSTOM"
+      }
+     ],
+     "linkageInfo": {
+      "supportLinkage": 1,
+      "linkageExteriorCode": "",
+      "linkageInteriorCode": "",
+      "linkageWheelCode": ""
+     }
+    },
+    {
+     "name": "옵션",
+     "type": "Optional_package",
+     "wheelType": null,
+     "values": [
+      {
+       "code": "PBAGL016_1659",
+       "name": "냉온장고",
+       "price": 700000,
+       "discountPrice": null,
+       "discountExpireTime": null,
+       "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13e251e4b03a8a744c1f48.png",
+       "desc": "All in one console fridge",
+       "highlights": [
+        {
+         "title": "냉온장고",
+         "content": "-6°C부터 50°C까지 온도 조절이 가능한 5.3L 스마트 냉장고는 냉각부터 보온까지 한 번에 해결합니다. 시원한 음료부터 따뜻한 차 한 잔까지, 이동 시간마저 작은 여유의 순간으로 바꿔 줍니다.",
+         "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a154fefe4b0db6eda7b93e8.png"
+        }
+       ],
+       "selectedByDefault": null,
+       "optional": null,
+       "valueType": null,
+       "pricingType": "CUSTOM",
+       "checked": null
+      },
+      {
+       "code": "PBAGL023_1659",
+       "name": "프리미엄 컴포트 패키지",
+       "price": 2000000,
+       "discountPrice": null,
+       "discountExpireTime": null,
+       "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a194836e4b066bd0d687f30.jpg",
+       "desc": "Premium Comfort Package \\n(Z talk Audio-high, Driver+Passenger seat Ventilation/Massage)",
+       "highlights": [
+        {
+         "title": "프리미엄 컴포트 패키지",
+         "content": "고품질 Zeekr 사운드 프로 오디오 시스템과 1열 마사지 및 통풍 시트로 이동의 순간을 더욱 편안하고 감각적으로 완성합니다. 운전자와 동승자 모두에게 한층 여유로운 휴식과 프리미엄 경험을 제공합니다.",
+         "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a194d59e4b066bd0d687f33.png"
+        }
+       ],
+       "selectedByDefault": false,
+       "optional": true,
+       "valueType": null,
+       "pricingType": "CUSTOM",
+       "checked": false
+      }
+     ],
+     "linkageInfo": null
+    }
+   ]
+  },
+  "derivativeType": "Default",
+  "discountPopupEnabled": false,
+  "discountPopupPcImage": null,
+  "discountPopupMobileImage": null,
+  "discountPopupIntro": null,
+  "discountPopupTitle": null,
+  "discountPopupDesc": null
+ },
+ "salesConfiguration": {
+  "salesMarket": {
+   "countryName": "South Korea",
+   "countryCode": "R2401100084",
+   "languageCode": "South Korea",
+   "currencyCode": "KRW",
+   "legalDisclaimerTitle": null,
+   "legalDisclaimerContent": null,
+   "productInfoDisclaimer": null,
+   "billingDisclaimer": null,
+   "priceDeliveryDisclaimer": null,
+   "personalInfoConsent": null
+  },
+  "carSeries": [
+   {
+    "seriesCode": "1659",
+    "seriesName": "Zeekr 7X",
+    "seriesDesc": "",
+    "seriesPriceDesc": "",
+    "seriesImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13ed4ee4b03a8a744c1f49.jpg",
+    "deliveryDesc": "이미지는 참고용이며, 실제 국내 인도 차량의 사양 및 세부 디자인은 이미지와 다를 수 있습니다.",
+    "show3DModel": true,
+    "showCompareSpec": true,
+    "carModels": [
+     {
+      "modelCode": "1661",
+      "modelName": "75kWh RWD Pro",
+      "modelDesc": "Zeekr 7X Standard",
+      "modelPrice": 52990000,
+      "modelDiscountPrice": null,
+      "modelDiscountExpireTime": null,
+      "modelDiscountEnabled": false,
+      "performances": [
+       {
+        "name": "주행 거리",
+        "value": "375",
+        "unit": "km"
+       },
+       {
+        "name": "0-100km/h 가속 시간",
+        "value": "6.0",
+        "unit": "s"
+       },
+       {
+        "name": "최대 출력",
+        "value": "310",
+        "unit": "kW"
+       }
+      ],
+      "vehicleConfigurator": {
+       "options": [
+        {
+         "name": "외장 ",
+         "type": "Ex_decoration",
+         "wheelType": null,
+         "values": [
+          {
+           "code": "PBAGU007_1659",
+           "name": "아이스 실버",
+           "price": 0,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc02ee4b03a8a744c1ee4.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "INCLUDED"
+          },
+          {
+           "code": "PBAGU010_1659",
+           "name": "크리스탈 화이트",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc001e4b0db6eda7b9343.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGU012_1659",
+           "name": "테크 그레이",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fbfeae4b03a8a744c1ee2.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGU054_1659",
+           "name": "다크 퍼플 ",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc018e4b03a8a744c1ee3.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGU036_1659",
+           "name": "오닉스 블랙",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fbfd2e4b03a8a744c1ee1.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          }
+         ],
+         "linkageInfo": {
+          "supportLinkage": 1,
+          "linkageExteriorCode": "",
+          "linkageInteriorCode": "",
+          "linkageWheelCode": ""
+         }
+        },
+        {
+         "name": "휠",
+         "type": "hub",
+         "wheelType": null,
+         "values": [
+          {
+           "code": "PBAAN042_1659",
+           "name": "19' 멀티 스포크 휠",
+           "price": 0,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fbf35e4b03a8a744c1ede.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "INCLUDED"
+          }
+         ],
+         "linkageInfo": {
+          "supportLinkage": 1,
+          "linkageExteriorCode": "",
+          "linkageInteriorCode": "",
+          "linkageWheelCode": ""
+         }
+        },
+        {
+         "name": "내장",
+         "type": "Interior",
+         "wheelType": null,
+         "values": [
+          {
+           "code": "PBAEK002_1659",
+           "name": "블랙 & 그레이",
+           "price": 0,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13e16ae4b0db6eda7b93a0.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "INCLUDED"
+          },
+          {
+           "code": "PBAEK015_1659",
+           "name": "화이트 & 퍼플",
+           "price": 600000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13e0b1e4b03a8a744c1f3c.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAEK033_1659",
+           "name": "블랙 & 퍼플",
+           "price": 600000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fbf91e4b03a8a744c1ee0.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          }
+         ],
+         "linkageInfo": {
+          "supportLinkage": 1,
+          "linkageExteriorCode": "",
+          "linkageInteriorCode": "",
+          "linkageWheelCode": ""
+         }
+        },
+        {
+         "name": "옵션",
+         "type": "Optional_package",
+         "wheelType": null,
+         "values": [
+          {
+           "code": "PBAGL016_1659",
+           "name": "냉온장고",
+           "price": 700000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13e251e4b03a8a744c1f48.png",
+           "desc": "All in one console fridge",
+           "highlights": [
+            {
+             "title": "냉온장고",
+             "content": "-6°C부터 50°C까지 온도 조절이 가능한 5.3L 스마트 냉장고는 냉각부터 보온까지 한 번에 해결합니다. 시원한 음료부터 따뜻한 차 한 잔까지, 이동 시간마저 작은 여유의 순간으로 바꿔 줍니다.",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a154fefe4b0db6eda7b93e8.png"
+            }
+           ],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM",
+           "checked": null
+          },
+          {
+           "code": "PBAGL023_1659",
+           "name": "프리미엄 컴포트 패키지",
+           "price": 2000000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a194836e4b066bd0d687f30.jpg",
+           "desc": "Premium Comfort Package \\n(Z talk Audio-high, Driver+Passenger seat Ventilation/Massage)",
+           "highlights": [
+            {
+             "title": "프리미엄 컴포트 패키지",
+             "content": "고품질 Zeekr 사운드 프로 오디오 시스템과 1열 마사지 및 통풍 시트로 이동의 순간을 더욱 편안하고 감각적으로 완성합니다. 운전자와 동승자 모두에게 한층 여유로운 휴식과 프리미엄 경험을 제공합니다.",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a194d59e4b066bd0d687f33.png"
+            }
+           ],
+           "selectedByDefault": false,
+           "optional": true,
+           "valueType": null,
+           "pricingType": "CUSTOM",
+           "checked": false
+          }
+         ],
+         "linkageInfo": null
+        }
+       ]
+      },
+      "derivativeType": "Default",
+      "discountPopupEnabled": false,
+      "discountPopupPcImage": null,
+      "discountPopupMobileImage": null,
+      "discountPopupIntro": null,
+      "discountPopupTitle": null,
+      "discountPopupDesc": null
+     },
+     {
+      "modelCode": "1662",
+      "modelName": "100kWh RWD Max",
+      "modelDesc": "Zeekr 7X Long Range",
+      "modelPrice": 59990000,
+      "modelDiscountPrice": null,
+      "modelDiscountExpireTime": null,
+      "modelDiscountEnabled": false,
+      "performances": [
+       {
+        "name": "주행 거리",
+        "value": "483",
+        "unit": "km"
+       },
+       {
+        "name": "0-100km/h 가속 시간",
+        "value": "6.0",
+        "unit": "s"
+       },
+       {
+        "name": "최대 출력",
+        "value": "310",
+        "unit": "kW"
+       }
+      ],
+      "vehicleConfigurator": {
+       "options": [
+        {
+         "name": "외장",
+         "type": "Ex_decoration",
+         "wheelType": null,
+         "values": [
+          {
+           "code": "PBAGU007_1659",
+           "name": "아이스 실버",
+           "price": 0,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fb1ede4b0db6eda7b9333.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "INCLUDED"
+          },
+          {
+           "code": "PBAGU010_1659",
+           "name": "크리스탈 화이트",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fb12de4b0db6eda7b9330.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGU012_1659",
+           "name": "테크 그레이",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fb150e4b0db6eda7b9331.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGU009_1659",
+           "name": "브룩블루 + 실버루프",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fb188e4b0db6eda7b9332.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGU054_1659",
+           "name": "다크 퍼플",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fb207e4b03a8a744c1ed0.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGU036_1659",
+           "name": "오닉스 블랙",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fb23fe4b0db6eda7b9334.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          }
+         ],
+         "linkageInfo": {
+          "supportLinkage": 1,
+          "linkageExteriorCode": "",
+          "linkageInteriorCode": "",
+          "linkageWheelCode": ""
+         }
+        },
+        {
+         "name": "내장",
+         "type": "Interior",
+         "wheelType": null,
+         "values": [
+          {
+           "code": "PBAEK002_1659",
+           "name": "블랙 & 그레이",
+           "price": 0,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13e16ee4b03a8a744c1f43.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "INCLUDED"
+          },
+          {
+           "code": "PBAEK015_1659",
+           "name": "화이트 & 퍼플",
+           "price": 600000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13e0d5e4b0db6eda7b939a.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAEK033_1659",
+           "name": "블랙 & 퍼플",
+           "price": 600000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fb393e4b03a8a744c1ed2.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          }
+         ],
+         "linkageInfo": {
+          "supportLinkage": 1,
+          "linkageExteriorCode": "",
+          "linkageInteriorCode": "",
+          "linkageWheelCode": ""
+         }
+        },
+        {
+         "name": "휠",
+         "type": "hub",
+         "wheelType": null,
+         "values": [
+          {
+           "code": "PBAAN042_1659",
+           "name": "19' 멀티 스포크 휠",
+           "price": 0,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fb303e4b0db6eda7b9335.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "INCLUDED"
+          }
+         ],
+         "linkageInfo": {
+          "supportLinkage": 1,
+          "linkageExteriorCode": "",
+          "linkageInteriorCode": "",
+          "linkageWheelCode": ""
+         }
+        },
+        {
+         "name": "옵션",
+         "type": "Optional_package",
+         "wheelType": null,
+         "values": [
+          {
+           "code": "PBAGL013_1659",
+           "name": "스타게이트",
+           "price": 2400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a141aa1e4b03a8a744c1f70.jpg",
+           "desc": "Stargate",
+           "highlights": [
+            {
+             "title": "스타게이트",
+             "content": "93인치 대형 스타게이트 라이팅은 차량 전면에 강렬한 존재감을 더합니다.\\n총 1,831개의 LED 램프가 정교하게 빛을 구현하며, 다양한 웰컴 라이트를 통해 운전자와 차량이 만나는 순간을 더욱 특별하게 완성합니다.\\n\\n주행 상황에 따라 선택 가능한 10가지 주행 라이트 시그니처와, 탑승 및 하차 순간을 위한 5가지 웰컴·굿바이 라이트 시퀀스로 Zeekr 7X만의 차별화된 감각을 경험할 수 있습니다.",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a1555cbe4b0db6eda7b93f7.jpg"
+            }
+           ],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGL014_1659",
+           "name": "오토 도어",
+           "price": 2000000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a141a9ce4b0db6eda7b93cb.jpg",
+           "desc": "Auto door",
+           "highlights": [
+            {
+             "title": "오토 도어",
+             "content": "도어 원터치 자동 개폐 기능으로, 손에 짐이 있어도 간편하게 열 수 있으며 운전석에 앉아 브레이크를 가볍게 밟기만 하면 도어가 부드럽게 닫힙니다.\\n리어 도어가 88°까지 넓게 열려 유아용 시트를 설치할 때도, 아이를 안고 타고 내릴 때도 여유 있고 편안합니다. ",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a15556ce4b0db6eda7b93f6.jpg"
+            }
+           ],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGL015_1659",
+           "name": "나파 가죽 시트",
+           "price": 1000000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a1939c6e4b0d78c2a576342.jpg",
+           "desc": null,
+           "highlights": [
+            {
+             "title": "나파 가죽 시트",
+             "content": "모나코 나파 가죽 시트 통풍, 열선, 메모리, 마사지 기능과 부드러우면서도 탄탄한 착좌감을 갖춘 시트입니다.",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a193940e4b066bd0d687f2f.jpg"
+            }
+           ],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGL016_1659",
+           "name": "냉온장고",
+           "price": 700000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13e1e9e4b0db6eda7b93a3.png",
+           "desc": "All in one console fridge",
+           "highlights": [
+            {
+             "title": "냉온장고",
+             "content": "-6°C부터 50°C까지 온도 조절이 가능한 5.3L 스마트 냉장고는 냉각부터 보온까지 한 번에 해결합니다. 시원한 음료부터 따뜻한 차 한 잔까지, 이동 시간마저 작은 여유의 순간으로 바꿔 줍니다.",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a1555a5e4b03a8a744c1f99.png"
+            }
+           ],
+           "selectedByDefault": false,
+           "optional": true,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGL021_1659",
+           "name": "2열 전동 선쉐이드",
+           "price": 500000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a14183ce4b0db6eda7b93ca.jpg",
+           "desc": "Rear auto sunscree",
+           "highlights": [
+            {
+             "title": "2열 전동 선쉐이드",
+             "content": "2열 양측에 적용된 전동 선쉐이드가 강한 햇빛을 부드럽게 차단해 더욱 쾌적한 실내 공간을 제공합니다. ",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a155519e4b03a8a744c1f98.jpg"
+            }
+           ],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGL023_1659",
+           "name": "프리미엄 컴포트 패키지",
+           "price": 0,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a19484ae4b0d78c2a576344.jpg",
+           "desc": "Premium Comfort Package \\n(Z talk Audio-high, Driver+Passenger seat Ventilation/Massage)",
+           "highlights": [
+            {
+             "title": "프리미엄 컴포트 패키지",
+             "content": "고품질 Zeekr 사운드 프로 오디오 시스템과 1열 마사지 및 통풍 시트로 이동의 순간을 더욱 편안하고 감각적으로 완성합니다. 운전자와 동승자 모두에게 한층 여유로운 휴식과 프리미엄 경험을 제공합니다.",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a194d69e4b0d78c2a576346.png"
+            }
+           ],
+           "selectedByDefault": true,
+           "optional": false,
+           "valueType": null,
+           "pricingType": "INCLUDED"
+          }
+         ],
+         "linkageInfo": null
+        }
+       ]
+      },
+      "derivativeType": "Default",
+      "discountPopupEnabled": false,
+      "discountPopupPcImage": null,
+      "discountPopupMobileImage": null,
+      "discountPopupIntro": null,
+      "discountPopupTitle": null,
+      "discountPopupDesc": null
+     },
+     {
+      "modelCode": "1660",
+      "modelName": "100kWh AWD Ultra",
+      "modelDesc": "Zeekr 7X Performance",
+      "modelPrice": 69990000,
+      "modelDiscountPrice": null,
+      "modelDiscountExpireTime": null,
+      "modelDiscountEnabled": false,
+      "performances": [
+       {
+        "name": "주행 거리",
+        "value": "440",
+        "unit": "km"
+       },
+       {
+        "name": "0-100km/h 가속 시간",
+        "value": "3.9",
+        "unit": "s"
+       },
+       {
+        "name": "최대 출력",
+        "value": "475",
+        "unit": "kW"
+       }
+      ],
+      "vehicleConfigurator": {
+       "options": [
+        {
+         "name": "외장",
+         "type": "Ex_decoration",
+         "wheelType": null,
+         "values": [
+          {
+           "code": "PBAGU007_1659",
+           "name": "아이스 실버",
+           "price": 0,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc59be4b0db6eda7b9353.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "INCLUDED"
+          },
+          {
+           "code": "PBAGU010_1659",
+           "name": "크리스탈 화이트",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc575e4b0db6eda7b9351.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGU012_1659",
+           "name": "테크 그레이",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc55de4b0db6eda7b9350.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGU009_1659",
+           "name": "브룩블루 + 실버루프",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc5b4e4b0db6eda7b9354.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGU054_1659",
+           "name": "다크 퍼플",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc587e4b0db6eda7b9352.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGU036_1659",
+           "name": "오닉스 블랙",
+           "price": 400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc544e4b03a8a744c1ef3.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          }
+         ],
+         "linkageInfo": {
+          "supportLinkage": 1,
+          "linkageExteriorCode": "",
+          "linkageInteriorCode": "",
+          "linkageWheelCode": ""
+         }
+        },
+        {
+         "name": "내장",
+         "type": "Interior",
+         "wheelType": null,
+         "values": [
+          {
+           "code": "PBAEK002_1659",
+           "name": "블랙 & 그레이",
+           "price": 0,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13e173e4b0db6eda7b93a1.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "INCLUDED"
+          },
+          {
+           "code": "PBAEK015_1659",
+           "name": "화이트 & 퍼플",
+           "price": 600000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13e0d9e4b03a8a744c1f3d.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAEK033_1659",
+           "name": "블랙 & 퍼플",
+           "price": 600000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc489e4b0db6eda7b934b.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAEK032_1659",
+           "name": "블랙 & 오렌지",
+           "price": 600000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc48be4b0db6eda7b934c.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          }
+         ],
+         "linkageInfo": {
+          "supportLinkage": 1,
+          "linkageExteriorCode": "",
+          "linkageInteriorCode": "",
+          "linkageWheelCode": ""
+         }
+        },
+        {
+         "name": "휠",
+         "type": "hub",
+         "wheelType": null,
+         "values": [
+          {
+           "code": "PBAAN040_1659",
+           "name": "20' 멀티 스포크 휠 (4-피스톤 오랜지 캘리퍼)",
+           "price": 0,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc3e7e4b0db6eda7b9349.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "INCLUDED"
+          },
+          {
+           "code": "PBAGL024_1659",
+           "name": "21' 글로우 단조 휠 (4-피스톤 오랜지 캘리퍼)",
+           "price": 2000000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc3e2e4b03a8a744c1eee.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGL026_1659",
+           "name": "블랙 패키지 (20' 블랙 멀티 스포크 휠, 블랙 루프랙, 블랙 리어 엠블럼)",
+           "price": 2000000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc3e5e4b03a8a744c1eef.png",
+           "desc": null,
+           "highlights": [],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          }
+         ],
+         "linkageInfo": {
+          "supportLinkage": 1,
+          "linkageExteriorCode": "",
+          "linkageInteriorCode": "",
+          "linkageWheelCode": ""
+         }
+        },
+        {
+         "name": "옵션",
+         "type": "Optional_package",
+         "wheelType": null,
+         "values": [
+          {
+           "code": "PBAGL013_1659",
+           "name": "스타게이트",
+           "price": 2400000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a141adae4b03a8a744c1f71.jpg",
+           "desc": "Stargate",
+           "highlights": [
+            {
+             "title": "스타게이트",
+             "content": "93인치 대형 스타게이트 라이팅은 차량 전면에 강렬한 존재감을 더합니다.\\n총 1,831개의 LED 램프가 정교하게 빛을 구현하며, 다양한 웰컴 라이트를 통해 운전자와 차량이 만나는 순간을 더욱 특별하게 완성합니다.\\n\\n주행 상황에 따라 선택 가능한 10가지 주행 라이트 시그니처와, 탑승 및 하차 순간을 위한 5가지 웰컴·굿바이 라이트 시퀀스로 Zeekr 7X만의 차별화된 감각을 경험할 수 있습니다.",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a14f819e4b0db6eda7b93d3.jpg"
+            }
+           ],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGL014_1659",
+           "name": "오토 도어",
+           "price": 2000000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a141ae5e4b0db6eda7b93cd.jpg",
+           "desc": "Auto door",
+           "highlights": [
+            {
+             "title": "오토 도어",
+             "content": "도어 원터치 자동 개폐 기능으로, 손에 짐이 있어도 간편하게 열 수 있으며 운전석에 앉아 브레이크를 가볍게 밟기만 하면 도어가 부드럽게 닫힙니다.\\n리어 도어가 88°까지 넓게 열려 유아용 시트를 설치할 때도, 아이를 안고 타고 내릴 때도 여유 있고 편안합니다. ",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a14f7b2e4b0db6eda7b93d2.jpg"
+            }
+           ],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGL015_1659",
+           "name": "나파 가죽 시트",
+           "price": 1000000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a141aeee4b03a8a744c1f72.jpg",
+           "desc": "Nappa真皮座椅",
+           "highlights": [
+            {
+             "title": "나파 가죽 시트",
+             "content": "모나코 나파 가죽 시트 통풍, 열선, 메모리, 마사지 기능과 부드러우면서도 탄탄한 착좌감을 갖춘 시트입니다.",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a14f95fe4b03a8a744c1f7b.jpg"
+            }
+           ],
+           "selectedByDefault": null,
+           "optional": null,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGL016_1659",
+           "name": "냉온장고",
+           "price": 700000,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13e200e4b03a8a744c1f47.png",
+           "desc": "All in one console fridge",
+           "highlights": [
+            {
+             "title": "냉온장고",
+             "content": "-6°C부터 50°C까지 온도 조절이 가능한 5.3L 스마트 냉장고는 냉각부터 보온까지 한 번에 해결합니다. 시원한 음료부터 따뜻한 차 한 잔까지, 이동 시간마저 작은 여유의 순간으로 바꿔 줍니다.",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a14f8e3e4b03a8a744c1f7a.png"
+            }
+           ],
+           "selectedByDefault": false,
+           "optional": true,
+           "valueType": null,
+           "pricingType": "CUSTOM"
+          },
+          {
+           "code": "PBAGL023_1659",
+           "name": "2열 전동 선쉐이드",
+           "price": 0,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a222fa9e4b06ed031980c8c.jpg",
+           "desc": null,
+           "highlights": [
+            {
+             "title": "2열 전동 선쉐이드",
+             "content": "2열 양측에 적용된 전동 선쉐이드가 강한 햇빛을 부드럽게 차단해 더욱 쾌적한 실내 공간을 제공합니다. ",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a222f9ee4b04b06255ebd92.jpg"
+            }
+           ],
+           "selectedByDefault": true,
+           "optional": false,
+           "valueType": null,
+           "pricingType": "INCLUDED"
+          },
+          {
+           "code": "PBAAE021_1659",
+           "name": "프리미엄 컴포트 패키지",
+           "price": 0,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a194861e4b0d78c2a576345.jpg",
+           "desc": null,
+           "highlights": [
+            {
+             "title": "프리미엄 컴포트 패키지",
+             "content": "고품질 Zeekr 사운드 프로 오디오 시스템과 1열 마사지 및 통풍 시트로 이동의 순간을 더욱 편안하고 감각적으로 완성합니다. 운전자와 동승자 모두에게 한층 여유로운 휴식과 프리미엄 경험을 제공합니다.",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a194d76e4b066bd0d687f34.png"
+            }
+           ],
+           "selectedByDefault": true,
+           "optional": false,
+           "valueType": null,
+           "pricingType": "INCLUDED"
+          },
+          {
+           "code": "PBAAE025_1659",
+           "name": "에어 서스펜션 & CCD 전자제어 가변 댐퍼",
+           "price": 0,
+           "discountPrice": null,
+           "discountExpireTime": null,
+           "iconImageUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a1808fae4b0db6eda7b9426.jpg",
+           "desc": null,
+           "highlights": [
+            {
+             "title": "에어 서스펜션 & CCD 전자 제어 가변 댐퍼",
+             "content": "CCD(Continous Control Damping)는 노면 상태와 주행 상황을 실시간으로 감지해, 댐퍼의 감쇠력을 자동으로 조절하는 전자제어 서스펜션 기술입니다. 여기에 에어 서스펜션 패키지를 더해 5단계 차고 조절 기능과 주행 속도에 따라 -25~45mm 범위 내에서 자동 높이 조절을 지원합니다. 기존 오픈 타입 에어 서스펜션 대비 차고 조정 속도는 62% 빨라지고, 실내 정숙성은 약 20% 향상되어 도심 주행부터 고속 크루징까지, 노면 변화와 관계없이 부드럽고 안정적인 승차감을 선사합니다.",
+             "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a18094be4b03a8a744c1fc6.jpg"
+            }
+           ],
+           "selectedByDefault": true,
+           "optional": false,
+           "valueType": null,
+           "pricingType": "INCLUDED"
+          }
+         ],
+         "linkageInfo": null
+        }
+       ]
+      },
+      "derivativeType": "Default",
+      "discountPopupEnabled": false,
+      "discountPopupPcImage": null,
+      "discountPopupMobileImage": null,
+      "discountPopupIntro": null,
+      "discountPopupTitle": null,
+      "discountPopupDesc": null
+     }
+    ],
+    "nonVehicleProductGroups": [
+     {
+      "groupName": "Zeekr Connected",
+      "oneStopShopCategoryCode": "1",
+      "highlights": [
+       {
+        "title": "스마트 커넥티비티 서비스",
+        "content": "My Zeekr 앱 하나로 내 차를 더 스마트하게 연결합니다. 실시간 차량 상태 확인과 알림은 물론, 도어 잠금, 창문, 조명, 공조 설정까지 — 열선·통풍 시트와 스티어링 휠 온도 조절도 원격으로 간편하게 제어할 수 있습니다.\\n내비게이션 목적지 전송과 차량 위치 확인도 손쉽게 가능하며, PIN 코드 보안으로 내 차를 한층 안전하게 지킬 수 있습니다. 더 스마트하고, 더 안전하고, 더 연결된 드라이빙 경험을 위해 설계되었습니다.",
+        "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a157b33e4b03a8a744c1fba.jpg"
+       }
+      ],
+      "products": [
+       {
+        "name": "스마트 커넥티비티 서비스",
+        "bizId": "VURE8C38",
+        "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a1416bae4b03a8a744c1f6c.jpg",
+        "pricingType": "INCLUDED",
+        "price": 0,
+        "discountPrice": null,
+        "discountExpireTime": null,
+        "selectedByDefault": true,
+        "optional": false,
+        "checked": true
+       }
+      ]
+     },
+     {
+      "groupName": "ZEEKR power",
+      "oneStopShopCategoryCode": "3",
+      "highlights": null,
+      "products": []
+     },
+     {
+      "groupName": "Zeekr Care",
+      "oneStopShopCategoryCode": "2",
+      "highlights": [
+       {
+        "title": "5년/15만 킬로미터 보증\\n",
+        "content": "모든 Zeekr 차량에는 내 차를 제대로 지켜주는 폭넓은 보증이 기본으로 포함됩니다. 차량 구성 부품부터 배터리까지 — 오너십 경험 전반에 걸쳐 든든한 보호를 제공합니다.\\n보증 서비스는 전국 Zeekr 공식 딜러사 서비스센터를 통해 진행되며, 어디서든 순정 부품과 공식 서비스를 받으실 수 있습니다. 모든 보증 작업은 Zeekr 시스템 기술 교육을 수료한 인증 테크니션이 직접 담당합니다.",
+        "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a157b3fe4b0db6eda7b941a.jpg"
+       },
+       {
+        "title": "8년/16만 킬로미터 고전압 부품 보증",
+        "content": "모든 Zeekr 차량에는 내 차를 제대로 지켜주는 폭넓은 보증이 기본으로 포함됩니다. 차량 구성 부품부터 배터리까지 — 오너십 경험 전반에 걸쳐 든든한 보호를 제공합니다.\\n보증 서비스는 전국 Zeekr 공식 딜러사 서비스센터를 통해 진행되며, 어디서든 순정 부품과 공식 서비스를 받으실 수 있습니다. 모든 보증 작업은 Zeekr 시스템 기술 교육을 수료한 인증 테크니션이 직접 담당합니다.",
+        "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a157b4be4b03a8a744c1fbb.jpg"
+       }
+      ],
+      "products": [
+       {
+        "name": "5년/15만 킬로미터 보증",
+        "bizId": "TK16GGFN",
+        "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a141402e4b03a8a744c1f69.jpg",
+        "pricingType": "INCLUDED",
+        "price": 0,
+        "discountPrice": null,
+        "discountExpireTime": null,
+        "selectedByDefault": true,
+        "optional": false,
+        "checked": true
+       },
+       {
+        "name": "8년/16만 킬로미터 고전압 부품 보증",
+        "bizId": "VT5VM3HJ",
+        "pictureUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a141403e4b0db6eda7b93c6.jpg",
+        "pricingType": "INCLUDED",
+        "price": 0,
+        "discountPrice": null,
+        "discountExpireTime": null,
+        "selectedByDefault": true,
+        "optional": false,
+        "checked": true
+       }
+      ]
+     },
+     {
+      "groupName": "ZEEKR Offer",
+      "oneStopShopCategoryCode": "4",
+      "highlights": null,
+      "products": []
+     },
+     {
+      "groupName": "Charging",
+      "oneStopShopCategoryCode": "5",
+      "highlights": null,
+      "products": []
+     },
+     {
+      "groupName": "More",
+      "oneStopShopCategoryCode": "6",
+      "highlights": null,
+      "products": []
+     }
+    ]
+   }
+  ]
+ },
+ "configuration": [
+  {
+   "type": "version",
+   "typeName": "모델 버전",
+   "data": {
+    "name": "75kWh RWD Pro",
+    "price": 52990000,
+    "imgUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13ed4ee4b03a8a744c1f49.jpg",
+    "code": "1661"
+   },
+   "sort": 1
+  },
+  {
+   "type": "Ex_decoration",
+   "typeName": "외장 ",
+   "data": {
+    "name": "아이스 실버",
+    "price": 0,
+    "discountPrice": null,
+    "discountExpireTime": null,
+    "imgUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fc02ee4b03a8a744c1ee4.png",
+    "code": "PBAGU007_1659",
+    "pricingType": "INCLUDED"
+   },
+   "sort": 2
+  },
+  {
+   "type": "hub",
+   "typeName": "휠",
+   "data": {
+    "name": "19' 멀티 스포크 휠",
+    "price": 0,
+    "discountPrice": null,
+    "discountExpireTime": null,
+    "imgUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a0fbf35e4b03a8a744c1ede.png",
+    "code": "PBAAN042_1659",
+    "pricingType": "INCLUDED"
+   },
+   "sort": 2
+  },
+  {
+   "type": "Interior",
+   "typeName": "내장",
+   "data": {
+    "name": "블랙 & 그레이",
+    "price": 0,
+    "discountPrice": null,
+    "discountExpireTime": null,
+    "imgUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a13e16ae4b0db6eda7b93a0.png",
+    "code": "PBAEK002_1659",
+    "pricingType": "INCLUDED"
+   },
+   "sort": 2
+  },
+  {
+   "type": "Optional_package",
+   "typeName": "옵션",
+   "data": [],
+   "sort": 3
+  },
+  {
+   "type": "Zeekr_Connected",
+   "typeName": "Zeekr Connected",
+   "typeCode": "1",
+   "data": [
+    {
+     "name": "스마트 커넥티비티 서비스",
+     "price": 0,
+     "discountPrice": null,
+     "imgUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a1416bae4b03a8a744c1f6c.jpg",
+     "bizId": "VURE8C38",
+     "pricingType": "INCLUDED"
+    }
+   ],
+   "sort": 4
+  },
+  {
+   "type": "Zeekr_Care",
+   "typeName": "Zeekr Care",
+   "typeCode": "2",
+   "data": [
+    {
+     "name": "5년/15만 킬로미터 보증",
+     "price": 0,
+     "discountPrice": null,
+     "imgUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a141402e4b03a8a744c1f69.jpg",
+     "bizId": "TK16GGFN",
+     "pricingType": "INCLUDED"
+    },
+    {
+     "name": "8년/16만 킬로미터 고전압 부품 보증",
+     "price": 0,
+     "discountPrice": null,
+     "imgUrl": "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a141403e4b0db6eda7b93c6.jpg",
+     "bizId": "VT5VM3HJ",
+     "pricingType": "INCLUDED"
+    }
+   ],
+   "sort": 4
+  }
+ ],
+ "modelCode": "1661",
+ "modelPrice": 52990000,
+ "priceType": "Business"
+}

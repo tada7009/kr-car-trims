@@ -32,6 +32,15 @@
 | 폭스바겐 | 모델 페이지의 가격표 PDF | 트림별 주요 기본 사양 |
 | 폴스타 | polestar.com/kr 구성기(구동계·팩) | 구동계별 가격·성능, 선택 팩 가격과 구성 |
 | 랜드로버 | landroverkorea.co.kr 전 차종 가격표 PDF + 차종별 '모델 및 제원' 페이지 | 엔진·트림별 가격, 트림 카드가 있는 트림의 주요·기본 사양 |
+| BYD | bydauto.kr 차종 페이지 가격·제원·기본 사양 표 | 트림별 가격·사양 |
+| MINI | mini.co.kr 'MINI 가격 정보 확인'의 전 차종 가격표 PDF + 차종별 옵션 리스트·제원 PDF | 연식·트림별 가격·사양 |
+| 지커 | zeekrlife.com/ko-kr 구성기 + 공식 브로슈어 사양표 | 트림별 가격·사양, 유료 옵션 |
+| 혼다 | auto.hondakorea.co.kr 온라인 견적 + 모델 페이지 상세제원 | 트림별 가격·사양 (2026년 12월 신차 판매 종료 공지) |
+| 지프 | jeep.co.kr 차종별 '제원 · 사양' 비교표 | 트림별 가격·사양 |
+| 푸조 | epeugeot.co.kr 판매 조건 페이지 가격 + 차종 페이지 적용 사양 | 트림별 가격·사양 |
+| 캐딜락 | cadillac.co.kr 온라인 견적 + 트림 비교표·제원 페이지 | 트림별 가격·사양 |
+| GMC | gmckorea.co.kr 온라인 견적·2026 카탈로그 PDF, sierra.gmckorea.co.kr 미니 카탈로그 가격표 | 트림별 가격·사양 |
+| 포드·링컨 | flak.co.kr(공식 수입원) 차종 페이지 가격 + 공식 브로슈어 PDF | 트림별 가격, 브로슈어에 글자로 실린 사양 |
 
 테슬라·볼보·렉서스·토요타·폴스타 구성기는 파이썬으로 바로 받을 수 없어, 내장 브라우저로 추린 값을 `scripts/raw/<브랜드>/`에 두고 `build_imports.py`가 사이트 형식으로 바꿉니다.
 
@@ -56,6 +65,16 @@ python scrape_audi.py    # 아우디 카탈로그 PDF
 python scrape_porsche.py
 python scrape_vw.py
 python scrape_landrover.py
+python scrape_byd.py       # 아래 브랜드는 사진까지 같은 실행에서 채운다
+python scrape_mini.py
+python scrape_zeekr.py     # 구성기 값은 raw/zeekr/configurator.json(브라우저로 받아 둔 것)
+python scrape_honda.py
+python scrape_jeep.py
+python scrape_peugeot.py
+python scrape_cadillac.py
+python scrape_gmc.py
+python scrape_ford.py      # 포드·링컨 가격은 raw/<브랜드>/pages.json(브라우저로 받아 둔 페이지 본문)
+python scrape_lincoln.py
 python build_imports.py  # 수입차: 테슬라·볼보 원자료(scripts/raw) → data
 python fetch_import_media.py
 python build_index.py

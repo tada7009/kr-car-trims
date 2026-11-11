@@ -4,14 +4,16 @@
 
 const BRANDS = { hyundai: '현대', kia: '기아', genesis: '제네시스', kgm: 'KGM', renault: '르노코리아', chevrolet: '쉐보레',
   tesla: '테슬라', bmw: 'BMW', mercedes: '벤츠', volvo: '볼보', lexus: '렉서스', toyota: '토요타', audi: '아우디',
-  porsche: '포르쉐', volkswagen: '폭스바겐', polestar: '폴스타', landrover: '랜드로버' };
-const IMPORT = new Set(['tesla', 'bmw', 'mercedes', 'volvo', 'lexus', 'toyota', 'audi', 'porsche', 'volkswagen', 'polestar', 'landrover']);
+  porsche: '포르쉐', volkswagen: '폭스바겐', polestar: '폴스타', landrover: '랜드로버', byd: 'BYD', mini: 'MINI', zeekr: '지커',
+  honda: '혼다', jeep: '지프', peugeot: '푸조', cadillac: '캐딜락', gmc: 'GMC', lincoln: '링컨', ford: '포드' };
+const IMPORT = new Set(['tesla', 'bmw', 'mercedes', 'volvo', 'lexus', 'toyota', 'audi', 'porsche', 'volkswagen', 'polestar', 'landrover',
+  'byd', 'mini', 'zeekr', 'honda', 'jeep', 'peugeot', 'cadillac', 'gmc', 'lincoln', 'ford']);
 const MARKETS = { dom: '국산차', imp: '수입차' };
 const marketOf = b => (IMPORT.has(b) ? 'imp' : 'dom');
 // 국산차는 차급, 수입차는 공식 가격표의 차체 구분으로 묶는다
 const SEG_DOM = ['경차', '소형 SUV', '준중형 세단', '준중형 SUV', '중형 세단', '중형 SUV', '준대형 세단', '대형 세단',
   '대형 SUV', 'MPV·승합', '픽업', '고성능', '상용·트럭'];
-const SEG_IMP = ['해치백', 'MPV', '세단', '전기 세단', '4도어 쿠페', '전기 4도어 쿠페', '왜건', 'SUV', '전기 SUV', '쿠페형 SUV',
+const SEG_IMP = ['해치백', '전기 해치백', 'MPV', '세단', '전기 세단', '4도어 쿠페', '전기 4도어 쿠페', '왜건', 'SUV', '전기 SUV', '쿠페형 SUV',
   '쿠페', '카브리올레', '컨버터블', '로드스터', '픽업'];
 let SEG = SEG_DOM;
 const TRAY_MAX = 4;
@@ -20,27 +22,27 @@ const OPT_PREVIEW = 8;
 // 상담 때 가장 많이 묻는 사양 — 품목 이름 규칙으로 트림마다 기본/옵션/없음을 판정한다
 const KEYS = [
   { l: '휠 · 타이어', wheel: true },
-  { l: '시트 재질', t: n => /시트/.test(n) && /(나파|천연 ?가죽|인조 ?가죽|가죽|직물|스웨이드)/.test(n) && !/스티어링|암레스트|도어/.test(n),
-    v: n => /나파/.test(n) ? '나파가죽' : /천연 ?가죽/.test(n) ? '천연가죽' : /인조 ?가죽/.test(n) ? '인조가죽' : /스웨이드/.test(n) ? '스웨이드' : /가죽/.test(n) ? '가죽' : '직물' },
+  { l: '시트 재질', t: n => /시트/.test(n) && /(나파|천연 ?가죽|인조 ?가죽|가죽|직물|스웨이드|비스킨)/.test(n) && !/스티어링|암레스트|도어/.test(n),
+    v: n => /나파/.test(n) ? '나파가죽' : /천연 ?가죽/.test(n) ? '천연가죽' : /인조 ?가죽|비스킨/.test(n) ? '인조가죽' : /스웨이드/.test(n) ? '스웨이드' : /가죽/.test(n) ? '가죽' : '직물' },
   { l: '1열 통풍시트', t: n => /통풍/.test(n) && !/^(2열|뒷좌석|3열|후석)/.test(n.trim()),
     v: n => /운전석 ?통풍/.test(n) && !/(동승석|앞좌석|1열)/.test(n) ? '운전석만' : '' },
-  { l: '2열 열선 · 통풍', t: n => /(2열|뒷좌석|후석)[^,]*(열선|통풍)/.test(n), v: n => /통풍/.test(n) ? '통풍' : '열선' },
+  { l: '2열 열선 · 통풍', t: n => /(2열|뒷좌석|후석)[^,]*(열선|통풍)/.test(n) || /리어[^,]*(열선|통풍)[^,]*시트/.test(n), v: n => /통풍/.test(n) ? '통풍' : '열선' },
   // 인치는 '12.3인치'뿐 아니라 '11"', '12.3”'(쉐보레·르노 표기)로도 쓴다
-  { l: '디스플레이(내비)', t: n => /\d+(\.\d+)?\s*(인치|"|”)/.test(n) && /(내비|커넥트|디스플레이 오디오|인포테인먼트|터치 ?스크린|통합형 디스플레이|센터 디스플레이)/.test(n) && !(/클러스터/.test(n) && !/(내비|센터 디스플레이|터치)/.test(n)) && !/헤드업/.test(n),
+  { l: '디스플레이(내비)', t: n => /\d+(\.\d+)?\s*(인치|"|”)/.test(n) && /(내비|커넥트|디스플레이 오디오|인포테인먼트|터치 ?스크린|통합형 디스플레이|센터 디스플레이|컨트롤 디스플레이)/.test(n) && !(/클러스터/.test(n) && !/(내비|센터 디스플레이|터치)/.test(n)) && !/헤드업/.test(n),
     v: n => (n.match(/(\d+(?:\.\d+)?)\s*(?:인치|"|”)/) || [])[1] + '인치' + (/(내비|커넥트|통합형|TMAP)/.test(n) ? ' 내비' : ' 화면') },
   { l: '헤드업 디스플레이', t: n => /헤드업|HUD/.test(n) && !/경고등/.test(n) },
-  { l: '스마트 크루즈', t: n => /스마트 ?크루즈|어댑티브 크루즈|인텔리전트 크루즈|트래픽 어웨어 크루즈/.test(n) },
+  { l: '스마트 크루즈', t: n => /스마트 ?크루즈|어댑티브 크루즈|액티브 크루즈|인텔리전트 크루즈|트래픽 어웨어 크루즈|자동 감응식 정속|\(ACC\)/.test(n) },
   // 수입차는 같은 기능을 파일럿 어시스트(볼보)·오토스티어(테슬라) 같은 자기 이름으로 적는다
-  { l: '고속도로 주행 보조', t: n => /고속도로 ?주행 ?보조|파일럿 (보조|어시스트)|Pilot Assist|오토스티어/i.test(n),
-    v: n => /파일럿|Pilot/i.test(n) ? '파일럿 어시스트' : /오토스티어/.test(n) ? '오토스티어' : /(보조 ?2|Ⅱ|차로 ?변경)/.test(n) ? 'HDA 2' : 'HDA' },
-  { l: '서라운드 뷰 모니터', t: n => /서라운드 ?뷰|360/.test(n) },
-  { l: '후측방 충돌 보조', t: n => /후측방 충돌|사각지대 (경고|감지|정보)|BLIS|후측방경보/.test(n), v: n => /방지 ?보조/.test(n) ? '방지 보조' : '경고' },
+  { l: '고속도로 주행 보조', t: n => /고속도로 ?주행 ?보조|파일럿 (보조|어시스트)|Pilot Assist|오토스티어|슈퍼 ?크루즈/i.test(n),
+    v: n => /파일럿|Pilot/i.test(n) ? '파일럿 어시스트' : /오토스티어/.test(n) ? '오토스티어' : /슈퍼 ?크루즈/.test(n) ? '슈퍼 크루즈' : /(보조 ?2|Ⅱ|차로 ?변경)/.test(n) ? 'HDA 2' : 'HDA' },
+  { l: '서라운드 뷰 모니터', t: n => /서라운드 ?(뷰|비전)|360/.test(n) },
+  { l: '후측방 충돌 보조', t: n => /후측방 충돌|사각 ?지대 (경고|감지|정보)|BLIS|후측방 ?경보/.test(n), v: n => /방지 ?보조/.test(n) ? '방지 보조' : '경고' },
   { l: '후측방 모니터', t: n => /후측방 모니터|사각지대 영상/.test(n) },
   { l: '원격 스마트 주차', t: n => /원격 스마트 주차|원격 주차/.test(n) },
-  { l: '전동 트렁크 · 테일게이트', t: n => /(파워|전동|스마트 파워|스마트 전동식?)\s?(트렁크|테일게이트|리프트게이트)/.test(n) },
+  { l: '전동 트렁크 · 테일게이트', t: n => /(파워|전동식?|스마트 파워|스마트 전동식?)\s?(트렁크|테일게이트|리프트게이트)/.test(n) },
   { l: '디지털 키', t: n => /디지털 ?키/.test(n) },
   { l: '무선 충전', t: n => /무선 ?충전/.test(n) },
-  { l: '선루프', t: n => /선루프|비전 루프|글라스 루프|파노라믹 루프/.test(n) && !/스킨|미적용/.test(n) },
+  { l: '선루프', t: n => /선루프|비전 루프|글라스 루프|글래스 루프|파노라믹 루프/.test(n) && !/스킨|미적용/.test(n) },
   { l: '빌트인 캠(블랙박스)', t: n => /빌트인 ?캠/.test(n) },
   { l: '프리미엄 사운드', t: n => /(보스|BOSE|렉시콘|메리디안|뱅앤올룹슨|B&O|하만|Harman|Bowers|부메스터|Burmester|JBL|크렐|프리미엄 사운드|레퍼런스 사운드)/i.test(n) && !/일반/.test(n),
     v: n => (n.match(/(보스|BOSE|렉시콘|메리디안|뱅앤올룹슨|하만|Harman Kardon|Bowers & Wilkins|부메스터|Burmester|JBL|크렐|레퍼런스)/i) || ['', ''])[1] },
@@ -145,8 +147,8 @@ function wheelOf(names) {
   let best = 0;
   names.forEach(n => {
     if (!/(휠|타이어)/.test(n)) return;
-    const m = n.match(/(\d{2})\s*(?:인치|"|”)/) || n.match(/R\s?(\d{2})\b/);
-    if (m && +m[1] > best && +m[1] < 24) best = +m[1];
+    const m = n.match(/(\d{2})\s*(?:인치|"|”|″|'|’)/) || n.match(/R\s?(\d{2})\b/);
+    if (m && +m[1] > best && +m[1] <= 24) best = +m[1];
   });
   return best ? { v: best + '인치', inch: best } : null;
 }

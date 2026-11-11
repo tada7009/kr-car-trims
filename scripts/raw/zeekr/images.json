@@ -1,0 +1,13 @@
+{
+ "source": "https://conf.zeekrlife.com/ko-kr/",
+ "how": "공식 구성기 첫 화면(75kWh RWD Pro, 아이스 실버, 블랙 & 그레이)에 뜬 차량 이미지 주소를 내장 브라우저에서 모았다(2026-11-11). 외관은 배경 투명 PNG 3840x2160.",
+ "exterior": [
+  "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a156f7ee4b03a8a744c1fb8.png",
+  "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a156f90e4b0db6eda7b9417.png",
+  "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a156f98e4b03a8a744c1fb9.png",
+  "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a156f9ee4b0db6eda7b9418.png"
+ ],
+ "interior": [
+  "https://awskr-kr-fmp-file-platform-prod-sel-oss.s3.ap-northeast-2.amazonaws.com/em-kr-app/1/6a1404f0e4b0db6eda7b93b7.jpg"
+ ]
+}
