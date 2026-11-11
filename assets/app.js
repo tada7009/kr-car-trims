@@ -237,13 +237,14 @@ function renderHome() {
   const brands = marketBrands();
   const segs = SEG.filter(s => ms.some(m => m.segment === s && (S.brand === 'all' || m.brand === S.brand)));
   let rows = '';
-  SEG.forEach(seg => {
-    const l = list.filter(m => m.segment === seg);
+  // 제조사별로 묶고, 제조사 안에서는 차급 → 시작가 순(filtered의 정렬)
+  Object.keys(BRANDS).forEach(b => {
+    const l = list.filter(m => m.brand === b);
     if (!l.length) return;
-    rows += `<tr class="grp"><td colspan="6">${esc(seg)}<span>${l.length}</span></td></tr>` + l.map(m => `<tr class="r" data-go="#/m/${m.id}" tabindex="0">
+    rows += `<tr class="grp"><td colspan="6">${esc(BRANDS[b])}<span>${l.length}</span></td></tr>` + l.map(m => `<tr class="r" data-go="#/m/${m.id}" tabindex="0">
       <td class="r-img"><div>${img(m.image, m.name)}</div></td>
       <td class="r-n"><b>${esc(m.name)}</b><span>${esc(m.fuels.slice(0, 4).join(' · '))}${m.fuels.length > 4 ? ' 외' : ''}</span></td>
-      <td class="hide-m">${BRANDS[m.brand]}</td>
+      <td class="hide-m r-seg">${esc(m.segment)}</td>
       <td class="num hide-m">${m.trims}</td>
       <td class="num"><b>${man(m.low)}</b>만원</td>
       <td class="num hide-m">${man(m.high)}만원</td></tr>`).join('');
@@ -256,7 +257,7 @@ function renderHome() {
     <div class="toolbar"><input class="field" id="listQ" type="search" placeholder="차종 이름으로 거르기" value="${esc(S.listQ)}" aria-label="차종 이름으로 거르기">
       <select id="segSel" aria-label="차급"><option value="all">모든 차급</option>${segs.map(s => `<option${S.seg === s ? ' selected' : ''}>${s}</option>`).join('')}</select>
       <span class="count">${list.length}개 차종</span></div>
-    <div class="list"><table><thead><tr><th></th><th>차종 · 파워트레인</th><th class="hide-m">브랜드</th><th class="num hide-m">트림</th><th class="num">시작가</th><th class="num hide-m">최고가</th></tr></thead>
+    <div class="list"><table><thead><tr><th></th><th>차종 · 파워트레인</th><th class="hide-m">차급</th><th class="num hide-m">트림</th><th class="num">시작가</th><th class="num hide-m">최고가</th></tr></thead>
       <tbody>${rows || '<tr><td colspan="6" class="empty">조건에 맞는 차종이 없습니다</td></tr>'}</tbody></table></div>` + footHTML();
 }
 function footHTML() {

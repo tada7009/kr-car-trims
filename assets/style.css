@@ -323,3 +323,4 @@ details.notes-box summary span{color:var(--muted);font-weight:400;margin-left:6p
 @media (max-width:480px){.cards,.opts{grid-template-columns:1fr}.pick{min-height:0}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media print{.side,.mbar,.dock,.pick .cmp,.sec-h .tools{display:none}.shell{display:block}.tbl-wrap{max-height:none;overflow:visible}}
+.list td.r-seg{white-space:nowrap}
